@@ -18,8 +18,11 @@ Open [http://localhost:3000](http://localhost:3000). Use `npm run lint` and `npm
 - `/deals` — Furious Duo Feast, Solo Speed Combo, and Midnight Roll Bundle.
 - `/about` — menu, service options, and location.
 - `/contact` — address, hours, phone, email, and directions.
+- Unknown URLs — branded 404 with links to Home and Menu.
 
 Menu and deal prices are listed in PKR. Hours are 3:00 PM – 1:00 AM; call to confirm the schedule and current prices.
+
+Route-level rendering errors show a branded message with a Retry action. Static pages do not display a loading screen.
 
 ## Motion and interaction
 

@@ -8,7 +8,9 @@ export default function TopUtilityBar() {
         <div className="flex items-center gap-4">
           <span className="flex items-center gap-1.5">
             <MapPin className="h-3.5 w-3.5 text-amber-brand" />
-            <span className="max-w-[280px] truncate sm:max-w-none">{siteConfig.location.shortAddress}</span>
+            <span className="min-w-0 max-w-[calc(100vw-12rem)] truncate sm:max-w-none">
+              {siteConfig.location.shortAddress}
+            </span>
           </span>
           <span className="hidden text-zinc-600 sm:inline">•</span>
           <span className="hidden text-zinc-300 sm:inline">
