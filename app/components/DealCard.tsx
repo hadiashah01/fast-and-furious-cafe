@@ -4,7 +4,7 @@ import { dealCategoryLabels, type Deal } from "../data/deals";
 
 export default function DealCard({ deal }: { deal: Deal }) {
   return (
-    <article className="motion-surface flex flex-col justify-between space-y-5 rounded-lg border border-surface-border bg-surface-card p-6">
+    <article className="flex flex-col justify-between space-y-5 rounded-lg border border-surface-border bg-surface-card p-6">
       <div className="space-y-3">
         <div className="flex items-start justify-between">
           <span className="font-display text-[10px] font-semibold uppercase tracking-widest text-amber-brand">
@@ -35,13 +35,13 @@ export default function DealCard({ deal }: { deal: Deal }) {
             href={siteConfig.ordering.foodpandaUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="motion-control flex items-center justify-center space-x-1 rounded bg-foodpanda px-3 py-2 text-center text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover"
+            className="flex items-center justify-center space-x-1 rounded bg-foodpanda px-3 py-2 text-center text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover"
           >
             <span>Order on Foodpanda</span><ExternalLink className="h-3 w-3" />
           </a>
           <a
             href={siteConfig.contact.phoneTel}
-            className="motion-control flex items-center justify-center space-x-1 rounded border border-zinc-700 bg-surface-lowest px-3 py-2 text-center text-xs font-semibold uppercase tracking-wider text-zinc-200 transition hover:bg-zinc-800"
+            className="flex items-center justify-center space-x-1 rounded border border-zinc-700 bg-surface-lowest px-3 py-2 text-center text-xs font-semibold uppercase tracking-wider text-zinc-200 transition hover:bg-zinc-800"
           >
             <Phone className="h-3 w-3 text-amber-brand" /><span>Call to Order</span>
           </a>

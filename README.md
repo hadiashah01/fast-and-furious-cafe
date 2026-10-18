@@ -26,6 +26,4 @@ Route-level rendering errors show a branded message with a Retry action. Static 
 
 ## Motion and interaction
 
-Page content enters with a short fade-and-rise transition. Major sections reveal once as they enter the viewport; related menu, deal, and service cards use a restrained stagger. Cards lift slightly on hover, while navigation and action controls use brief hover and press feedback. These effects do not change layout or delay access to content.
-
-The current site has no image gallery, carousel, or marquee, so it does not add image masks, parallax, or continuous decorative motion. All motion respects `prefers-reduced-motion`; without JavaScript, reveal content remains visible.
+Motion is limited to color feedback on interactive links and controls. Content is visible immediately; the site does not use page-entry or scroll-reveal animations, hover lifts, parallax, or continuous decorative motion. Any remaining transitions respect `prefers-reduced-motion`.

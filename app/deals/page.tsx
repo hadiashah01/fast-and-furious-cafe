@@ -2,7 +2,6 @@ import { ExternalLink, Phone } from "lucide-react";
 import { siteConfig } from "../config/site";
 import DealBrowser from "../components/DealBrowser";
 import { dealsData } from "../data/deals";
-import ScrollReveal from "../components/ScrollReveal";
 
 export const metadata = {
   title: "Deals & Combos | Fast & Furious Cafe Sialkot",
@@ -13,7 +12,7 @@ export const metadata = {
 export default function DealsPage() {
   return (
     <div className="space-y-12 pb-16">
-      <ScrollReveal><section className="space-y-3 border-b border-surface-border bg-surface-lowest py-10 text-center">
+      <section className="space-y-3 border-b border-surface-border bg-surface-lowest py-10 text-center">
         <div className="mx-auto max-w-7xl space-y-2 px-4 sm:px-6 lg:px-8">
           <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">
             Fast &amp; Furious Cafe • Circular Road, Sialkot
@@ -43,15 +42,15 @@ export default function DealsPage() {
             </a>
           </div>
         </div>
-      </section></ScrollReveal>
+      </section>
 
       <DealBrowser />
 
-      <ScrollReveal><section className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
         <p className="text-xs text-zinc-400">
           {dealsData.length} deals. Call to check prices and availability.
         </p>
-      </section></ScrollReveal>
+      </section>
     </div>
   );
 }

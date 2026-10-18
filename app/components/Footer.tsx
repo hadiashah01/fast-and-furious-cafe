@@ -2,11 +2,10 @@ import Link from "next/link";
 import { Clock, ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 import { siteConfig } from "../config/site";
 import BrandWordmark from "./BrandWordmark";
-import ScrollReveal from "./ScrollReveal";
 
 export default function Footer() {
   return (
-    <ScrollReveal><footer className="border-t border-surface-border bg-surface-lowest pb-8 pt-12 text-zinc-400">
+    <footer className="border-t border-surface-border bg-surface-lowest pb-8 pt-12 text-zinc-400">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
@@ -93,6 +92,6 @@ export default function Footer() {
           <p className="font-display uppercase tracking-widest text-zinc-400">Circular Road • Sialkot</p>
         </div>
       </div>
-    </footer></ScrollReveal>
+    </footer>
   );
 }

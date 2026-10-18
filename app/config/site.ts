@@ -10,7 +10,6 @@ export const siteConfig = {
     shortAddress: "Circular Road, opp. Pakistan Gym, Kainchi Mohalla, Sialkot",
     landmark: "Directly opposite Pakistan Gym in Kainchi Mohalla",
     googleMapsUrl: "https://maps.app.goo.gl/9yxoKTfZJWTQJ8sT7",
-    mapsEmbedQuery: "Fast+and+Furious+Cafe+Circular+Road+Sialkot",
   },
   contact: {
     phone: "0332 4340149",

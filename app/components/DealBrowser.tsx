@@ -5,7 +5,6 @@ import { useState } from "react";
 import { dealCategories, dealsData, type DealCategory } from "../data/deals";
 import { siteConfig } from "../config/site";
 import DealCard from "./DealCard";
-import ScrollReveal from "./ScrollReveal";
 
 export default function DealBrowser() {
   const [selectedCategory, setSelectedCategory] = useState<"all" | DealCategory>("all");
@@ -13,7 +12,7 @@ export default function DealBrowser() {
 
   return (
     <div className="space-y-12 pb-16">
-      <ScrollReveal><section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-surface-border pb-4">
           <div className="flex flex-wrap items-center gap-2">
             {dealCategories.map((tab) => (
@@ -22,7 +21,7 @@ export default function DealBrowser() {
                 type="button"
                 onClick={() => setSelectedCategory(tab.id)}
                 aria-pressed={selectedCategory === tab.id}
-                className={`motion-control rounded px-4 py-2 font-display text-xs uppercase tracking-wider transition ${
+                className={`rounded px-4 py-2 font-display text-xs uppercase tracking-wider transition ${
                   selectedCategory === tab.id
                     ? "bg-crimson font-bold text-white"
                     : "border border-zinc-800 bg-surface-card text-zinc-400 hover:text-white"
@@ -37,18 +36,16 @@ export default function DealBrowser() {
             <span>Deals • Circular Road, Sialkot</span>
           </div>
         </div>
-      </section></ScrollReveal>
+      </section>
 
-      <ScrollReveal><section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p className="sr-only" aria-live="polite" aria-atomic="true">
           {filteredDeals.length} {filteredDeals.length === 1 ? "deal" : "deals"} shown.
         </p>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {filteredDeals.length > 0 ? (
-            filteredDeals.map((deal, index) => (
-              <ScrollReveal key={deal.id} delay={index * 70}>
-                <DealCard deal={deal} />
-              </ScrollReveal>
+            filteredDeals.map((deal) => (
+              <DealCard key={deal.id} deal={deal} />
             ))
           ) : (
             <p className="col-span-full rounded-lg border border-surface-border bg-surface-card py-16 text-center text-sm text-zinc-400">
@@ -56,9 +53,9 @@ export default function DealBrowser() {
             </p>
           )}
         </div>
-      </section></ScrollReveal>
+      </section>
 
-      <ScrollReveal><section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6 text-center">
           <h2 className="font-display text-xl font-bold uppercase text-white">How to Order Deals</h2>
           <p className="mt-2 text-xs text-zinc-400">
@@ -79,7 +76,7 @@ export default function DealBrowser() {
             <div><h3 className="font-display text-sm font-bold uppercase text-white">{siteConfig.services[2].title}</h3><p className="mt-1 text-xs text-zinc-400">{siteConfig.services[2].desc}.</p></div>
           </div>
         </div>
-      </section></ScrollReveal>
+      </section>
     </div>
   );
 }

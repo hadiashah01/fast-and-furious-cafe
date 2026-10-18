@@ -28,7 +28,7 @@ export default function Header() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-surface-border bg-surface/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-surface-border bg-surface/95">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <BrandWordmark />
         <nav className="hidden items-center space-x-1 md:flex lg:space-x-2" aria-label="Main navigation">
@@ -39,7 +39,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={isActive ? "page" : undefined}
-                className={`motion-control px-3 py-2 font-display text-sm uppercase tracking-wider transition-colors ${
+                className={`px-3 py-2 font-display text-sm uppercase tracking-wider transition-colors ${
                   isActive
                     ? "border-b-2 border-crimson font-bold text-white"
                     : "text-zinc-400 hover:text-white"
@@ -62,7 +62,7 @@ export default function Header() {
             href={siteConfig.ordering.foodpandaUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-2 rounded bg-foodpanda px-4 py-2 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition hover:bg-foodpanda-hover"
+            className="flex items-center space-x-2 rounded bg-foodpanda px-4 py-2 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover"
           >
             <span>Order on Foodpanda</span>
             <ExternalLink className="h-3 w-3" />
@@ -75,7 +75,7 @@ export default function Header() {
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-navigation"
           aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          className="motion-control p-2 text-zinc-300 hover:text-white focus:outline-none md:hidden"
+          className="p-2 text-zinc-300 hover:text-white md:hidden"
         >
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
         </button>

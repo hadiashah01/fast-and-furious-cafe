@@ -10,7 +10,6 @@ import {
 } from "../data/menuItems";
 import CafeInfoNotice from "./CafeInfoNotice";
 import ProductCard from "./ProductCard";
-import ScrollReveal from "./ScrollReveal";
 
 export default function MenuBrowser() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -43,7 +42,7 @@ export default function MenuBrowser() {
 
   return (
     <div className="space-y-12 pb-16">
-      <ScrollReveal><section className="border-b border-surface-border bg-surface-lowest pb-8 pt-10">
+      <section className="border-b border-surface-border bg-surface-lowest pb-8 pt-10">
         <div className="mx-auto max-w-7xl space-y-3 px-4 sm:px-6 lg:px-8">
           <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">
             Fast &amp; Furious Cafe • Sialkot
@@ -53,9 +52,9 @@ export default function MenuBrowser() {
           </h1>
           <CafeInfoNotice />
         </div>
-      </section></ScrollReveal>
+      </section>
 
-      <ScrollReveal><section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-4 rounded-lg border border-surface-border bg-surface-card p-4 md:flex-row">
           <div className="flex w-full items-center space-x-2 overflow-x-auto pb-1 md:w-auto md:pb-0">
             {categories.map((category) => (
@@ -64,7 +63,7 @@ export default function MenuBrowser() {
                 type="button"
                 onClick={() => setSelectedCategory(category.id)}
                 aria-pressed={selectedCategory === category.id}
-                className={`motion-control shrink-0 rounded px-3 py-1.5 font-display text-xs uppercase tracking-wider transition ${
+                className={`shrink-0 rounded px-3 py-1.5 font-display text-xs uppercase tracking-wider transition ${
                   selectedCategory === category.id
                     ? "bg-crimson font-bold text-white"
                     : "border border-zinc-800 bg-surface-lowest text-zinc-400 hover:text-white"
@@ -99,9 +98,9 @@ export default function MenuBrowser() {
             )}
           </div>
         </div>
-      </section></ScrollReveal>
+      </section>
 
-      <ScrollReveal><section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {filteredItems.length === 0 ? (
           <div role="status" className="space-y-3 rounded-lg border border-surface-border bg-surface-card py-16 text-center">
             <p className="text-sm text-zinc-400">
@@ -121,17 +120,15 @@ export default function MenuBrowser() {
               {filteredItems.length} {filteredItems.length === 1 ? "item" : "items"}
             </p>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {filteredItems.map((item, index) => (
-                <ScrollReveal key={item.id} delay={index * 55}>
-                  <ProductCard item={item} />
-                </ScrollReveal>
+              {filteredItems.map((item) => (
+                <ProductCard key={item.id} item={item} />
               ))}
             </div>
           </>
         )}
-      </section></ScrollReveal>
+      </section>
 
-      <ScrollReveal><section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-6 rounded-lg border border-surface-border bg-surface-lowest p-6 sm:p-8 md:flex-row">
           <div className="space-y-2 text-center md:text-left">
             <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">
@@ -153,7 +150,7 @@ export default function MenuBrowser() {
             <span>Call {siteConfig.contact.phone}</span>
           </a>
         </div>
-      </section></ScrollReveal>
+      </section>
     </div>
   );
 }
