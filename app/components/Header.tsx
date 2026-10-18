@@ -39,7 +39,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={isActive ? "page" : undefined}
-                className={`px-3 py-2 font-display text-sm uppercase tracking-wider transition-colors ${
+                className={`motion-control px-3 py-2 font-display text-sm uppercase tracking-wider transition-colors ${
                   isActive
                     ? "border-b-2 border-crimson font-bold text-white"
                     : "text-zinc-400 hover:text-white"
@@ -75,7 +75,7 @@ export default function Header() {
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-navigation"
           aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          className="p-2 text-zinc-300 hover:text-white focus:outline-none md:hidden"
+          className="motion-control p-2 text-zinc-300 hover:text-white focus:outline-none md:hidden"
         >
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
         </button>

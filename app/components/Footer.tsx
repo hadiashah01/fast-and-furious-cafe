@@ -2,10 +2,11 @@ import Link from "next/link";
 import { Clock, ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 import { siteConfig } from "../config/site";
 import BrandWordmark from "./BrandWordmark";
+import ScrollReveal from "./ScrollReveal";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-surface-border bg-surface-lowest pb-8 pt-12 text-zinc-400">
+    <ScrollReveal><footer className="border-t border-surface-border bg-surface-lowest pb-8 pt-12 text-zinc-400">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
@@ -13,9 +14,6 @@ export default function Footer() {
             <p className="mt-4 text-xs italic leading-relaxed text-zinc-400">
               “{siteConfig.statement}”
             </p>
-            <div className="mt-4 flex items-center space-x-2 font-display text-[10px] uppercase tracking-widest text-zinc-500">
-              <span className="font-semibold text-emerald-500">Fresh &amp; Hygienic Food — Stated Preference</span>
-            </div>
           </div>
           <div>
             <h2 className="mb-4 border-b border-zinc-800 pb-2 font-display text-xs font-semibold uppercase tracking-widest text-zinc-200">
@@ -41,7 +39,7 @@ export default function Footer() {
           </div>
           <div>
             <h2 className="mb-4 border-b border-zinc-800 pb-2 font-display text-xs font-semibold uppercase tracking-widest text-zinc-200">
-              Business Coordinates
+              Contact Details
             </h2>
             <ul className="space-y-2.5 text-xs">
               <li className="flex items-start space-x-2">
@@ -64,7 +62,7 @@ export default function Footer() {
           </div>
           <div>
             <h2 className="mb-4 border-b border-zinc-800 pb-2 font-display text-xs font-semibold uppercase tracking-widest text-zinc-200">
-              Direct Actions
+              Visit or Order
             </h2>
             <div className="space-y-2.5">
               <a
@@ -85,16 +83,16 @@ export default function Footer() {
               </a>
             </div>
             <div className="mt-4 border-t border-zinc-800 pt-3">
-              <span className="mb-1 block font-display text-[10px] uppercase tracking-wider text-zinc-500">Service Options</span>
-              <p className="text-[11px] text-zinc-400">{siteConfig.services.map((service) => service.title).join(" • ")} • Foodpanda listing (third-party; availability may vary)</p>
+              <span className="mb-1 block font-display text-[10px] uppercase tracking-wider text-zinc-500">Ask About</span>
+              <p className="text-[11px] text-zinc-400">{siteConfig.services.map((service) => service.title).join(" • ")} • Foodpanda</p>
             </div>
           </div>
         </div>
         <div className="flex flex-col items-center justify-between gap-2 border-t border-zinc-800 pt-6 text-[11px] text-zinc-500 sm:flex-row">
           <p>© {new Date().getFullYear()} Fast &amp; Furious Cafe Sialkot. All rights reserved.</p>
-          <p className="font-display uppercase tracking-widest text-zinc-400">Authentic Fast-Casual Cuisine • Kainchi Mohalla, Sialkot</p>
+          <p className="font-display uppercase tracking-widest text-zinc-400">Circular Road • Sialkot</p>
         </div>
       </div>
-    </footer>
+    </footer></ScrollReveal>
   );
 }

@@ -26,15 +26,15 @@ export const siteConfig = {
     caveat: "Schedule subject to confirmation",
   },
   services: [
-    { title: "Dine-In", desc: "Contact the cafe to confirm dine-in availability" },
-    { title: "Roadside Collection", desc: "Contact the cafe to confirm collection arrangements" },
-    { title: "In-Store Takeaway", desc: "Contact the cafe to confirm takeaway availability" },
+    { title: "Dine-In", desc: "Call to ask about dine-in" },
+    { title: "Roadside Collection", desc: "Call to arrange collection" },
+    { title: "In-Store Takeaway", desc: "Call to ask about takeaway" },
   ],
   nav: [
     { label: "Home", href: "/" },
     { label: "Menu", href: "/menu" },
     { label: "Deals", href: "/deals" },
     { label: "About", href: "/about" },
-    { label: "Contact & Location", href: "/contact" },
+    { label: "Contact", href: "/contact" },
   ],
 };

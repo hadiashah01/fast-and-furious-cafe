@@ -12,7 +12,7 @@ export default function TopUtilityBar() {
           </span>
           <span className="hidden text-zinc-600 sm:inline">•</span>
           <span className="hidden text-zinc-300 sm:inline">
-            {siteConfig.hours.display} ({siteConfig.hours.caveat.toLowerCase()})
+            {siteConfig.hours.display} • {siteConfig.hours.caveat.toLowerCase()}
           </span>
         </div>
         <div className="ml-auto flex items-center gap-4">

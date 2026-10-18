@@ -2,7 +2,7 @@ import { categoryLabels, type MenuItem } from "../data/menuItems";
 
 export default function ProductCard({ item }: { item: MenuItem }) {
   return (
-    <article className="flex flex-col justify-between space-y-4 rounded-lg border border-surface-border bg-surface-card p-5">
+    <article className="motion-surface flex flex-col justify-between space-y-4 rounded-lg border border-surface-border bg-surface-card p-5">
       <div>
         <span className="font-display text-[10px] font-semibold uppercase tracking-widest text-amber-brand">
           {categoryLabels[item.category]}

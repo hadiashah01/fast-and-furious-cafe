@@ -46,10 +46,10 @@ export default function MenuBrowser() {
       <ScrollReveal><section className="border-b border-surface-border bg-surface-lowest pb-8 pt-10">
         <div className="mx-auto max-w-7xl space-y-3 px-4 sm:px-6 lg:px-8">
           <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">
-            Menu Highlights • Fast &amp; Furious Cafe
+            Fast &amp; Furious Cafe • Sialkot
           </span>
           <h1 className="font-display text-4xl font-bold uppercase text-white sm:text-5xl">
-            EXPLORE THE MENU — FAST &amp; FURIOUS CAFE
+            MENU
           </h1>
           <CafeInfoNotice />
         </div>
@@ -118,7 +118,7 @@ export default function MenuBrowser() {
         ) : (
           <>
             <p className="mb-4 text-xs text-zinc-500" aria-live="polite" aria-atomic="true">
-              {filteredItems.length} menu items shown
+              {filteredItems.length} {filteredItems.length === 1 ? "item" : "items"}
             </p>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {filteredItems.map((item, index) => (
@@ -135,13 +135,13 @@ export default function MenuBrowser() {
         <div className="flex flex-col items-center justify-between gap-6 rounded-lg border border-surface-border bg-surface-lowest p-6 sm:p-8 md:flex-row">
           <div className="space-y-2 text-center md:text-left">
             <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">
-              Authentic Philosophy
+              Our Food Credo
             </span>
             <p className="max-w-xl text-sm italic text-zinc-300">
               “{siteConfig.statement}”
             </p>
             <p className="text-xs text-zinc-500">
-              {siteConfig.hours.display} — schedule subject to confirmation. Visit us on{" "}
+              {siteConfig.hours.display} — {siteConfig.hours.caveat}.{" "}
               {siteConfig.location.shortAddress}.
             </p>
           </div>

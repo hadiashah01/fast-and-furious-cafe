@@ -62,6 +62,11 @@ body {
     transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.motion-reveal[data-reveal-ready="true"]:not([data-revealed="true"]):focus-within {
+  opacity: 1;
+  transform: none;
+}
+
 .motion-surface {
   transition:
     transform 200ms ease,
