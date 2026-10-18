@@ -1,6 +1,6 @@
 import { Check, ExternalLink, Phone } from "lucide-react";
 import { siteConfig } from "../config/site";
-import type { Deal } from "../data/deals";
+import { dealCategoryLabels, type Deal } from "../data/deals";
 
 export default function DealCard({ deal }: { deal: Deal }) {
   return (
@@ -8,11 +8,10 @@ export default function DealCard({ deal }: { deal: Deal }) {
       <div className="space-y-3">
         <div className="flex items-start justify-between">
           <span className="font-display text-[10px] font-semibold uppercase tracking-widest text-amber-brand">
-            {deal.category === "solo" ? "Solo Combo" : deal.category === "sharing" ? "Duo Feast" : "Late Night Bundle"}
+            {dealCategoryLabels[deal.category]}
           </span>
         </div>
         <h2 className="font-display text-xl font-bold uppercase text-white">{deal.name}</h2>
-        <p className="text-xs leading-relaxed text-zinc-400">{deal.summary}</p>
         <div className="space-y-1.5 rounded border border-zinc-800/80 bg-surface-lowest p-3">
           <span className="block font-display text-[10px] font-semibold uppercase tracking-wider text-zinc-500">Included Items:</span>
           {deal.items.map((item) => (
@@ -29,7 +28,7 @@ export default function DealCard({ deal }: { deal: Deal }) {
             <span className="block font-display text-[10px] uppercase tracking-wider text-zinc-500">Price</span>
             <span className="font-display text-2xl font-bold text-amber-brand">PKR {deal.price.toLocaleString("en-PK")}</span>
           </div>
-          <span className="text-[11px] text-zinc-500">Verified deal</span>
+          <span className="text-[11px] text-zinc-500">Listed price</span>
         </div>
         <div className="grid grid-cols-2 gap-2">
           <a

@@ -6,7 +6,7 @@ import { dealsData } from "../data/deals";
 export const metadata = {
   title: "Deals & Combos | Fast & Furious Cafe Sialkot",
   description:
-    "Browse verified Furious Duo Feast, Solo Speed Combo, and Midnight Roll Bundle prices at Fast & Furious Cafe in Sialkot.",
+    "View the current deal and combo details listed by Fast & Furious Cafe in Sialkot.",
 };
 
 export default function DealsPage() {
@@ -22,7 +22,7 @@ export default function DealsPage() {
           </h1>
           <p className="mx-auto max-w-2xl text-xs italic text-zinc-400 sm:text-sm">“{siteConfig.statement}”</p>
           <p className="text-[11px] text-zinc-500">
-            {siteConfig.hours.display} (schedule subject to confirmation). Deal names and prices are verified.
+            {siteConfig.hours.display}; {siteConfig.hours.caveat.toLowerCase()}. Deal prices shown as supplied.
           </p>
           <div className="flex flex-wrap justify-center gap-3 pt-2">
             <a
@@ -48,7 +48,7 @@ export default function DealsPage() {
 
       <section className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
         <p className="text-xs text-zinc-400">
-          {dealsData.length} verified deals. Cafe hours are subject to confirmation.
+          {dealsData.length} listed deals. Cafe hours are subject to confirmation.
         </p>
       </section>
     </div>

@@ -22,13 +22,13 @@ export const siteConfig = {
     foodpandaUrl: "https://www.foodpanda.pk/restaurant/iwe2/fast-and-furious-cafe",
   },
   hours: {
-    display: "Daily 3:00 PM – 1:00 AM",
+    display: "3:00 PM – 1:00 AM",
     caveat: "Schedule subject to confirmation",
   },
   services: [
-    { title: "Dine-In", desc: "Counter and table seating" },
-    { title: "Roadside Collection", desc: "Curbside takeaway via phone call" },
-    { title: "In-Store Takeaway", desc: "Direct counter pickup" },
+    { title: "Dine-In", desc: "Contact the cafe to confirm dine-in availability" },
+    { title: "Roadside Collection", desc: "Contact the cafe to confirm collection arrangements" },
+    { title: "In-Store Takeaway", desc: "Contact the cafe to confirm takeaway availability" },
   ],
   nav: [
     { label: "Home", href: "/" },

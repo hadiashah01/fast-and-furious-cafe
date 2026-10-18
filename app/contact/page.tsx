@@ -54,10 +54,10 @@ export default function ContactPage() {
             <article className="space-y-3 rounded-lg border border-surface-border bg-surface-card p-6">
               <div className="flex items-center justify-between gap-2 text-xs">
                 <div className="flex items-center space-x-2 font-display font-semibold uppercase tracking-wider text-amber-brand"><Clock className="h-4 w-4" /><span>Operating Hours</span></div>
-                <span className="rounded border border-amber-brand/30 bg-amber-brand/10 px-2 py-0.5 font-display text-[10px] uppercase text-amber-brand">Daily Schedule</span>
+                <span className="rounded border border-amber-brand/30 bg-amber-brand/10 px-2 py-0.5 font-display text-[10px] uppercase text-amber-brand">Confirm Schedule</span>
               </div>
-              <div className="font-display text-2xl font-bold text-white">3:00 PM – 1:00 AM</div>
-              <p className="text-xs text-zinc-400">Serving customers daily throughout the evening and late hours. {siteConfig.hours.caveat}.</p>
+              <div className="font-display text-2xl font-bold text-white">{siteConfig.hours.display}</div>
+              <p className="text-xs text-zinc-400">{siteConfig.hours.caveat}. Please contact the cafe to confirm current hours.</p>
             </article>
 
             <article className="space-y-4 rounded-lg border border-surface-border bg-surface-card p-6">
@@ -66,14 +66,14 @@ export default function ContactPage() {
                 <a href={siteConfig.contact.phoneTel} className="flex items-center space-x-1 rounded bg-crimson px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-crimson-hover"><Phone className="h-3 w-3" /><span>Tap to Call</span></a>
               </div>
               <div className="flex items-center justify-between gap-3">
-                <div><span className="block font-display text-[10px] uppercase tracking-wider text-zinc-500">Official Correspondence</span><a href={siteConfig.contact.emailMailto} className="text-xs text-zinc-300 hover:text-white">{siteConfig.contact.email}</a></div>
+                <div><span className="block font-display text-[10px] uppercase tracking-wider text-zinc-500">Email</span><a href={siteConfig.contact.emailMailto} className="text-xs text-zinc-300 hover:text-white">{siteConfig.contact.email}</a></div>
                 <a href={siteConfig.contact.emailMailto} className="rounded border border-zinc-700 bg-surface-lowest px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-300 hover:bg-zinc-800">Send Email</a>
               </div>
-              <div className="flex items-center gap-2 border-t border-zinc-800 pt-3 text-xs text-zinc-400"><Mail className="h-3.5 w-3.5 text-amber-brand" /><span>We’re happy to help with your visit or order.</span></div>
+              <div className="flex items-center gap-2 border-t border-zinc-800 pt-3 text-xs text-zinc-400"><Mail className="h-3.5 w-3.5 text-amber-brand" /><span>Contact the cafe with questions about current menu or service details.</span></div>
             </article>
 
             <article className="space-y-2 rounded-lg border border-surface-border bg-surface-card p-6">
-              <span className="block font-display text-[10px] font-semibold uppercase tracking-wider text-zinc-500">Available Service Modalities</span>
+              <span className="block font-display text-[10px] font-semibold uppercase tracking-wider text-zinc-500">Service Options — Confirm Availability</span>
               <div className="grid grid-cols-1 gap-2 pt-1 text-center sm:grid-cols-3">
                 {siteConfig.services.map((service) => <div key={service.title} title={service.desc} className="rounded border border-zinc-800 bg-surface-lowest p-2 text-xs font-semibold text-zinc-200">{service.title}</div>)}
               </div>
@@ -101,7 +101,7 @@ export default function ContactPage() {
             </div>
             <div className="space-y-1 rounded border border-zinc-800 bg-surface-lowest p-4 text-xs text-zinc-500">
               <span className="block font-display text-[11px] font-semibold uppercase text-zinc-400">Location Reference Notice</span>
-              <p>Opposite Pakistan Gym, Kainchi Mohalla, Sialkot. Curbside pickup orders can be placed in advance by calling {siteConfig.contact.phone}.</p>
+              <p>Opposite Pakistan Gym, Kainchi Mohalla, Sialkot. Contact {siteConfig.contact.phone} to confirm service availability and collection arrangements.</p>
             </div>
             <a href={siteConfig.ordering.foodpandaUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded bg-foodpanda px-5 py-3 text-xs font-bold uppercase tracking-wider text-white hover:bg-foodpanda-hover"><Utensils className="h-4 w-4" />Order online with Foodpanda</a>
           </div>

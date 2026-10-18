@@ -14,9 +14,7 @@ export default function Footer() {
               “{siteConfig.statement}”
             </p>
             <div className="mt-4 flex items-center space-x-2 font-display text-[10px] uppercase tracking-widest text-zinc-500">
-              <span className="font-semibold text-emerald-500">Fresh Food</span>
-              <span>•</span>
-              <span className="font-semibold text-amber-brand">Hygienic Preparation</span>
+              <span className="font-semibold text-emerald-500">Fresh &amp; Hygienic Food — Stated Preference</span>
             </div>
           </div>
           <div>
@@ -87,8 +85,8 @@ export default function Footer() {
               </a>
             </div>
             <div className="mt-4 border-t border-zinc-800 pt-3">
-              <span className="mb-1 block font-display text-[10px] uppercase tracking-wider text-zinc-500">Service Facilities</span>
-              <p className="text-[11px] text-zinc-400">Dine-In • Roadside Collection • In-Store Takeaway • Foodpanda Delivery (3rd-Party)</p>
+              <span className="mb-1 block font-display text-[10px] uppercase tracking-wider text-zinc-500">Service Options</span>
+              <p className="text-[11px] text-zinc-400">{siteConfig.services.map((service) => service.title).join(" • ")} • Foodpanda listing (third-party; availability may vary)</p>
             </div>
           </div>
         </div>

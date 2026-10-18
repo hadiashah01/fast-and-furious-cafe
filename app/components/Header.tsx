@@ -3,13 +3,29 @@
 import { ExternalLink, Menu as MenuIcon, Phone, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "../config/site";
 import BrandWordmark from "./BrandWordmark";
 
 export default function Header() {
   const pathname = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openMenuPath, setOpenMenuPath] = useState<string | null>(null);
+  const mobileMenuOpen = openMenuPath === pathname;
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpenMenuPath(null);
+        menuButtonRef.current?.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-surface-border bg-surface/95 backdrop-blur">
@@ -53,8 +69,9 @@ export default function Header() {
           </a>
         </div>
         <button
+          ref={menuButtonRef}
           type="button"
-          onClick={() => setMobileMenuOpen((open) => !open)}
+          onClick={() => setOpenMenuPath(mobileMenuOpen ? null : pathname)}
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-navigation"
           aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -63,8 +80,11 @@ export default function Header() {
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
         </button>
       </div>
-      {mobileMenuOpen && (
-        <div id="mobile-navigation" className="space-y-3 border-b border-surface-border bg-surface-lowest px-4 py-5 md:hidden">
+      <div
+        id="mobile-navigation"
+        hidden={!mobileMenuOpen}
+        className="space-y-3 border-b border-surface-border bg-surface-lowest px-4 py-5 md:hidden"
+      >
           <nav className="flex flex-col space-y-2" aria-label="Mobile navigation">
             {siteConfig.nav.map((item) => {
               const isActive = pathname === item.href;
@@ -72,7 +92,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => setOpenMenuPath(null)}
                   aria-current={isActive ? "page" : undefined}
                   className={`rounded px-3 py-2 font-display text-base uppercase tracking-wider ${
                     isActive ? "bg-surface-card font-bold text-crimson" : "text-zinc-300 hover:text-white"
@@ -99,8 +119,7 @@ export default function Header() {
               Call {siteConfig.contact.phone}
             </a>
           </div>
-        </div>
-      )}
+      </div>
     </header>
   );
 }

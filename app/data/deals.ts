@@ -6,7 +6,6 @@ export interface Deal {
   category: DealCategory;
   price: number;
   items: string[];
-  summary: string;
 }
 
 export const dealsData: Deal[] = [
@@ -20,7 +19,6 @@ export const dealsData: Deal[] = [
       "1 x Large Fries",
       "2 x Soft Drinks",
     ],
-    summary: "2 x Furious Zinger Burgers + 1 x Large Fries + 2 x Soft Drinks.",
   },
   {
     id: "solo-speed-combo",
@@ -32,7 +30,6 @@ export const dealsData: Deal[] = [
       "Regular Fries",
       "Soft Drink",
     ],
-    summary: "1 x Sialkot Special Shawarma or Burger + Regular Fries + Soft Drink.",
   },
   {
     id: "midnight-roll-bundle",
@@ -43,13 +40,18 @@ export const dealsData: Deal[] = [
       "2 x Chicken Tikka Paratha Rolls",
       "2 x Drinks",
     ],
-    summary: "2 x Chicken Tikka Paratha Rolls + 2 x Drinks.",
   },
 ];
 
+export const dealCategoryLabels: Record<DealCategory, string> = {
+  solo: "Solo Combo",
+  sharing: "Duo Feast",
+  "late-night": "Late Night Bundle",
+};
+
 export const dealCategories: { id: "all" | DealCategory; label: string }[] = [
   { id: "all", label: "All Deals" },
-  { id: "solo", label: "Solo" },
-  { id: "sharing", label: "Duo Feast" },
-  { id: "late-night", label: "Late Night" },
+  { id: "solo", label: dealCategoryLabels.solo },
+  { id: "sharing", label: dealCategoryLabels.sharing },
+  { id: "late-night", label: dealCategoryLabels["late-night"] },
 ];

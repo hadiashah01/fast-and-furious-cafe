@@ -5,25 +5,25 @@ import { siteConfig } from "../config/site";
 export const metadata = {
   title: "About Us | Fast & Furious Cafe Sialkot",
   description:
-    "Learn about Fast & Furious Cafe's approach to fresh, hygienic fast-casual food in Kainchi Mohalla, Sialkot.",
+    "Learn about Fast & Furious Cafe in Kainchi Mohalla, Sialkot, and its stated approach to food.",
 };
 
 const standards = [
   {
-    title: "Quality Ingredients",
-    description: "We select fresh poultry, seasonings, and produce to prepare each item on our menu with genuine fast-casual taste.",
+    title: "Authenticity",
+    description: "At Fast and Furious Cafe, we believe in authenticity.",
     icon: Flame,
     tone: "text-crimson border-crimson/30 bg-crimson/10",
   },
   {
-    title: "Fresh Preparation",
-    description: "Food is made fresh on Circular Road for counter collection, curbside handover, or direct dine-in customers.",
+    title: "Fresh & Hygienic Food",
+    description: "We prefer to serve our customers fresh and hygienic food.",
     icon: ShieldCheck,
     tone: "text-amber-brand border-amber-brand/30 bg-amber-brand/10",
   },
   {
-    title: "Honest Hospitality",
-    description: "Clear information, verified menu and deal prices, and straightforward paths to call, find, or order from the cafe.",
+    title: "Menu & Deal Details",
+    description: "Menu highlights and deal details are shown as supplied. Contact the cafe to confirm current information.",
     icon: HeartHandshake,
     tone: "text-zinc-300 border-zinc-700 bg-zinc-800",
   },
@@ -53,7 +53,7 @@ export default function AboutPage() {
       <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center">
           <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">Our Approach</span>
-          <h2 className="mt-1 font-display text-2xl font-bold uppercase text-white sm:text-3xl">Our Standards</h2>
+          <h2 className="mt-1 font-display text-2xl font-bold uppercase text-white sm:text-3xl">Our Approach</h2>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {standards.map(({ title, description, icon: Icon, tone }) => (
@@ -73,10 +73,10 @@ export default function AboutPage() {
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { category: "01 • Dine-In", name: "Counter Seating", text: "Table and counter seating directly opposite Pakistan Gym in Kainchi Mohalla." },
-            { category: "02 • Roadside", name: "Curbside Pickup", text: `Pull up along Circular Road and call ${siteConfig.contact.phone} for roadside collection.` },
-            { category: "03 • Takeaway", name: "In-Store Collection", text: "Walk into our counter to order and collect freshly packed hot meals." },
-            { category: "04 • Online", name: "Foodpanda Delivery", text: "Third-party delivery coverage across Sialkot City through our Foodpanda listing." },
+            { category: "01 • Dine-In", name: "Dine-In", text: "Contact the cafe to confirm dine-in availability." },
+            { category: "02 • Roadside", name: "Roadside Collection", text: "Contact the cafe to confirm collection arrangements." },
+            { category: "03 • Takeaway", name: "In-Store Takeaway", text: "Contact the cafe to confirm takeaway availability." },
+            { category: "04 • Online", name: "Foodpanda Listing", text: "Check the Foodpanda listing for current order and delivery availability." },
           ].map((service) => (
             <article key={service.category} className="space-y-2 rounded border border-surface-border bg-surface-lowest p-5">
               <span className="font-display text-xs font-bold uppercase tracking-wider text-amber-brand">{service.category}</span>

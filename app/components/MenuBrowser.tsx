@@ -10,6 +10,7 @@ import {
 } from "../data/menuItems";
 import CafeInfoNotice from "./CafeInfoNotice";
 import ProductCard from "./ProductCard";
+import ScrollReveal from "./ScrollReveal";
 
 export default function MenuBrowser() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -42,19 +43,19 @@ export default function MenuBrowser() {
 
   return (
     <div className="space-y-12 pb-16">
-      <section className="border-b border-surface-border bg-surface-lowest pb-8 pt-10">
+      <ScrollReveal><section className="border-b border-surface-border bg-surface-lowest pb-8 pt-10">
         <div className="mx-auto max-w-7xl space-y-3 px-4 sm:px-6 lg:px-8">
           <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">
-            Verified Menu Highlights • Fast &amp; Furious Cafe
+            Menu Highlights • Fast &amp; Furious Cafe
           </span>
           <h1 className="font-display text-4xl font-bold uppercase text-white sm:text-5xl">
             EXPLORE THE MENU — FAST &amp; FURIOUS CAFE
           </h1>
           <CafeInfoNotice />
         </div>
-      </section>
+      </section></ScrollReveal>
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ScrollReveal><section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-4 rounded-lg border border-surface-border bg-surface-card p-4 md:flex-row">
           <div className="flex w-full items-center space-x-2 overflow-x-auto pb-1 md:w-auto md:pb-0">
             {categories.map((category) => (
@@ -63,7 +64,7 @@ export default function MenuBrowser() {
                 type="button"
                 onClick={() => setSelectedCategory(category.id)}
                 aria-pressed={selectedCategory === category.id}
-                className={`shrink-0 rounded px-3 py-1.5 font-display text-xs uppercase tracking-wider transition ${
+                className={`motion-control shrink-0 rounded px-3 py-1.5 font-display text-xs uppercase tracking-wider transition ${
                   selectedCategory === category.id
                     ? "bg-crimson font-bold text-white"
                     : "border border-zinc-800 bg-surface-lowest text-zinc-400 hover:text-white"
@@ -79,7 +80,7 @@ export default function MenuBrowser() {
               <span className="sr-only">Search menu items</span>
               <input
                 type="search"
-                placeholder="Search verified menu items..."
+                placeholder="Search menu items..."
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
                 className="w-full rounded border border-zinc-700 bg-surface-lowest py-1.5 pl-9 pr-3 text-xs text-white placeholder-zinc-500 focus:border-amber-brand focus:outline-none"
@@ -98,13 +99,13 @@ export default function MenuBrowser() {
             )}
           </div>
         </div>
-      </section>
+      </section></ScrollReveal>
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-live="polite">
+      <ScrollReveal><section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {filteredItems.length === 0 ? (
-          <div className="space-y-3 rounded-lg border border-surface-border bg-surface-card py-16 text-center">
+          <div role="status" className="space-y-3 rounded-lg border border-surface-border bg-surface-card py-16 text-center">
             <p className="text-sm text-zinc-400">
-              No verified menu items match your search and category.
+              No menu items match your search and category.
             </p>
             <button
               type="button"
@@ -116,19 +117,21 @@ export default function MenuBrowser() {
           </div>
         ) : (
           <>
-            <p className="mb-4 text-xs text-zinc-500">
-              {filteredItems.length} verified menu items
+            <p className="mb-4 text-xs text-zinc-500" aria-live="polite" aria-atomic="true">
+              {filteredItems.length} menu items shown
             </p>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {filteredItems.map((item) => (
-                <ProductCard key={item.id} item={item} />
+              {filteredItems.map((item, index) => (
+                <ScrollReveal key={item.id} delay={index * 55}>
+                  <ProductCard item={item} />
+                </ScrollReveal>
               ))}
             </div>
           </>
         )}
-      </section>
+      </section></ScrollReveal>
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ScrollReveal><section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-6 rounded-lg border border-surface-border bg-surface-lowest p-6 sm:p-8 md:flex-row">
           <div className="space-y-2 text-center md:text-left">
             <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">
@@ -150,7 +153,7 @@ export default function MenuBrowser() {
             <span>Call {siteConfig.contact.phone}</span>
           </a>
         </div>
-      </section>
+      </section></ScrollReveal>
     </div>
   );
 }

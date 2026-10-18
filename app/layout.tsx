@@ -21,7 +21,7 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Fast & Furious Cafe | Sialkot Street Food & Fast-Casual",
   description:
-    "Fast & Furious Cafe on Circular Road, Sialkot. See verified burger, shawarma, paratha roll, and fries highlights, plus current special deals.",
+    "Fast & Furious Cafe on Circular Road, Sialkot. View menu highlights and listed deal details, plus contact and location information.",
   keywords: [
     "Fast and Furious Cafe Sialkot",
     "Circular Road Sialkot restaurant",

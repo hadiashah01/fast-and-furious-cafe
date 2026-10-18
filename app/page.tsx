@@ -2,11 +2,13 @@ import Link from "next/link";
 import { Clock, ExternalLink, Flame, MapPin, Phone, ShieldCheck, Utensils } from "lucide-react";
 import { siteConfig } from "./config/site";
 import { categoryLabels, menuItems } from "./data/menuItems";
+import { dealsData } from "./data/deals";
+import ScrollReveal from "./components/ScrollReveal";
 
 export const metadata = {
   title: "Fast & Furious Cafe | Sialkot Street Food & Fast-Casual",
   description:
-    "Fast & Furious Cafe on Circular Road, Sialkot. See verified burger, shawarma, paratha roll, and fries highlights, plus current special deals.",
+    "Fast & Furious Cafe on Circular Road, Sialkot. View menu highlights and listed deal details, plus contact and location information.",
 };
 
 const highlightIds = [
@@ -16,11 +18,12 @@ const highlightIds = [
   "loaded-pizza-fries",
 ];
 const highlights = menuItems.filter((item) => highlightIds.includes(item.id));
+const featuredDeal = dealsData.find((deal) => deal.id === "furious-duo-feast");
 
 export default function HomePage() {
   return (
     <div className="space-y-16 pb-16 lg:space-y-24">
-      <section className="relative border-b border-surface-border pt-12 lg:pt-20">
+      <ScrollReveal><section className="relative border-b border-surface-border pt-12 lg:pt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-12 pb-16 lg:grid-cols-12">
             <div className="space-y-6 lg:col-span-7">
@@ -32,7 +35,7 @@ export default function HomePage() {
                 CRAVE THE SPEED.<br />TASTE THE <span className="text-crimson">FIRE.</span>
               </h1>
               <p className="max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">
-                Find our verified burgers, shawarma, paratha rolls, and fries on Circular Road in Sialkot.
+                View our menu highlights for burgers, shawarma, paratha rolls, and fries at Circular Road in Sialkot.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/menu" className="rounded bg-crimson px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover">Explore Menu</Link>
@@ -41,58 +44,59 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-x-8 gap-y-4 border-t border-surface-border pt-5">
                 <div><span className="block font-display text-[10px] uppercase text-zinc-500">Hours</span><span className="font-medium text-zinc-300">{siteConfig.hours.display}</span><span className="block text-[10px] text-zinc-500">{siteConfig.hours.caveat}</span></div>
                 <div><span className="block font-display text-[10px] uppercase text-zinc-500">Location</span><span className="font-medium text-zinc-300">Circular Road</span><span className="block text-[10px] text-zinc-500">Opp. Pakistan Gym</span></div>
-                <div><span className="block font-display text-[10px] uppercase text-zinc-500">Services</span><span className="font-medium text-zinc-300">Dine-In • Takeaway</span><span className="block text-[10px] text-zinc-500">Roadside collection</span></div>
+                <div><span className="block font-display text-[10px] uppercase text-zinc-500">Service Options</span><span className="font-medium text-zinc-300">{siteConfig.services.map((service) => service.title).join(" • ")}</span><span className="block text-[10px] text-zinc-500">Confirm availability with the cafe</span></div>
               </div>
             </div>
 
-            <div className="space-y-4 rounded-lg border border-surface-border bg-surface-card p-6 lg:col-span-5">
+            {featuredDeal && <div className="motion-surface space-y-4 rounded-lg border border-surface-border bg-surface-card p-6 lg:col-span-5">
               <div className="flex items-center justify-between gap-2 text-xs">
-                <span className="rounded border border-amber-brand/30 bg-amber-brand/10 px-2 py-0.5 font-display text-[11px] uppercase tracking-wider text-amber-brand">Verified Special Deal</span>
-                <span className="text-[11px] text-zinc-500">Furious Duo Feast</span>
+                <span className="rounded border border-amber-brand/30 bg-amber-brand/10 px-2 py-0.5 font-display text-[11px] uppercase tracking-wider text-amber-brand">Listed Special Deal</span>
               </div>
-              <h2 className="font-display text-2xl font-bold uppercase text-white">FURIOUS DUO FEAST</h2>
-              <p className="text-xs text-zinc-400">2 x Furious Zinger Burgers + 1 x Large Fries + 2 x Soft Drinks.</p>
-              <p className="font-display text-xl font-bold text-amber-brand">PKR 890</p>
-              <p className="text-[11px] text-zinc-500">Verified deal and price. Cafe schedule is subject to confirmation.</p>
+              <h2 className="font-display text-2xl font-bold uppercase text-white">{featuredDeal.name}</h2>
+              <p className="text-xs text-zinc-400">{featuredDeal.items.join(" + ")}.</p>
+              <p className="font-display text-xl font-bold text-amber-brand">PKR {featuredDeal.price.toLocaleString("en-PK")}</p>
+              <p className="text-[11px] text-zinc-500">Deal details shown as supplied. Cafe schedule is subject to confirmation.</p>
               <div className="flex flex-wrap gap-2 pt-2">
                 <a href={siteConfig.ordering.foodpandaUrl} target="_blank" rel="noopener noreferrer" className="flex-1 rounded bg-foodpanda py-2 text-center text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover">Order on Foodpanda</a>
                 <Link href="/deals" className="rounded bg-zinc-800 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-zinc-200 transition hover:bg-zinc-700">View All Deals</Link>
               </div>
-            </div>
+            </div>}
           </div>
         </div>
-      </section>
+      </section></ScrollReveal>
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ScrollReveal><section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-end justify-between border-b border-surface-border pb-4">
           <div><span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">Menu Selection</span><h2 className="mt-1 font-display text-3xl font-bold uppercase text-white">Menu Highlights</h2></div>
           <Link href="/menu" className="flex items-center space-x-1 font-display text-xs uppercase tracking-wider text-zinc-400 hover:text-white"><span>Explore Full Menu</span><span aria-hidden="true">→</span></Link>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {highlights.map((item) => (
-            <article key={item.name} className="flex flex-col justify-between space-y-3 rounded-lg border border-surface-border bg-surface-card p-5">
+          {highlights.map((item, index) => (
+            <ScrollReveal key={item.id} delay={index * 65}>
+            <article className="motion-surface flex flex-col justify-between space-y-3 rounded-lg border border-surface-border bg-surface-card p-5">
               <div><span className="font-display text-[10px] font-semibold uppercase tracking-wider text-amber-brand">{categoryLabels[item.category]}</span><h3 className="mt-1 font-display text-lg font-bold uppercase text-white">{item.name}</h3></div>
               <div className="flex items-center justify-between border-t border-zinc-800 pt-3"><span className="font-display font-bold text-amber-brand">PKR {item.price}</span><Link href="/menu" className="font-display text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-crimson">View on Menu →</Link></div>
             </article>
+            </ScrollReveal>
           ))}
         </div>
-        <p className="mt-6 text-center text-[11px] text-zinc-500">Verified menu highlights and prices. Cafe schedule is subject to confirmation.</p>
-      </section>
+        <p className="mt-6 text-center text-[11px] text-zinc-500">Menu highlights and prices shown as supplied. Cafe schedule is subject to confirmation.</p>
+      </section></ScrollReveal>
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ScrollReveal><section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="space-y-4 rounded-lg border border-surface-border bg-surface-card p-8 text-center sm:p-12">
           <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">Our Approach</span>
           <blockquote className="mx-auto max-w-3xl font-display text-2xl font-bold uppercase leading-tight text-white sm:text-3xl lg:text-4xl">“{siteConfig.statement}”</blockquote>
           <p className="font-display text-xs uppercase tracking-widest text-zinc-500">FAST AND FURIOUS CAFE • CIRCULAR RD, SIALKOT</p>
           <div className="grid grid-cols-1 gap-6 border-t border-zinc-800 pt-8 text-left md:grid-cols-3">
-            <div className="space-y-1"><div className="flex items-center space-x-2 font-display text-sm font-bold uppercase text-crimson"><Flame className="h-4 w-4" /><span>Fresh Preparation</span></div><p className="text-xs text-zinc-400">Focusing on hot, freshly cooked fast food served direct to customers on Circular Road.</p></div>
-            <div className="space-y-1"><div className="flex items-center space-x-2 font-display text-sm font-bold uppercase text-amber-brand"><ShieldCheck className="h-4 w-4" /><span>Hygienic Standards</span></div><p className="text-xs text-zinc-400">Committed to serving our customers clean, fresh, and hygienic burgers, rolls, and shawarmas.</p></div>
+            <div className="space-y-1"><div className="flex items-center space-x-2 font-display text-sm font-bold uppercase text-crimson"><Flame className="h-4 w-4" /><span>Authenticity</span></div><p className="text-xs text-zinc-400">At Fast and Furious Cafe, we believe in authenticity.</p></div>
+            <div className="space-y-1"><div className="flex items-center space-x-2 font-display text-sm font-bold uppercase text-amber-brand"><ShieldCheck className="h-4 w-4" /><span>Fresh &amp; Hygienic Food</span></div><p className="text-xs text-zinc-400">We prefer to serve our customers fresh and hygienic food.</p></div>
             <div className="space-y-1"><div className="flex items-center space-x-2 font-display text-sm font-bold uppercase text-zinc-300"><Clock className="h-4 w-4" /><span>Evening Hours</span></div><p className="text-xs text-zinc-400">{siteConfig.hours.display}; {siteConfig.hours.caveat}. Offering dine-in, roadside, and in-store collection.</p></div>
           </div>
         </div>
-      </section>
+      </section></ScrollReveal>
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ScrollReveal><section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-between gap-6 rounded-lg border border-surface-border bg-surface-card p-6 sm:p-8 md:flex-row md:items-center">
           <div className="space-y-2"><span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">Find Us on Circular Road</span><h2 className="font-display text-2xl font-bold uppercase text-white">YOUR NEXT PIT STOP</h2><p className="text-xs text-zinc-300">{siteConfig.location.address}</p><p className="text-[11px] text-zinc-500">{siteConfig.hours.display} — {siteConfig.hours.caveat}</p></div>
           <div className="flex shrink-0 flex-wrap gap-3">
@@ -104,7 +108,7 @@ export default function HomePage() {
           <a href={siteConfig.contact.phoneTel} className="flex items-center gap-2 hover:text-white"><Phone className="h-4 w-4 text-amber-brand" />{siteConfig.contact.phone}</a>
           <a href={siteConfig.location.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white"><MapPin className="h-4 w-4 text-amber-brand" />{siteConfig.location.landmark}</a>
         </div>
-      </section>
+      </section></ScrollReveal>
     </div>
   );
 }
