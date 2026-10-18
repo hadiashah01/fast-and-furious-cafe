@@ -1,79 +1,110 @@
 import Link from "next/link";
-import DealCard from "./components/DealCard";
-import ProvisionalNotice from "./components/ProvisionalNotice";
+import { Clock, ExternalLink, Flame, MapPin, Phone, ShieldCheck, Utensils } from "lucide-react";
 import { siteConfig } from "./config/site";
-import { dealsData } from "./data/deals";
+import { categoryLabels, menuItems } from "./data/menuItems";
 
-const categories = [
-  { title: "Burgers", detail: "Big crunch. Bigger flavour.", href: "/menu#burgers", image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=85" },
-  { title: "Shawarma", detail: "A street-food favourite.", href: "/menu#shawarma", image: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=900&q=85" },
-  { title: "Paratha Rolls", detail: "Wrapped up and ready to roll.", href: "/menu#rolls", image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85" },
+export const metadata = {
+  title: "Fast & Furious Cafe | Sialkot Street Food & Fast-Casual",
+  description:
+    "Fast & Furious Cafe on Circular Road, Sialkot. See verified burger, shawarma, paratha roll, and fries highlights, plus current special deals.",
+};
+
+const highlightIds = [
+  "furious-zinger",
+  "sialkot-special-shawarma",
+  "chicken-tikka-paratha-roll",
+  "loaded-pizza-fries",
 ];
+const highlights = menuItems.filter((item) => highlightIds.includes(item.id));
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <>
-      <section className="hero">
-        <div className="hero__texture" />
-        <div className="container hero__inner">
-          <div className="hero__copy">
-            <p className="eyebrow"><span className="eyebrow__line" /> SIALKOT STREET FOOD, FULL THROTTLE</p>
-            <h1>CRAVE THE SPEED.<br /><span>TASTE THE FIRE.</span></h1>
-            <p className="hero__lead">Fresh, flavour-packed favourites made for the hungry pit stop. Find your next favourite at Fast &amp; Furious Cafe.</p>
-            <div className="hero__actions">
-              <Link className="button button--red" href="/menu">EXPLORE THE MENU <span aria-hidden="true">↗</span></Link>
-              <Link className="button button--outline" href="/deals">SEE THE DEALS</Link>
+    <div className="space-y-16 pb-16 lg:space-y-24">
+      <section className="relative border-b border-surface-border pt-12 lg:pt-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-center gap-12 pb-16 lg:grid-cols-12">
+            <div className="space-y-6 lg:col-span-7">
+              <div className="inline-flex items-center space-x-2 rounded border border-amber-brand/30 bg-amber-brand/10 px-3 py-1 font-display text-xs uppercase tracking-wider text-amber-brand">
+                <Utensils className="h-3.5 w-3.5" />
+                <span>Sialkot Street Food &amp; Fast-Casual</span>
+              </div>
+              <h1 className="font-display text-4xl font-bold uppercase leading-none tracking-tight text-white sm:text-5xl lg:text-6xl">
+                CRAVE THE SPEED.<br />TASTE THE <span className="text-crimson">FIRE.</span>
+              </h1>
+              <p className="max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">
+                Find our verified burgers, shawarma, paratha rolls, and fries on Circular Road in Sialkot.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/menu" className="rounded bg-crimson px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover">Explore Menu</Link>
+                <Link href="/deals" className="rounded border border-zinc-700 bg-surface-card px-5 py-3 text-xs font-semibold uppercase tracking-wider text-zinc-200 transition hover:bg-zinc-800">See Deals &amp; Combos</Link>
+              </div>
+              <div className="flex flex-wrap gap-x-8 gap-y-4 border-t border-surface-border pt-5">
+                <div><span className="block font-display text-[10px] uppercase text-zinc-500">Hours</span><span className="font-medium text-zinc-300">{siteConfig.hours.display}</span><span className="block text-[10px] text-zinc-500">{siteConfig.hours.caveat}</span></div>
+                <div><span className="block font-display text-[10px] uppercase text-zinc-500">Location</span><span className="font-medium text-zinc-300">Circular Road</span><span className="block text-[10px] text-zinc-500">Opp. Pakistan Gym</span></div>
+                <div><span className="block font-display text-[10px] uppercase text-zinc-500">Services</span><span className="font-medium text-zinc-300">Dine-In • Takeaway</span><span className="block text-[10px] text-zinc-500">Roadside collection</span></div>
+              </div>
             </div>
-            <div className="hero__location"><span className="pin-icon" aria-hidden="true">⌖</span><span>{siteConfig.location.shortAddress}</span></div>
+
+            <div className="space-y-4 rounded-lg border border-surface-border bg-surface-card p-6 lg:col-span-5">
+              <div className="flex items-center justify-between gap-2 text-xs">
+                <span className="rounded border border-amber-brand/30 bg-amber-brand/10 px-2 py-0.5 font-display text-[11px] uppercase tracking-wider text-amber-brand">Verified Special Deal</span>
+                <span className="text-[11px] text-zinc-500">Furious Duo Feast</span>
+              </div>
+              <h2 className="font-display text-2xl font-bold uppercase text-white">FURIOUS DUO FEAST</h2>
+              <p className="text-xs text-zinc-400">2 x Furious Zinger Burgers + 1 x Large Fries + 2 x Soft Drinks.</p>
+              <p className="font-display text-xl font-bold text-amber-brand">PKR 890</p>
+              <p className="text-[11px] text-zinc-500">Verified deal and price. Cafe schedule is subject to confirmation.</p>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <a href={siteConfig.ordering.foodpandaUrl} target="_blank" rel="noopener noreferrer" className="flex-1 rounded bg-foodpanda py-2 text-center text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover">Order on Foodpanda</a>
+                <Link href="/deals" className="rounded bg-zinc-800 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-zinc-200 transition hover:bg-zinc-700">View All Deals</Link>
+              </div>
+            </div>
           </div>
-          <div className="hero__visual" role="img" aria-label="A juicy burger ready for a fast and furious meal">
-            <div className="hero__image" />
-            <div className="hero__stamp"><span>MADE</span><strong>FRESH</strong><span>DAILY</span></div>
-            <div className="hero__visual-caption"><span className="caption-dot" /> BUILT FOR BIG APPETITES</div>
-          </div>
-          <div className="hero__vertical">FAST FOOD · BIG FLAVOUR · SIALKOT</div>
-        </div>
-        <div className="hero__bottom container">
-          <span>GOOD FOOD. NO PIT STOPS NEEDED.</span>
-          <span className="scroll-cue">SCROLL TO EXPLORE <b>↓</b></span>
         </div>
       </section>
 
-      <section className="section container">
-        <ProvisionalNotice />
-        <div className="section-heading">
-          <div><p className="eyebrow">PICK YOUR PIT STOP</p><h2>WHAT ARE YOU <span>CRAVING?</span></h2></div>
-          <Link className="text-link" href="/menu">VIEW FULL MENU <span>↗</span></Link>
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 flex items-end justify-between border-b border-surface-border pb-4">
+          <div><span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">Menu Selection</span><h2 className="mt-1 font-display text-3xl font-bold uppercase text-white">Menu Highlights</h2></div>
+          <Link href="/menu" className="flex items-center space-x-1 font-display text-xs uppercase tracking-wider text-zinc-400 hover:text-white"><span>Explore Full Menu</span><span aria-hidden="true">→</span></Link>
         </div>
-        <div className="category-grid">
-          {categories.map((category, index) => (
-            <Link className={`category-card category-card--${index + 1}`} href={category.href} key={category.title}>
-              <div className="category-card__image" style={{ backgroundImage: `url("${category.image}")` }} />
-              <div className="category-card__shade" />
-              <div className="category-card__content"><span className="category-card__number">0{index + 1}</span><h3>{category.title}</h3><p>{category.detail}</p></div>
-              <span className="category-card__arrow" aria-hidden="true">↗</span>
-            </Link>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {highlights.map((item) => (
+            <article key={item.name} className="flex flex-col justify-between space-y-3 rounded-lg border border-surface-border bg-surface-card p-5">
+              <div><span className="font-display text-[10px] font-semibold uppercase tracking-wider text-amber-brand">{categoryLabels[item.category]}</span><h3 className="mt-1 font-display text-lg font-bold uppercase text-white">{item.name}</h3></div>
+              <div className="flex items-center justify-between border-t border-zinc-800 pt-3"><span className="font-display font-bold text-amber-brand">PKR {item.price}</span><Link href="/menu" className="font-display text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-crimson">View on Menu →</Link></div>
+            </article>
           ))}
         </div>
+        <p className="mt-6 text-center text-[11px] text-zinc-500">Verified menu highlights and prices. Cafe schedule is subject to confirmation.</p>
       </section>
 
-      <section className="section section--dark">
-        <div className="container">
-          <div className="section-heading">
-            <div><p className="eyebrow">GOOD THINGS COME IN COMBOS</p><h2>FUEL UP FOR <span>LESS.</span></h2></div>
-            <Link className="text-link" href="/deals">ALL DEALS <span>↗</span></Link>
-          </div>
-          <div className="deal-grid">
-            {dealsData.filter((deal) => deal.isFeatured || deal.id === "solo-speed" || deal.id === "family-pit-stop").map((deal) => <DealCard deal={deal} key={deal.id} />)}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="space-y-4 rounded-lg border border-surface-border bg-surface-card p-8 text-center sm:p-12">
+          <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">Our Approach</span>
+          <blockquote className="mx-auto max-w-3xl font-display text-2xl font-bold uppercase leading-tight text-white sm:text-3xl lg:text-4xl">“{siteConfig.statement}”</blockquote>
+          <p className="font-display text-xs uppercase tracking-widest text-zinc-500">FAST AND FURIOUS CAFE • CIRCULAR RD, SIALKOT</p>
+          <div className="grid grid-cols-1 gap-6 border-t border-zinc-800 pt-8 text-left md:grid-cols-3">
+            <div className="space-y-1"><div className="flex items-center space-x-2 font-display text-sm font-bold uppercase text-crimson"><Flame className="h-4 w-4" /><span>Fresh Preparation</span></div><p className="text-xs text-zinc-400">Focusing on hot, freshly cooked fast food served direct to customers on Circular Road.</p></div>
+            <div className="space-y-1"><div className="flex items-center space-x-2 font-display text-sm font-bold uppercase text-amber-brand"><ShieldCheck className="h-4 w-4" /><span>Hygienic Standards</span></div><p className="text-xs text-zinc-400">Committed to serving our customers clean, fresh, and hygienic burgers, rolls, and shawarmas.</p></div>
+            <div className="space-y-1"><div className="flex items-center space-x-2 font-display text-sm font-bold uppercase text-zinc-300"><Clock className="h-4 w-4" /><span>Evening Hours</span></div><p className="text-xs text-zinc-400">{siteConfig.hours.display}; {siteConfig.hours.caveat}. Offering dine-in, roadside, and in-store collection.</p></div>
           </div>
         </div>
       </section>
 
-      <section className="visit-band container">
-        <div className="visit-band__mark" aria-hidden="true">F<span>&amp;</span>F</div>
-        <div><p className="eyebrow">YOUR TABLE IS WAITING</p><h2>LET’S MAKE IT <span>FURIOUS.</span></h2><p>Drop by on Circular Road, or call ahead and pick up your favourites.</p></div>
-        <Link href="/contact" className="button button--red">FIND US <span aria-hidden="true">↗</span></Link>
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col justify-between gap-6 rounded-lg border border-surface-border bg-surface-card p-6 sm:p-8 md:flex-row md:items-center">
+          <div className="space-y-2"><span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">Find Us on Circular Road</span><h2 className="font-display text-2xl font-bold uppercase text-white">YOUR NEXT PIT STOP</h2><p className="text-xs text-zinc-300">{siteConfig.location.address}</p><p className="text-[11px] text-zinc-500">{siteConfig.hours.display} — {siteConfig.hours.caveat}</p></div>
+          <div className="flex shrink-0 flex-wrap gap-3">
+            <a href={siteConfig.location.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 rounded bg-crimson px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover"><span>Open in Google Maps</span><ExternalLink className="h-3.5 w-3.5" /></a>
+            <Link href="/contact" className="rounded border border-zinc-700 bg-surface-lowest px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-zinc-200 transition hover:bg-zinc-800">Contact Page</Link>
+          </div>
+        </div>
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-5 text-xs text-zinc-400 sm:justify-start">
+          <a href={siteConfig.contact.phoneTel} className="flex items-center gap-2 hover:text-white"><Phone className="h-4 w-4 text-amber-brand" />{siteConfig.contact.phone}</a>
+          <a href={siteConfig.location.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white"><MapPin className="h-4 w-4 text-amber-brand" />{siteConfig.location.landmark}</a>
+        </div>
       </section>
-    </>
+    </div>
   );
 }
