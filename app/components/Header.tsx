@@ -57,16 +57,17 @@ export default function Header() {
             rel="noopener noreferrer"
             aria-label="Open cafe location in Google Maps"
             title="Open cafe location in Google Maps"
-            className="button-dark grid h-10 w-10 place-items-center rounded"
+            className="button-dark grid h-11 w-11 place-items-center rounded-full"
           >
-            <MapPin aria-hidden="true" className="map-pin-icon h-5 w-5 fill-amber-brand text-amber-brand" />
+            <MapPin aria-hidden="true" className="h-5 w-5 text-amber-brand" strokeWidth={2.5} />
           </a>
           <a
             href={siteConfig.contact.phoneTel}
-            className="button-dark inline-flex items-center gap-1.5 rounded px-3 py-2 text-sm font-semibold"
+            aria-label="Call Fast and Furious Cafe"
+            title="Call Fast and Furious Cafe"
+            className="button-dark grid h-11 w-11 place-items-center rounded-full"
           >
-            <Phone aria-hidden="true" className="h-3.5 w-3.5 text-amber-brand" />
-            <span>Call</span>
+            <Phone aria-hidden="true" className="h-5 w-5 text-amber-brand" strokeWidth={2.5} />
           </a>
           <a
             href={siteConfig.ordering.foodpandaUrl}
@@ -120,16 +121,17 @@ export default function Header() {
               rel="noopener noreferrer"
                 aria-label="Open cafe location in Google Maps"
                 title="Open cafe location in Google Maps"
-                className="button-dark grid h-10 w-10 place-items-center justify-self-center rounded"
+                className="button-dark grid h-11 w-11 place-items-center justify-self-center rounded-full"
               >
-                <MapPin aria-hidden="true" className="map-pin-icon h-5 w-5 fill-amber-brand text-amber-brand" />
+                  <MapPin aria-hidden="true" className="h-5 w-5 text-amber-brand" strokeWidth={2.5} />
             </a>
             <a
               href={siteConfig.contact.phoneTel}
-              className="button-dark flex items-center justify-center gap-1 rounded px-2 py-2 text-sm font-semibold"
-            >
-              <Phone aria-hidden="true" className="h-3.5 w-3.5 text-amber-brand" />
-              <span>Call</span>
+                aria-label="Call Fast and Furious Cafe"
+                title="Call Fast and Furious Cafe"
+                className="button-dark grid h-11 w-11 place-items-center justify-self-center rounded-full"
+              >
+                <Phone aria-hidden="true" className="h-5 w-5 text-amber-brand" strokeWidth={2.5} />
             </a>
             <a
               href={siteConfig.ordering.foodpandaUrl}

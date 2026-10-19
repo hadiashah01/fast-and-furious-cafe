@@ -21,7 +21,7 @@ export default function ContactPage() {
       <section className="border-b border-surface-border bg-surface-lowest pb-8 pt-10">
         <div className="mx-auto max-w-7xl space-y-3 px-4 sm:px-6 lg:px-8">
           <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">
-            Fast &amp; Furious Cafe • Sialkot
+            Fast &amp; Furious Cafe Sialkot
           </span>
           <h1 className="font-display text-4xl font-bold uppercase text-white sm:text-5xl">VISIT US IN SIALKOT</h1>
           <p className="max-w-2xl text-sm leading-relaxed text-zinc-400">

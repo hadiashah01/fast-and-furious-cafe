@@ -24,7 +24,7 @@ export default function HomePage() {
             <div className="space-y-6 lg:col-span-7">
               <div className="inline-flex items-center space-x-2 rounded border border-amber-brand/30 bg-amber-brand/10 px-3 py-1 font-display text-xs uppercase tracking-wider text-amber-brand">
                 <Utensils className="h-3.5 w-3.5" />
-                <span>Cafe • Sialkot</span>
+                <span>Cafe Sialkot</span>
               </div>
               <h1 className="font-display text-4xl font-bold uppercase leading-none tracking-tight text-white sm:text-5xl lg:text-6xl">
                 CRAVE THE SPEED.<br />TASTE THE <span className="text-crimson">FIRE.</span>

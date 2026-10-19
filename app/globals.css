@@ -77,14 +77,6 @@ body {
   color: #fff;
 }
 
-.button-dark .map-pin-icon circle {
-  fill: #27272a;
-}
-
-.button-dark:hover .map-pin-icon circle {
-  fill: #000;
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

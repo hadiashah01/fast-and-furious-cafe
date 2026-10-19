@@ -12,7 +12,7 @@ export default function BrandWordmark() {
         FAST <span className="text-amber-brand">&amp;</span> FURIOUS
       </span>
       <span className="mt-1 font-display text-[10px] uppercase tracking-[0.25em] text-zinc-400 md:text-xs">
-        CAFE • SIALKOT
+        CAFE SIALKOT
       </span>
     </Link>
   );

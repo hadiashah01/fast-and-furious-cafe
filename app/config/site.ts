@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Fast & Furious Cafe",
-  descriptor: "CAFE • SIALKOT",
+  descriptor: "CAFE SIALKOT",
   slogan: "CRAVE THE SPEED. TASTE THE FIRE.",
   statement:
     "At Fast and Furious Cafe we believe in authenticity. We prefer to serve our customer fresh and hygienic food.",
