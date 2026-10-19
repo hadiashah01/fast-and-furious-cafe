@@ -9,7 +9,6 @@ import {
   type MenuCategory,
   popularItemIds,
 } from "../data/menuItems";
-import CafeInfoNotice from "./CafeInfoNotice";
 import ProductCard from "./ProductCard";
 
 export default function MenuBrowser() {
@@ -64,13 +63,15 @@ export default function MenuBrowser() {
           <h1 className="font-display text-4xl font-bold uppercase text-white sm:text-5xl">
             MENU
           </h1>
-          <CafeInfoNotice />
+          <p className="max-w-2xl text-sm leading-relaxed text-zinc-400">
+            Browse burgers, shawarma, rolls, fries, sides, and drinks by category or search.
+          </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-4 rounded-lg border border-surface-border bg-surface-card p-4 md:flex-row">
-          <div className="flex w-full items-center space-x-2 overflow-x-auto pb-1 md:w-auto md:pb-0">
+      <section className="sticky top-20 z-40 mx-auto max-w-7xl bg-surface px-4 py-2 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-between gap-4 bg-surface-card p-4 md:flex-row">
+          <div className="horizontal-scrollbar-hidden flex w-full touch-pan-x items-center space-x-2 overflow-x-auto overscroll-x-contain pb-1 md:w-auto md:pb-0">
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -177,10 +178,10 @@ export default function MenuBrowser() {
         <div className="flex flex-col items-center justify-between gap-6 rounded-lg border border-surface-border bg-surface-lowest p-6 sm:p-8 md:flex-row">
           <div className="space-y-2 text-center md:text-left">
             <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">
-              Our Food Credo
+              Find Your Next Favorite
             </span>
-            <p className="max-w-xl text-sm italic text-zinc-300">
-              “{siteConfig.statement}”
+            <p className="max-w-xl text-sm text-zinc-300">
+              Use the categories or search above to explore the full menu.
             </p>
             <p className="text-xs text-zinc-500">
               {siteConfig.hours.display} — {siteConfig.hours.caveat}.{" "}

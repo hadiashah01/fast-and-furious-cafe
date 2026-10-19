@@ -34,7 +34,7 @@ export default function ContactPage() {
             <a href={siteConfig.contact.phoneTel} className="button-dark flex items-center space-x-2 rounded px-5 py-2.5 text-xs font-semibold">
               <Phone className="h-3.5 w-3.5 text-amber-brand" /><span>Call {siteConfig.contact.phone}</span>
             </a>
-            <a href={siteConfig.ordering.foodpandaUrl} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 rounded bg-foodpanda px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover">
+            <a href={siteConfig.ordering.foodpandaUrl} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 rounded bg-crimson px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover">
               <span>Order on Foodpanda</span><ExternalLink className="h-3.5 w-3.5" />
             </a>
           </div>
@@ -103,7 +103,7 @@ export default function ContactPage() {
               <span className="block font-display text-[11px] font-semibold uppercase text-zinc-400">Questions?</span>
               <p>Call {siteConfig.contact.phone} to check current hours, menu prices and service options.</p>
             </div>
-            <a href={siteConfig.ordering.foodpandaUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded bg-foodpanda px-5 py-3 text-xs font-bold uppercase tracking-wider text-white hover:bg-foodpanda-hover"><Utensils className="h-4 w-4" />Order online with Foodpanda</a>
+            <a href={siteConfig.ordering.foodpandaUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded bg-crimson px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover"><Utensils className="h-4 w-4" />Order online with Foodpanda</a>
           </div>
         </div>
       </section>

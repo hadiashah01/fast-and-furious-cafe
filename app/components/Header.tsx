@@ -73,7 +73,7 @@ export default function Header() {
             href={siteConfig.ordering.foodpandaUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded bg-foodpanda px-3 py-2 text-xs font-bold uppercase tracking-wide text-white transition-colors hover:bg-foodpanda-hover"
+            className="inline-flex items-center gap-1.5 rounded bg-crimson px-3 py-2 text-xs font-bold uppercase tracking-wide text-white transition-colors hover:bg-crimson-hover"
           >
             <span>Foodpanda</span>
             <ExternalLink aria-hidden="true" className="h-3 w-3" />
@@ -137,7 +137,7 @@ export default function Header() {
               href={siteConfig.ordering.foodpandaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1 rounded bg-foodpanda px-2 py-2 text-[11px] font-bold text-white hover:bg-foodpanda-hover"
+              className="flex items-center justify-center gap-1 rounded bg-crimson px-2 py-2 text-[11px] font-bold text-white hover:bg-crimson-hover"
             >
               <span>Foodpanda</span>
               <ExternalLink aria-hidden="true" className="h-3 w-3" />

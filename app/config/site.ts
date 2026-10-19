@@ -3,7 +3,7 @@ export const siteConfig = {
   descriptor: "CAFE SIALKOT",
   slogan: "CRAVE THE SPEED. TASTE THE FIRE.",
   statement:
-    "At Fast and Furious Cafe we believe in authenticity. We prefer to serve our customer fresh and hygienic food.",
+    "At Fast & Furious Cafe, we craft every meal fresh upon order—delivering mouth-watering flavor, high-quality ingredients, and uncompromising hygiene.",
   location: {
     address:
       "Circular Road, opposite Pakistan Gym, Kainchi Mohalla, Sialkot, Punjab, Pakistan",

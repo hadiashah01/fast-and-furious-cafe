@@ -11,9 +11,7 @@
   --color-crimson-hover: #b91c1c;
   --color-crimson-active: #991b1b;
   --color-amber-brand: #f59e0b;
-  --color-foodpanda: #d70f64;
-  --color-foodpanda-hover: #be0d58;
-  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  --font-display: var(--font-oswald), "Arial Narrow", Arial, sans-serif;
   --font-sans: "Avenir Next", var(--font-jakarta), "Helvetica Neue", Helvetica, Arial, sans-serif;
   --text-xs: 0.875rem;
   --text-xs--line-height: 1.3;
@@ -52,6 +50,14 @@ body {
   font-family: var(--font-sans);
 }
 
+.horizontal-scrollbar-hidden {
+  scrollbar-width: none;
+}
+
+.horizontal-scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 *:focus-visible {
   outline: 2px solid #f59e0b;
   outline-offset: 2px;
@@ -77,6 +83,37 @@ body {
   color: #fff;
 }
 
+@keyframes hero-image-drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-0.5rem);
+  }
+}
+
+.hero-image-drift {
+  animation: hero-image-drift 6s ease-in-out infinite;
+}
+
+@keyframes credo-reveal {
+  from {
+    opacity: 0;
+    transform: translateX(-1.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.credo-reveal {
+  animation: credo-reveal 700ms ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -91,4 +128,5 @@ body {
   .button-dark {
     transition-duration: 0.01ms;
   }
+
 }

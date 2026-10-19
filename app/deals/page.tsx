@@ -21,7 +21,9 @@ export default function DealsPage() {
           <h1 className="font-display text-4xl font-bold uppercase text-white sm:text-5xl">
             DEALS <span className="text-crimson">&amp; COMBOS</span>
           </h1>
-          <p className="mx-auto max-w-2xl text-xs italic text-zinc-400 sm:text-sm">“{siteConfig.statement}”</p>
+          <p className="mx-auto max-w-2xl text-xs leading-relaxed text-zinc-400 sm:text-sm">
+            Compare the exclusive discounted and promotional deals available in the cafe listing.
+          </p>
           <p className="text-[11px] text-zinc-500">
             {siteConfig.hours.display}. {siteConfig.hours.caveat}.
           </p>
@@ -33,7 +35,7 @@ export default function DealsPage() {
               href={siteConfig.ordering.foodpandaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 rounded bg-foodpanda px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover"
+              className="flex items-center space-x-2 rounded bg-crimson px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover"
             >
               <span>Order on Foodpanda</span><ExternalLink className="h-3.5 w-3.5" />
             </a>

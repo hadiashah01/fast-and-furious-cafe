@@ -5,7 +5,7 @@ import MenuImage from "./MenuImage";
 
 export default function DealCard({ deal }: { deal: Deal }) {
   return (
-    <article className="rounded border border-surface-border bg-surface-card p-3">
+    <article className="group flex h-full flex-col rounded border border-surface-border bg-surface-card p-3">
       <div className="flex items-start gap-3">
         <div className="min-w-0 flex-1">
           <span className="font-display text-[10px] font-semibold uppercase tracking-widest text-amber-brand">
@@ -15,13 +15,15 @@ export default function DealCard({ deal }: { deal: Deal }) {
             {deal.name}
           </h2>
           <span className="mt-1 block font-display text-sm font-semibold text-crimson">
+            <span className="sr-only">Current price: </span>
             Rs. {deal.price.toLocaleString("en-PK")}
           </span>
         </div>
         <MenuImage
           src={deal.image}
           alt={`${deal.name} from Fast & Furious Cafe`}
-          className="h-24 w-24 shrink-0 sm:h-[104px] sm:w-[104px]"
+          className="aspect-square h-24 w-24 shrink-0 sm:h-[104px] sm:w-[104px]"
+          imageClassName="card-image-zoom transition-transform duration-300 group-hover:scale-105 motion-reduce:group-hover:scale-100"
           sizes="104px"
         />
       </div>
@@ -30,12 +32,12 @@ export default function DealCard({ deal }: { deal: Deal }) {
           <li key={item}>{item}</li>
         ))}
       </ul>
-      <div className="mt-3 flex flex-wrap gap-2">
+      <div className="mt-auto flex flex-wrap gap-2 pt-3">
           <a
             href={siteConfig.ordering.foodpandaUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1 rounded bg-foodpanda px-3 py-2 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover"
+            className="flex items-center justify-center gap-1 rounded bg-crimson px-3 py-2 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover"
           >
             <span>Foodpanda</span><ExternalLink className="h-3 w-3" />
           </a>

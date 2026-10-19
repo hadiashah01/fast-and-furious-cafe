@@ -34,7 +34,7 @@ export default function Footer() {
                   href={siteConfig.ordering.foodpandaUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-1 transition hover:text-foodpanda"
+                  className="flex items-center space-x-1 transition hover:text-crimson"
                 >
                   <span>Foodpanda Store</span>
                   <ExternalLink className="h-3 w-3" />
@@ -105,7 +105,7 @@ export default function Footer() {
                 href={siteConfig.ordering.foodpandaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between rounded bg-foodpanda px-3 py-2 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover"
+                className="flex items-center justify-between rounded bg-crimson px-3 py-2 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover"
               >
                 <span>ORDER ONLINE</span>
                 <ExternalLink className="h-3.5 w-3.5" />

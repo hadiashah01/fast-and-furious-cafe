@@ -7,11 +7,13 @@ export default function MenuImage({
   src,
   alt,
   className,
+  imageClassName,
   sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
 }: {
   src?: string;
   alt: string;
   className?: string;
+  imageClassName?: string;
   sizes?: string;
 }) {
   const [failed, setFailed] = useState(false);
@@ -29,7 +31,7 @@ export default function MenuImage({
         sizes={sizes}
         loading="lazy"
         unoptimized
-        className="object-cover"
+        className={`object-cover ${imageClassName ?? ""}`}
         onError={() => setFailed(true)}
       />
     </div>
