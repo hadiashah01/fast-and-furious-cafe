@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Clock, ExternalLink, Flame, MapPin, Phone, ShieldCheck, Utensils } from "lucide-react";
 import { siteConfig } from "./config/site";
-import { categoryLabels, popularItems } from "./data/menuItems";
+import { popularItems } from "./data/menuItems";
 import { dealsData } from "./data/deals";
 import { createPageMetadata } from "./config/metadata";
 import MenuImage from "./components/MenuImage";
@@ -34,7 +34,7 @@ export default function HomePage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/menu" className="rounded bg-crimson px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover">View Menu</Link>
-                <Link href="/deals" className="rounded border border-zinc-700 bg-surface-card px-5 py-3 text-xs font-semibold uppercase tracking-wider text-zinc-200 transition hover:bg-zinc-800">View Deals</Link>
+                <Link href="/deals" className="button-dark rounded px-5 py-3 text-xs font-semibold uppercase tracking-wider">View Deals</Link>
               </div>
               <div className="flex flex-wrap gap-x-8 gap-y-4 border-t border-surface-border pt-5">
                 <div><span className="block font-display text-[10px] uppercase text-zinc-500">Hours</span><span className="font-medium text-zinc-300">{siteConfig.hours.display}</span><span className="block text-[10px] text-zinc-500">{siteConfig.hours.caveat}</span></div>
@@ -43,18 +43,25 @@ export default function HomePage() {
               </div>
             </div>
 
-            {featuredDeal && <div className="space-y-4 rounded-lg border border-surface-border bg-surface-card p-6 lg:col-span-5">
-              <div className="flex items-center justify-between gap-2 text-xs">
-                <span className="rounded border border-amber-brand/30 bg-amber-brand/10 px-2 py-0.5 font-display text-[11px] uppercase tracking-wider text-amber-brand">Featured Deal</span>
+            {featuredDeal && <div className="rounded-lg border border-surface-border bg-surface-card p-4 lg:col-span-5">
+              <div className="flex items-start gap-3">
+                <div className="min-w-0 flex-1">
+                  <span className="font-display text-[11px] uppercase tracking-wider text-amber-brand">Featured Deal</span>
+                  <h2 className="mt-1 font-display text-xl font-bold uppercase leading-tight text-white">{featuredDeal.name}</h2>
+                  <p className="mt-1 font-display text-sm font-semibold text-crimson">Rs. {featuredDeal.price.toLocaleString("en-PK")}</p>
+                  <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-zinc-400">{featuredDeal.items.join(" + ")}.</p>
+                </div>
+                <MenuImage
+                  src={featuredDeal.image}
+                  alt={`${featuredDeal.name} meal deal`}
+                  className="h-24 w-24 shrink-0 sm:h-[104px] sm:w-[104px]"
+                  sizes="104px"
+                />
               </div>
-              <MenuImage src={featuredDeal.image} alt={`${featuredDeal.name} meal deal`} />
-              <h2 className="font-display text-2xl font-bold uppercase text-white">{featuredDeal.name}</h2>
-              <p className="text-xs text-zinc-400">{featuredDeal.items.join(" + ")}.</p>
-              <p className="font-display text-xl font-bold text-amber-brand">Rs. {featuredDeal.price.toLocaleString("en-PK")}</p>
-              <p className="text-[11px] text-zinc-500">Check the Foodpanda listing for current offers.</p>
-              <div className="flex flex-wrap gap-2 pt-2">
+              <p className="text-[11px] text-zinc-500">Offers may change; check Foodpanda for current details.</p>
+              <div className="mt-3 flex flex-wrap gap-2">
                 <a href={siteConfig.ordering.foodpandaUrl} target="_blank" rel="noopener noreferrer" className="flex-1 rounded bg-foodpanda py-2 text-center text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover">Order on Foodpanda</a>
-                <Link href="/deals" className="rounded bg-zinc-800 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-zinc-200 transition hover:bg-zinc-700">All Deals</Link>
+                <Link href="/deals" className="button-dark rounded px-4 py-2 text-xs font-semibold uppercase tracking-wider">All Deals</Link>
               </div>
             </div>}
           </div>
@@ -68,14 +75,30 @@ export default function HomePage() {
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((item) => (
-            <article key={item.id} className="flex flex-col justify-between space-y-3 rounded-lg border border-surface-border bg-surface-card p-5">
-              <MenuImage src={item.image} alt={`${item.name} from Fast & Furious Cafe`} />
-              <div><span className="font-display text-[10px] font-semibold uppercase tracking-wider text-amber-brand">{categoryLabels[item.category]}</span><h3 className="mt-1 font-display text-lg font-bold uppercase text-white">{item.name}</h3></div>
-              <div className="flex items-center justify-between border-t border-zinc-800 pt-3"><span className="font-display font-bold text-amber-brand">{item.pricePrefix ? "from " : ""}Rs. {item.price}</span><Link href="/menu" className="font-display text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-crimson">View on Menu →</Link></div>
+            <article key={item.id} className="flex min-w-0 items-start gap-3 rounded border border-surface-border bg-surface-card p-3">
+              <div className="min-w-0 flex-1">
+                <h3 className="font-display text-base font-bold uppercase leading-tight text-white">{item.name}</h3>
+                <div className="mt-1 flex flex-wrap items-baseline gap-1.5">
+                  <span className="font-display text-sm font-semibold text-crimson">{item.pricePrefix ? "from " : ""}Rs. {item.price}</span>
+                  {item.originalPrice && <del className="text-[11px] text-zinc-500">Rs. {item.originalPrice}</del>}
+                </div>
+                <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-zinc-400">{item.description}</p>
+                <span className="mt-1.5 inline-flex items-center gap-1 text-[11px] text-zinc-300">
+                  <Flame aria-hidden="true" className="h-3 w-3 text-crimson" />
+                  Popular
+                </span>
+                <Link href="/menu" className="mt-2 block font-display text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-crimson">View on Menu →</Link>
+              </div>
+              <MenuImage
+                src={item.image}
+                alt={`${item.name} from Fast & Furious Cafe`}
+                className="h-24 w-24 shrink-0 sm:h-[104px] sm:w-[104px]"
+                sizes="104px"
+              />
             </article>
           ))}
         </div>
-        <p className="mt-6 text-center text-[11px] text-zinc-500">Prices are listed as shown on Foodpanda. Check the listing for current prices.</p>
+        <p className="mt-6 text-center text-[11px] text-zinc-500">Listed prices may change; check Foodpanda before ordering.</p>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -96,7 +119,7 @@ export default function HomePage() {
           <div className="space-y-2"><span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">Find the Cafe</span><h2 className="font-display text-2xl font-bold uppercase text-white">Circular Road, Sialkot</h2><p className="text-xs text-zinc-300">{siteConfig.location.address}</p><p className="text-[11px] text-zinc-500">{siteConfig.hours.display} — {siteConfig.hours.caveat}</p></div>
           <div className="flex shrink-0 flex-wrap gap-3">
             <a href={siteConfig.location.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 rounded bg-crimson px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover"><span>Open in Google Maps</span><ExternalLink className="h-3.5 w-3.5" /></a>
-            <Link href="/contact" className="rounded border border-zinc-700 bg-surface-lowest px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-zinc-200 transition hover:bg-zinc-800">Contact</Link>
+            <Link href="/contact" className="button-dark rounded px-5 py-2.5 text-xs font-semibold uppercase tracking-wider">Contact</Link>
           </div>
         </div>
         <div className="mt-5 flex flex-wrap items-center justify-center gap-5 text-xs text-zinc-400 sm:justify-start">

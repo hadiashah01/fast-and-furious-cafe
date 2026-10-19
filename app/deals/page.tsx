@@ -39,7 +39,7 @@ export default function DealsPage() {
             </a>
             <a
               href={siteConfig.contact.phoneTel}
-              className="flex items-center space-x-2 rounded border border-zinc-700 bg-surface-card px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-zinc-200 transition hover:bg-zinc-800"
+              className="button-dark flex items-center space-x-2 rounded px-5 py-2.5 text-xs font-semibold uppercase tracking-wider"
             >
               <Phone className="h-3.5 w-3.5 text-amber-brand" />
               <span>Call the Cafe ({siteConfig.contact.phone})</span>

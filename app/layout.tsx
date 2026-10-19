@@ -1,19 +1,13 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Oswald, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TopUtilityBar from "./components/TopUtilityBar";
 import { metadataBase } from "./config/metadata";
 import { siteConfig } from "./config/site";
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  variable: "--font-oswald",
-  weight: ["400", "600", "700"],
-});
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -57,7 +51,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   };
 
   return (
-    <html lang="en" className={`${oswald.variable} ${jakarta.variable}`}>
+    <html lang="en" className={jakarta.variable}>
       <body className="flex min-h-screen flex-col bg-surface font-sans text-zinc-100 antialiased">
         <script
           type="application/ld+json"

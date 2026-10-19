@@ -27,7 +27,7 @@ export default function ErrorPage({ reset }: { reset: () => void }) {
         </button>
         <Link
           href="/"
-          className="rounded border border-zinc-700 bg-surface-card px-5 py-3 text-xs font-semibold uppercase tracking-wider text-zinc-200 transition hover:bg-zinc-800"
+          className="button-dark rounded px-5 py-3 text-xs font-semibold uppercase tracking-wider"
         >
           Back to Home
         </Link>

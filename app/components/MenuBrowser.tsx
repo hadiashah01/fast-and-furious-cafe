@@ -83,7 +83,7 @@ export default function MenuBrowser() {
                 className={`shrink-0 rounded px-3 py-1.5 font-display text-xs uppercase tracking-wider transition ${
                   selectedCategory === category.id
                     ? "bg-crimson font-bold text-white"
-                    : "border border-zinc-800 bg-surface-lowest text-zinc-400 hover:text-white"
+                    : "button-dark text-zinc-400"
                 }`}
               >
                 {category.label} (
@@ -118,7 +118,7 @@ export default function MenuBrowser() {
                 onClick={resetFilters}
                 title="Reset filters"
                 aria-label="Reset menu filters"
-                className="rounded bg-zinc-800 p-1.5 text-zinc-300 hover:bg-zinc-700"
+                className="button-dark rounded p-1.5"
               >
                 <RotateCcw className="h-4 w-4" />
               </button>
@@ -164,7 +164,7 @@ export default function MenuBrowser() {
               <button
                 type="button"
                 onClick={() => setVisibleCount(9)}
-                className="mt-8 ml-3 rounded border border-zinc-700 bg-surface-card px-5 py-3 text-xs font-semibold uppercase tracking-wider text-zinc-200 hover:bg-zinc-800"
+                className="button-dark mt-8 ml-3 rounded px-5 py-3 text-xs font-semibold uppercase tracking-wider"
               >
                 Show Less
               </button>

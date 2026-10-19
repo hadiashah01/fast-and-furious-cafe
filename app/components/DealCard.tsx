@@ -1,53 +1,50 @@
-import { Check, ExternalLink, Phone } from "lucide-react";
+import { ExternalLink, Phone } from "lucide-react";
 import { siteConfig } from "../config/site";
 import { dealCategoryLabels, type Deal } from "../data/deals";
 import MenuImage from "./MenuImage";
 
 export default function DealCard({ deal }: { deal: Deal }) {
   return (
-    <article className="flex flex-col justify-between space-y-5 rounded-lg border border-surface-border bg-surface-card p-6">
-      <MenuImage src={deal.image} alt={`${deal.name} from Fast & Furious Cafe`} />
-      <div className="space-y-3">
-        <div className="flex items-start justify-between">
+    <article className="rounded border border-surface-border bg-surface-card p-3">
+      <div className="flex items-start gap-3">
+        <div className="min-w-0 flex-1">
           <span className="font-display text-[10px] font-semibold uppercase tracking-widest text-amber-brand">
             {dealCategoryLabels[deal.category]}
           </span>
+          <h2 className="mt-1 font-display text-base font-bold uppercase leading-tight text-white">
+            {deal.name}
+          </h2>
+          <span className="mt-1 block font-display text-sm font-semibold text-crimson">
+            Rs. {deal.price.toLocaleString("en-PK")}
+          </span>
         </div>
-        <h2 className="font-display text-xl font-bold uppercase text-white">{deal.name}</h2>
-        <div className="space-y-1.5 rounded border border-zinc-800/80 bg-surface-lowest p-3">
-          <span className="block font-display text-[10px] font-semibold uppercase tracking-wider text-zinc-500">In the deal</span>
-          {deal.items.map((item) => (
-            <div key={item} className="flex items-center space-x-2 text-xs text-zinc-300">
-              <Check className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
-              <span>{item}</span>
-            </div>
-          ))}
-        </div>
+        <MenuImage
+          src={deal.image}
+          alt={`${deal.name} from Fast & Furious Cafe`}
+          className="h-24 w-24 shrink-0 sm:h-[104px] sm:w-[104px]"
+          sizes="104px"
+        />
       </div>
-      <div className="space-y-3 border-t border-zinc-800 pt-3">
-        <div className="flex items-baseline justify-between">
-          <div>
-            <span className="block font-display text-[10px] uppercase tracking-wider text-zinc-500">Price</span>
-            <span className="font-display text-2xl font-bold text-amber-brand">Rs. {deal.price.toLocaleString("en-PK")}</span>
-          </div>
-          <span className="text-[11px] text-zinc-500">Listed price</span>
-        </div>
-        <div className="grid grid-cols-2 gap-2">
+      <ul className="mt-2 space-y-1 text-xs text-zinc-400">
+        {deal.items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      <div className="mt-3 flex flex-wrap gap-2">
           <a
             href={siteConfig.ordering.foodpandaUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center space-x-1 rounded bg-foodpanda px-3 py-2 text-center text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover"
+            className="flex items-center justify-center gap-1 rounded bg-foodpanda px-3 py-2 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover"
           >
-            <span>Order on Foodpanda</span><ExternalLink className="h-3 w-3" />
+            <span>Foodpanda</span><ExternalLink className="h-3 w-3" />
           </a>
           <a
             href={siteConfig.contact.phoneTel}
-            className="flex items-center justify-center space-x-1 rounded border border-zinc-700 bg-surface-lowest px-3 py-2 text-center text-xs font-semibold uppercase tracking-wider text-zinc-200 transition hover:bg-zinc-800"
+            className="button-dark flex items-center justify-center gap-1 rounded px-3 py-2 text-xs font-semibold uppercase tracking-wider"
           >
-            <Phone className="h-3 w-3 text-amber-brand" /><span>Call to Order</span>
+            <Phone className="h-3 w-3 text-amber-brand" /><span>Call</span>
           </a>
-        </div>
       </div>
     </article>
   );

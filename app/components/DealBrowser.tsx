@@ -24,7 +24,7 @@ export default function DealBrowser() {
                 className={`rounded px-4 py-2 font-display text-xs uppercase tracking-wider transition ${
                   selectedCategory === tab.id
                     ? "bg-crimson font-bold text-white"
-                    : "border border-zinc-800 bg-surface-card text-zinc-400 hover:text-white"
+                    : "button-dark text-zinc-400"
                 }`}
               >
                 {tab.label} ({tab.id === "all" ? dealsData.length : dealsData.filter((deal) => deal.category === tab.id).length})

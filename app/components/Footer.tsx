@@ -21,7 +21,12 @@ export default function Footer() {
             <ul className="space-y-2 text-xs">
               {siteConfig.nav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="transition hover:text-white">{item.label}</Link>
+                  <Link
+                    href={item.href}
+                    className="transition hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
               <li>
@@ -31,11 +36,17 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-center space-x-1 transition hover:text-foodpanda"
                 >
-                  <span>Foodpanda Store</span><ExternalLink className="h-3 w-3" />
+                  <span>Foodpanda Store</span>
+                  <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
               <li>
-                <a href={siteConfig.social.facebookUrl} target="_blank" rel="noopener noreferrer" className="transition hover:text-white">
+                <a
+                  href={siteConfig.social.facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition hover:text-white"
+                >
                   Facebook
                 </a>
               </li>
@@ -52,15 +63,27 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="h-3.5 w-3.5 shrink-0 text-amber-brand" />
-                <a href={siteConfig.contact.phoneTel} className="transition hover:text-white">{siteConfig.contact.phone}</a>
+                <a
+                  href={siteConfig.contact.phoneTel}
+                  className="transition hover:text-white"
+                >
+                  {siteConfig.contact.phone}
+                </a>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="h-3.5 w-3.5 shrink-0 text-amber-brand" />
-                <a href={siteConfig.contact.emailMailto} className="transition hover:text-white">{siteConfig.contact.email}</a>
+                <a
+                  href={siteConfig.contact.emailMailto}
+                  className="transition hover:text-white"
+                >
+                  {siteConfig.contact.email}
+                </a>
               </li>
               <li className="flex items-start space-x-2">
                 <Clock className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-brand" />
-                <span>{siteConfig.hours.display} — {siteConfig.hours.caveat}</span>
+                <span>
+                  {siteConfig.hours.display} — {siteConfig.hours.caveat}
+                </span>
               </li>
             </ul>
           </div>
@@ -73,9 +96,10 @@ export default function Footer() {
                 href={siteConfig.location.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between rounded border border-zinc-700 bg-surface-card px-3 py-2 text-xs font-medium text-zinc-200 transition hover:bg-zinc-800"
+                className="button-dark flex items-center justify-between rounded px-3 py-2 text-xs font-medium"
               >
-                <span>GET DIRECTIONS</span><ExternalLink className="h-3.5 w-3.5 text-amber-brand" />
+                <span>GET DIRECTIONS</span>
+                <ExternalLink className="h-3.5 w-3.5 text-amber-brand" />
               </a>
               <a
                 href={siteConfig.ordering.foodpandaUrl}
@@ -83,17 +107,29 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-between rounded bg-foodpanda px-3 py-2 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover"
               >
-                <span>ORDER ONLINE</span><ExternalLink className="h-3.5 w-3.5" />
+                <span>ORDER ONLINE</span>
+                <ExternalLink className="h-3.5 w-3.5" />
               </a>
             </div>
           </div>
         </div>
         <div className="flex flex-col items-center justify-between gap-2 border-t border-zinc-800 pt-6 text-[11px] text-zinc-500 sm:flex-row">
-          <p>© {new Date().getFullYear()} Fast &amp; Furious Cafe Sialkot. All rights reserved.</p>
-          <p className="font-display uppercase tracking-widest text-zinc-400">Circular Road • Sialkot</p>
-          <a href={siteConfig.developer.portfolioUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+          <p>
+            © {new Date().getFullYear()} Fast &amp; Furious Cafe Sialkot. All
+            rights reserved.
+          </p>
+          <a
+            href={siteConfig.developer.portfolioUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-crimson transition-colors hover:text-crimson-hover hover:underline"
+          >
             Developed by {siteConfig.developer.name}
           </a>
+          <p className="font-display uppercase tracking-widest text-zinc-400">
+            Circular Road • Sialkot
+          </p>
+          
         </div>
       </div>
     </footer>

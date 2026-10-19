@@ -6,21 +6,27 @@ import { useState } from "react";
 export default function MenuImage({
   src,
   alt,
+  className,
+  sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
 }: {
   src?: string;
   alt: string;
+  className?: string;
+  sizes?: string;
 }) {
   const [failed, setFailed] = useState(false);
 
   if (!src || failed) return null;
 
   return (
-    <div className="relative aspect-[16/9] overflow-hidden rounded">
+    <div
+      className={`relative overflow-hidden rounded bg-surface-lowest ${className ?? "aspect-[16/9] w-full"}`}
+    >
       <Image
         src={src}
         alt={alt}
         fill
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        sizes={sizes}
         loading="lazy"
         unoptimized
         className="object-cover"

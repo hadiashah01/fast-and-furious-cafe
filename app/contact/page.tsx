@@ -31,7 +31,7 @@ export default function ContactPage() {
             <a href={siteConfig.location.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 rounded bg-crimson px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover">
               <Navigation className="h-3.5 w-3.5" /><span>Get Directions</span>
             </a>
-            <a href={siteConfig.contact.phoneTel} className="flex items-center space-x-2 rounded border border-zinc-700 bg-surface-card px-5 py-2.5 text-xs font-semibold text-zinc-200 transition hover:bg-zinc-800">
+            <a href={siteConfig.contact.phoneTel} className="button-dark flex items-center space-x-2 rounded px-5 py-2.5 text-xs font-semibold">
               <Phone className="h-3.5 w-3.5 text-amber-brand" /><span>Call {siteConfig.contact.phone}</span>
             </a>
             <a href={siteConfig.ordering.foodpandaUrl} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 rounded bg-foodpanda px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover">
@@ -67,7 +67,7 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center justify-between gap-3">
                 <div><span className="block font-display text-[10px] uppercase tracking-wider text-zinc-500">Email</span><a href={siteConfig.contact.emailMailto} className="text-xs text-zinc-300 hover:text-white">{siteConfig.contact.email}</a></div>
-                <a href={siteConfig.contact.emailMailto} className="rounded border border-zinc-700 bg-surface-lowest px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-zinc-300 hover:bg-zinc-800">Send Email</a>
+                <a href={siteConfig.contact.emailMailto} className="button-dark rounded px-3 py-1.5 text-xs font-semibold uppercase tracking-wider">Send Email</a>
               </div>
             </article>
 

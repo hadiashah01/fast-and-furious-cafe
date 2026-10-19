@@ -12,19 +12,19 @@ export const metadata = createPageMetadata(
 const standards = [
   {
     title: "Burgers & Zingers",
-    description: "Furious Zinger, Monster Zinger and Crispy Chicken burgers.",
+    description: "Zinger Burger, Chicken Burger, Chapli Burger, Double Zinger Burger, Tower Burger and Spicy Grand Chicken Burger.",
     icon: Flame,
     tone: "text-crimson border-crimson/30 bg-crimson/10",
   },
   {
     title: "Rolls & Shawarma",
-    description: "Sialkot Special Shawarma, Chicken Tikka Paratha Roll and Zinger Paratha Roll.",
+    description: "Chicken Shawarma, Platter Shawarma, Zinger Shawarma, and three paratha rolls.",
     icon: ShieldCheck,
     tone: "text-amber-brand border-amber-brand/30 bg-amber-brand/10",
   },
   {
     title: "Fries & Sides",
-    description: "Loaded Pizza Fries, Masala Fries and Plain Fries.",
+    description: "Fries, Masala Fries, Loaded Fries, Garlic Mayo Fries, and four sauces.",
     icon: HeartHandshake,
     tone: "text-zinc-300 border-zinc-700 bg-zinc-800",
   },
@@ -97,7 +97,7 @@ export default function AboutPage() {
         </div>
         <div className="flex shrink-0 flex-wrap justify-center gap-3">
           <a href={siteConfig.location.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 rounded bg-crimson px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover"><span>Open in Google Maps</span><ExternalLink className="h-3.5 w-3.5" /></a>
-          <Link href="/contact" className="rounded border border-zinc-700 bg-surface-lowest px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-zinc-200 transition hover:bg-zinc-800">Contact</Link>
+          <Link href="/contact" className="button-dark rounded px-5 py-2.5 text-xs font-semibold uppercase tracking-wider">Contact</Link>
         </div>
       </section>
     </div>

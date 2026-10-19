@@ -41,7 +41,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-burgers",
     price: 360,
     originalPrice: 400,
-    description: "Fresh bun with black sesame seeds juicy crispy petty and tender fluffy taste",
+    description: "Fresh bun with black sesame seeds and a tender, crispy chicken patty.",
     image: image("zinger-burger.avif"),
   },
   {
@@ -50,7 +50,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-burgers",
     price: 270,
     originalPrice: 300,
-    description: "Fresh bun with white seeds Crispy chicken petty and butter Mayonise",
+    description: "Fresh bun with white sesame seeds, crispy chicken patty, butter, and mayonnaise.",
     image: image("chicken-burger.avif"),
   },
   {
@@ -60,7 +60,7 @@ export const menuItems: MenuItem[] = [
     price: 315,
     originalPrice: 350,
     pricePrefix: "from",
-    description: "Fresh Toast Bun with juicy and tender chicken with chapli flavor along with delicious sauces. Add Ring onion and jalapeno slices.",
+    description: "Fresh toasted bun with tender chicken, chapli seasoning, sauces, onion rings, and jalapeño slices.",
     image: image("chapli-burger.avif"),
   },
   {
@@ -70,7 +70,7 @@ export const menuItems: MenuItem[] = [
     price: 630,
     originalPrice: 700,
     pricePrefix: "from",
-    description: "Fresh toast bun with double chicken Fillet o fish petty along with creamy white sauce add with cheese slice",
+    description: "Fresh toasted bun with two chicken fillets, creamy white sauce, and a slice of cheese.",
     image: image("double-zinger-burger.avif"),
   },
   {
@@ -80,7 +80,7 @@ export const menuItems: MenuItem[] = [
     price: 450,
     originalPrice: 500,
     pricePrefix: "from",
-    description: "Fresh toast bun dressing on heel and club with sauces and ice berg with two chicken petty add with cheese slice",
+    description: "Fresh toasted bun with sauces, iceberg lettuce, two chicken patties, and a slice of cheese.",
     image: image("tower-burger.avif"),
   },
   {
@@ -90,7 +90,7 @@ export const menuItems: MenuItem[] = [
     price: 468,
     originalPrice: 520,
     pricePrefix: "from",
-    description: "Messy and Cramelized fresh tossed bun with Spicy chicken breast fillet along with spicy sauces added their cheese slice Jalapeno black olive and touch there BBq sauce",
+    description: "Toasted bun with spicy chicken breast, spicy sauce, cheese, jalapeño, black olives, and barbecue sauce.",
     image: image("spicy-grand-chicken-burger.avif"),
   },
   {
@@ -99,7 +99,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-shawarma",
     price: 250,
     pricePrefix: "from",
-    description: "Fresh toast pita bread along with sauces salad Cucumber ketchup add with tender chicken",
+    description: "Toasted pita bread with tender chicken, sauces, salad, cucumber, and ketchup.",
     image: image("chicken-shawarma.avif"),
   },
   {
@@ -107,7 +107,7 @@ export const menuItems: MenuItem[] = [
     name: "Platter Shawarma",
     category: "furious-shawarma",
     price: 500,
-    description: "Two pita bread juicy and creamy chicken Flavor along with two diff shawarma sauces fresh salad black olive and Jalapeno with tomato Keptchup",
+    description: "Two pita breads with chicken, two shawarma sauces, fresh salad, black olives, jalapeño, tomato, and ketchup.",
     image: image("platter-shawarma.avif"),
   },
   {
@@ -115,7 +115,7 @@ export const menuItems: MenuItem[] = [
     name: "Zinger Shawarma",
     category: "furious-shawarma",
     price: 350,
-    description: "Fresh toast pita bread along with tender zinger chicken with creamy white sauce also add bbq sauce with veggies",
+    description: "Toasted pita bread with zinger chicken, creamy white sauce, barbecue sauce, and vegetables.",
     image: image("zinger-shawarma.avif"),
   },
   {
@@ -123,7 +123,7 @@ export const menuItems: MenuItem[] = [
     name: "Chicken Paratha Roll",
     category: "furious-paratha-rolls",
     price: 380,
-    description: "Frozen paratha juicy and creamy chicken along with special sauces and vegetables",
+    description: "Paratha with chicken, special sauces, and vegetables.",
     image: image("chicken-paratha-roll.avif"),
   },
   {
@@ -131,7 +131,7 @@ export const menuItems: MenuItem[] = [
     name: "Chapli Paratha Roll",
     category: "furious-paratha-rolls",
     price: 400,
-    description: "Frozen paratha add some sauces and vegetables add some potatoes with tender and juicy chicken chapli slices",
+    description: "Paratha with sauces, vegetables, potatoes, and chicken chapli slices.",
     image: image("chapli-paratha-roll.avif"),
   },
   {
@@ -139,7 +139,7 @@ export const menuItems: MenuItem[] = [
     name: "Zinger Paratha Roll",
     category: "furious-paratha-rolls",
     price: 450,
-    description: "Frozen paratha add some sauces and vegetables including heavy loaded zinger slices with white creamy and bbq sauces",
+    description: "Paratha with zinger chicken, vegetables, creamy white sauce, and barbecue sauce.",
     image: image("zinger-paratha-roll.avif"),
   },
   {
@@ -147,7 +147,7 @@ export const menuItems: MenuItem[] = [
     name: "Special Wrap",
     category: "furious-wraps",
     price: 600,
-    description: "Dressing on Tortilla bread lape special spicy sauce and add some veggies with black olive add creamy and juicy tender chicken with cheese",
+    description: "Tortilla wrap with spicy sauce, vegetables, black olives, chicken, and cheese.",
     image: image("special-wrap.avif"),
   },
   {
@@ -155,7 +155,7 @@ export const menuItems: MenuItem[] = [
     name: "Arabian Wrap",
     category: "furious-wraps",
     price: 550,
-    description: "Creamalized Tortilla bread inside fresh vegitables small Bbq chicken slices recon onion added some black olive and slightly sauces",
+    description: "Tortilla wrap with vegetables, barbecue chicken, red onion, black olives, and sauce.",
     image: image("arabian-wrap.avif"),
   },
   {
@@ -164,7 +164,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-fried-items",
     price: 200,
     pricePrefix: "from",
-    description: "Hot fried chicken piece crispy and juicy tender mild chicken",
+    description: "Hot-fried chicken with a crispy exterior and tender texture.",
     image: image("chicken-piece.avif"),
   },
   {
@@ -173,7 +173,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-fried-items",
     price: 400,
     pricePrefix: "from",
-    description: "Soft and juicy mild tender chicken",
+    description: "Tender chicken pieces.",
     image: image("tender-chicken-pieces.avif"),
   },
   {
@@ -182,7 +182,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-fried-items",
     price: 250,
     pricePrefix: "from",
-    description: "Mild crispy tender chicken with spicy taste",
+    description: "Crispy chicken nuggets with a mild spice.",
     image: image("nuggets.avif"),
   },
   {
@@ -191,7 +191,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-wings",
     price: 400,
     pricePrefix: "from",
-    description: "Hot Crispy tender chicken",
+    description: "Crispy hot wings.",
     image: image("hot-wings.avif"),
   },
   {
@@ -200,7 +200,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-french-fries",
     price: 300,
     pricePrefix: "from",
-    description: "Salty potato fries",
+    description: "Salted potato fries.",
     image: image("fries.avif"),
   },
   {
@@ -208,7 +208,7 @@ export const menuItems: MenuItem[] = [
     name: "Masala Fries",
     category: "furious-french-fries",
     price: 430,
-    description: "Special masala fries",
+    description: "Fries seasoned with masala.",
     image: image("masala-fries.avif"),
   },
   {
@@ -216,7 +216,7 @@ export const menuItems: MenuItem[] = [
     name: "Loaded Fries",
     category: "furious-french-fries",
     price: 600,
-    description: "Crispy golden fries generously loaded with rich melted cheese tender mild chicken black olives fresh jalapenos and a savory layer of smoky BBQ sauce for an indulgent treat",
+    description: "Crispy fries topped with melted cheese, chicken, black olives, jalapeños, and barbecue sauce.",
     image: image("loaded-fries.avif"),
   },
   {
@@ -224,7 +224,7 @@ export const menuItems: MenuItem[] = [
     name: "Garlic Mayo Fries",
     category: "furious-french-fries",
     price: 450,
-    description: "Fresh potato with creamy garlic sauce",
+    description: "Potato fries with creamy garlic sauce.",
     image: image("garlic-mayo-fries.avif"),
   },
   {
@@ -232,7 +232,7 @@ export const menuItems: MenuItem[] = [
     name: "Mayo Sauce",
     category: "sides",
     price: 80,
-    description: "White creamy and salty Mayonise",
+    description: "Creamy mayonnaise sauce with a lightly salty taste.",
     image: image("mayo-sauce.avif"),
   },
   {
@@ -240,7 +240,7 @@ export const menuItems: MenuItem[] = [
     name: "Lava Sauce",
     category: "sides",
     price: 80,
-    description: "Creamy Mayonise added with spicy red chili flack also added black pepper",
+    description: "Creamy mayonnaise with red chili flakes and black pepper.",
     image: image("lava-sauce.avif"),
   },
   {
@@ -248,7 +248,7 @@ export const menuItems: MenuItem[] = [
     name: "Peri Peri Sauce",
     category: "sides",
     price: 80,
-    description: "Creamy sauce with black pepper and added some specific ingredients",
+    description: "Creamy peri peri sauce.",
     image: image("peri-peri-sauce.avif"),
   },
   {
@@ -256,7 +256,7 @@ export const menuItems: MenuItem[] = [
     name: "Garlic Sauce",
     category: "sides",
     price: 80,
-    description: "Creamy mayonnaise and added some garlic paste black pepper sugar and salty mustard",
+    description: "Creamy mayonnaise with garlic, black pepper, sugar, and mustard.",
     image: image("garlic-sauce.avif"),
   },
   {
@@ -264,7 +264,7 @@ export const menuItems: MenuItem[] = [
     name: "Pepsi - 345 ml",
     category: "beverages",
     price: 100,
-    description: "The Bold, Refreshing & STRONG cola! Click to add to your meal.",
+    description: "Pepsi, 345 ml.",
     image: image("pepsi-345ml.avif"),
   },
   {
@@ -272,7 +272,7 @@ export const menuItems: MenuItem[] = [
     name: "Pepsi - 500 ml",
     category: "beverages",
     price: 140,
-    description: "The Bold, Refreshing & STRONG cola! Click to add to your meal.",
+    description: "Pepsi, 500 ml.",
     image: image("pepsi-500ml.avif"),
   },
   {
@@ -280,7 +280,7 @@ export const menuItems: MenuItem[] = [
     name: "Pepsi - 1 Litre",
     category: "beverages",
     price: 200,
-    description: "The Bold, Refreshing & STRONG cola! Click to add to your meal.",
+    description: "Pepsi, 1 litre.",
     image: image("pepsi-liter.avif"),
   },
   {
@@ -288,7 +288,7 @@ export const menuItems: MenuItem[] = [
     name: "Pepsi - 1.5 Litre",
     category: "beverages",
     price: 240,
-    description: "The Bold, Refreshing & STRONG cola! Click to add to your meal.",
+    description: "Pepsi, 1.5 litres.",
     image: image("Pepsi-1.5liter.avif"),
   },
   {
@@ -296,7 +296,7 @@ export const menuItems: MenuItem[] = [
     name: "Aquafina Water - 500 ml",
     category: "beverages",
     price: 80,
-    description: "Pure water for a perfect taste! Click to add refreshing water to your meal.",
+    description: "Aquafina bottled water, 500 ml.",
     image: image("aquafina-water500%20ml.avif"),
   },
 ];

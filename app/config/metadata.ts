@@ -36,7 +36,7 @@ export function createPageMetadata(
       }),
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title,
       description,
       ...(imageUrl && { images: [imageUrl] }),

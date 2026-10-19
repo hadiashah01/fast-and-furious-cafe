@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, Menu as MenuIcon, Phone, X } from "lucide-react";
+import { ExternalLink, MapPin, Menu as MenuIcon, Phone, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -29,9 +29,9 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-surface-border bg-surface/95">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto grid h-20 max-w-7xl grid-cols-[1fr_auto] items-center px-4 sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-8">
         <BrandWordmark />
-        <nav className="hidden items-center space-x-1 md:flex lg:space-x-2" aria-label="Main navigation">
+        <nav className="hidden items-center justify-center space-x-1 lg:flex lg:space-x-2" aria-label="Main navigation">
           {siteConfig.nav.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -50,22 +50,32 @@ export default function Header() {
             );
           })}
         </nav>
-        <div className="hidden items-center space-x-3 lg:flex">
+        <div className="hidden items-center justify-end gap-2 lg:flex">
+          <a
+            href={siteConfig.location.googleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open cafe location in Google Maps"
+            title="Open cafe location in Google Maps"
+            className="button-dark grid h-10 w-10 place-items-center rounded"
+          >
+            <MapPin aria-hidden="true" className="map-pin-icon h-5 w-5 fill-amber-brand text-amber-brand" />
+          </a>
           <a
             href={siteConfig.contact.phoneTel}
-            className="flex items-center space-x-2 rounded border border-zinc-700 bg-surface-card px-3 py-2 text-xs font-semibold text-zinc-200 transition hover:bg-zinc-800"
+            className="button-dark inline-flex items-center gap-1.5 rounded px-3 py-2 text-sm font-semibold"
           >
-            <Phone className="h-3.5 w-3.5 text-amber-brand" />
-            <span>{siteConfig.contact.phone}</span>
+            <Phone aria-hidden="true" className="h-3.5 w-3.5 text-amber-brand" />
+            <span>Call</span>
           </a>
           <a
             href={siteConfig.ordering.foodpandaUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-2 rounded bg-foodpanda px-4 py-2 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover"
+            className="inline-flex items-center gap-1.5 rounded bg-foodpanda px-3 py-2 text-xs font-bold uppercase tracking-wide text-white transition-colors hover:bg-foodpanda-hover"
           >
-            <span>Order on Foodpanda</span>
-            <ExternalLink className="h-3 w-3" />
+            <span>Foodpanda</span>
+            <ExternalLink aria-hidden="true" className="h-3 w-3" />
           </a>
         </div>
         <button
@@ -75,7 +85,7 @@ export default function Header() {
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-navigation"
           aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          className="p-2 text-zinc-300 hover:text-white md:hidden"
+          className="justify-self-end p-2 text-zinc-300 hover:text-white lg:hidden"
         >
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
         </button>
@@ -83,7 +93,7 @@ export default function Header() {
       <div
         id="mobile-navigation"
         hidden={!mobileMenuOpen}
-        className="space-y-3 border-b border-surface-border bg-surface-lowest px-4 py-5 md:hidden"
+        className="space-y-3 border-b border-surface-border bg-surface-lowest px-4 py-5 lg:hidden"
       >
           <nav className="flex flex-col space-y-2" aria-label="Mobile navigation">
             {siteConfig.nav.map((item) => {
@@ -103,20 +113,32 @@ export default function Header() {
               );
             })}
           </nav>
-          <div className="flex flex-col gap-2 border-t border-zinc-800 pt-3">
+          <div className="grid grid-cols-3 gap-2 border-t border-zinc-800 pt-3">
+            <a
+              href={siteConfig.location.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+                aria-label="Open cafe location in Google Maps"
+                title="Open cafe location in Google Maps"
+                className="button-dark grid h-10 w-10 place-items-center justify-self-center rounded"
+              >
+                <MapPin aria-hidden="true" className="map-pin-icon h-5 w-5 fill-amber-brand text-amber-brand" />
+            </a>
+            <a
+              href={siteConfig.contact.phoneTel}
+              className="button-dark flex items-center justify-center gap-1 rounded px-2 py-2 text-sm font-semibold"
+            >
+              <Phone aria-hidden="true" className="h-3.5 w-3.5 text-amber-brand" />
+              <span>Call</span>
+            </a>
             <a
               href={siteConfig.ordering.foodpandaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full rounded bg-foodpanda py-2.5 text-center text-xs font-bold uppercase tracking-wider text-white"
+              className="flex items-center justify-center gap-1 rounded bg-foodpanda px-2 py-2 text-[11px] font-bold text-white hover:bg-foodpanda-hover"
             >
-              Order on Foodpanda
-            </a>
-            <a
-              href={siteConfig.contact.phoneTel}
-              className="w-full rounded border border-zinc-700 bg-surface-card py-2 text-center text-xs font-semibold text-zinc-200"
-            >
-              Call {siteConfig.contact.phone}
+              <span>Foodpanda</span>
+              <ExternalLink aria-hidden="true" className="h-3 w-3" />
             </a>
           </div>
       </div>
