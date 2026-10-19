@@ -1,10 +1,12 @@
 import { Check, ExternalLink, Phone } from "lucide-react";
 import { siteConfig } from "../config/site";
 import { dealCategoryLabels, type Deal } from "../data/deals";
+import MenuImage from "./MenuImage";
 
 export default function DealCard({ deal }: { deal: Deal }) {
   return (
     <article className="flex flex-col justify-between space-y-5 rounded-lg border border-surface-border bg-surface-card p-6">
+      <MenuImage src={deal.image} alt={`${deal.name} from Fast & Furious Cafe`} />
       <div className="space-y-3">
         <div className="flex items-start justify-between">
           <span className="font-display text-[10px] font-semibold uppercase tracking-widest text-amber-brand">
@@ -26,9 +28,9 @@ export default function DealCard({ deal }: { deal: Deal }) {
         <div className="flex items-baseline justify-between">
           <div>
             <span className="block font-display text-[10px] uppercase tracking-wider text-zinc-500">Price</span>
-            <span className="font-display text-2xl font-bold text-amber-brand">PKR {deal.price.toLocaleString("en-PK")}</span>
+            <span className="font-display text-2xl font-bold text-amber-brand">Rs. {deal.price.toLocaleString("en-PK")}</span>
           </div>
-          <span className="text-[11px] text-zinc-500">Call to check</span>
+          <span className="text-[11px] text-zinc-500">Listed price</span>
         </div>
         <div className="grid grid-cols-2 gap-2">
           <a

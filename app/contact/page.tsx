@@ -7,12 +7,13 @@ import {
   Utensils,
 } from "lucide-react";
 import { siteConfig } from "../config/site";
+import { createPageMetadata } from "../config/metadata";
 
-export const metadata = {
-  title: "Contact & Location | Fast & Furious Cafe Sialkot",
-  description:
-    "Visit Fast & Furious Cafe on Circular Road in Sialkot. Call 0332 4340149, email ffcafesialkot@gmail.com or get directions.",
-};
+export const metadata = createPageMetadata(
+  "/contact",
+  "Contact & Location",
+  "Find the address, phone, email and map for Fast & Furious Cafe on Circular Road in Sialkot.",
+);
 
 export default function ContactPage() {
   return (
@@ -46,7 +47,7 @@ export default function ContactPage() {
             <article className="space-y-3 rounded-lg border border-surface-border bg-surface-card p-6">
               <div className="flex items-center space-x-2 font-display text-xs font-semibold uppercase tracking-wider text-amber-brand"><MapPin className="h-4 w-4" /><span>Address</span></div>
               <h2 className="font-display text-lg font-bold uppercase text-white">CIRCULAR ROAD, SIALKOT</h2>
-              <p className="text-xs leading-relaxed text-zinc-300">{siteConfig.location.address}</p>
+              <address className="not-italic text-xs leading-relaxed text-zinc-300">{siteConfig.location.address}</address>
               <div className="border-t border-zinc-800 pt-2 text-xs text-zinc-400"><span className="font-semibold uppercase text-zinc-500">Landmark:</span> {siteConfig.location.landmark}.</div>
             </article>
 
@@ -70,11 +71,12 @@ export default function ContactPage() {
               </div>
             </article>
 
-            <article className="space-y-2 rounded-lg border border-surface-border bg-surface-card p-6">
-              <span className="block font-display text-[10px] font-semibold uppercase tracking-wider text-zinc-500">Service Options</span>
-              <div className="grid grid-cols-1 gap-2 pt-1 text-center sm:grid-cols-3">
-                {siteConfig.services.map((service) => <div key={service.title} title={service.desc} className="rounded border border-zinc-800 bg-surface-lowest p-2 text-xs font-semibold text-zinc-200">{service.title}</div>)}
-              </div>
+            <article className="space-y-3 rounded-lg border border-surface-border bg-surface-card p-6">
+              <span className="block font-display text-[10px] font-semibold uppercase tracking-wider text-zinc-500">Online Ordering</span>
+              <p className="text-xs text-zinc-300">Visit the external Foodpanda listing for ordering options.</p>
+              <a href={siteConfig.ordering.foodpandaUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-semibold text-white hover:text-amber-brand">
+                <span>Open Foodpanda</span><ExternalLink className="h-3.5 w-3.5" />
+              </a>
             </article>
           </div>
 

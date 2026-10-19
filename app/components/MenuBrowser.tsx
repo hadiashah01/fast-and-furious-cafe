@@ -7,33 +7,47 @@ import {
   categoryLabels,
   menuItems,
   type MenuCategory,
+  popularItemIds,
 } from "../data/menuItems";
 import CafeInfoNotice from "./CafeInfoNotice";
 import ProductCard from "./ProductCard";
 
 export default function MenuBrowser() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<"all" | MenuCategory>("all");
+  const [selectedCategory, setSelectedCategory] = useState<
+    "all" | "popular" | MenuCategory
+  >("all");
+  const [visibleCount, setVisibleCount] = useState(9);
 
   const filteredItems = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
     return menuItems.filter((item) => {
-      const matchesSearch = `${item.name} ${categoryLabels[item.category]}`
+      const matchesSearch =
+        `${item.name} ${item.description} ${categoryLabels[item.category]}`
         .toLowerCase()
         .includes(query);
       const matchesCategory =
-        selectedCategory === "all" || item.category === selectedCategory;
+        selectedCategory === "all" ||
+        (selectedCategory === "popular"
+          ? popularItemIds.includes(item.id as (typeof popularItemIds)[number])
+          : item.category === selectedCategory);
       return matchesSearch && matchesCategory;
     });
   }, [searchQuery, selectedCategory]);
+  const visibleItems = filteredItems.slice(0, visibleCount);
 
   const resetFilters = () => {
     setSearchQuery("");
     setSelectedCategory("all");
+    setVisibleCount(9);
   };
 
-  const categories: { id: "all" | MenuCategory; label: string }[] = [
+  const categories: {
+    id: "all" | "popular" | MenuCategory;
+    label: string;
+  }[] = [
     { id: "all", label: "All Items" },
+    { id: "popular", label: "Popular" },
     ...Object.entries(categoryLabels).map(([id, label]) => ({
       id: id as MenuCategory,
       label,
@@ -61,7 +75,10 @@ export default function MenuBrowser() {
               <button
                 key={category.id}
                 type="button"
-                onClick={() => setSelectedCategory(category.id)}
+                onClick={() => {
+                  setSelectedCategory(category.id);
+                  setVisibleCount(9);
+                }}
                 aria-pressed={selectedCategory === category.id}
                 className={`shrink-0 rounded px-3 py-1.5 font-display text-xs uppercase tracking-wider transition ${
                   selectedCategory === category.id
@@ -69,7 +86,14 @@ export default function MenuBrowser() {
                     : "border border-zinc-800 bg-surface-lowest text-zinc-400 hover:text-white"
                 }`}
               >
-                {category.label}
+                {category.label} (
+                {category.id === "all"
+                  ? menuItems.length
+                  : category.id === "popular"
+                    ? popularItemIds.length
+                    : menuItems.filter((item) => item.category === category.id)
+                        .length}
+                )
               </button>
             ))}
           </div>
@@ -81,7 +105,10 @@ export default function MenuBrowser() {
                 type="search"
                 placeholder="Search menu items..."
                 value={searchQuery}
-                onChange={(event) => setSearchQuery(event.target.value)}
+                onChange={(event) => {
+                  setSearchQuery(event.target.value);
+                  setVisibleCount(9);
+                }}
                 className="w-full rounded border border-zinc-700 bg-surface-lowest py-1.5 pl-9 pr-3 text-xs text-white placeholder-zinc-500 focus:border-amber-brand focus:outline-none"
               />
             </label>
@@ -120,10 +147,28 @@ export default function MenuBrowser() {
               {filteredItems.length} {filteredItems.length === 1 ? "item" : "items"}
             </p>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {filteredItems.map((item) => (
+              {visibleItems.map((item) => (
                 <ProductCard key={item.id} item={item} />
               ))}
             </div>
+            {filteredItems.length > visibleCount && (
+              <button
+                type="button"
+                onClick={() => setVisibleCount((count) => count + 9)}
+                className="mt-8 rounded bg-crimson px-5 py-3 text-xs font-bold uppercase tracking-wider text-white hover:bg-crimson-hover"
+              >
+                See More
+              </button>
+            )}
+            {visibleCount > 9 && visibleItems.length === filteredItems.length && (
+              <button
+                type="button"
+                onClick={() => setVisibleCount(9)}
+                className="mt-8 ml-3 rounded border border-zinc-700 bg-surface-card px-5 py-3 text-xs font-semibold uppercase tracking-wider text-zinc-200 hover:bg-zinc-800"
+              >
+                Show Less
+              </button>
+            )}
           </>
         )}
       </section>

@@ -20,15 +20,17 @@ export const siteConfig = {
   ordering: {
     foodpandaUrl: "https://www.foodpanda.pk/restaurant/iwe2/fast-and-furious-cafe",
   },
+  social: {
+    facebookUrl: "https://www.facebook.com/M.law149/",
+  },
+  developer: {
+    name: "Hadia Shahjahan",
+    portfolioUrl: "https://portfolio-hadia01.vercel.app/",
+  },
   hours: {
     display: "3:00 PM – 1:00 AM",
     caveat: "Schedule subject to confirmation",
   },
-  services: [
-    { title: "Dine-In", desc: "Call to ask about dine-in" },
-    { title: "Roadside Collection", desc: "Call to arrange collection" },
-    { title: "In-Store Takeaway", desc: "Call to ask about takeaway" },
-  ],
   nav: [
     { label: "Home", href: "/" },
     { label: "Menu", href: "/menu" },

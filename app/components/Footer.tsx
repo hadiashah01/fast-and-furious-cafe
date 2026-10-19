@@ -34,6 +34,11 @@ export default function Footer() {
                   <span>Foodpanda Store</span><ExternalLink className="h-3 w-3" />
                 </a>
               </li>
+              <li>
+                <a href={siteConfig.social.facebookUrl} target="_blank" rel="noopener noreferrer" className="transition hover:text-white">
+                  Facebook
+                </a>
+              </li>
             </ul>
           </div>
           <div>
@@ -81,15 +86,14 @@ export default function Footer() {
                 <span>ORDER ONLINE</span><ExternalLink className="h-3.5 w-3.5" />
               </a>
             </div>
-            <div className="mt-4 border-t border-zinc-800 pt-3">
-              <span className="mb-1 block font-display text-[10px] uppercase tracking-wider text-zinc-500">Ask About</span>
-              <p className="text-[11px] text-zinc-400">{siteConfig.services.map((service) => service.title).join(" • ")} • Foodpanda</p>
-            </div>
           </div>
         </div>
         <div className="flex flex-col items-center justify-between gap-2 border-t border-zinc-800 pt-6 text-[11px] text-zinc-500 sm:flex-row">
           <p>© {new Date().getFullYear()} Fast &amp; Furious Cafe Sialkot. All rights reserved.</p>
           <p className="font-display uppercase tracking-widest text-zinc-400">Circular Road • Sialkot</p>
+          <a href={siteConfig.developer.portfolioUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+            Developed by {siteConfig.developer.name}
+          </a>
         </div>
       </div>
     </footer>

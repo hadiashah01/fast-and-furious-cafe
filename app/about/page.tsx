@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { ExternalLink, Flame, HeartHandshake, ShieldCheck } from "lucide-react";
 import { siteConfig } from "../config/site";
+import { createPageMetadata } from "../config/metadata";
 
-export const metadata = {
-  title: "About Us | Fast & Furious Cafe Sialkot",
-  description:
-    "Fast & Furious Cafe is on Circular Road, opposite Pakistan Gym in Sialkot. See the menu, service options and contact details.",
-};
+export const metadata = createPageMetadata(
+  "/about",
+  "About the Cafe",
+  "Learn about Fast & Furious Cafe, its listed menu, and its location on Circular Road in Sialkot.",
+);
 
 const standards = [
   {
@@ -68,21 +69,21 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center">
-          <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">Ask Us About</span>
-          <h2 className="mt-1 font-display text-2xl font-bold uppercase text-white sm:text-3xl">Ways to Order</h2>
+          <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">Get in Touch</span>
+          <h2 className="mt-1 font-display text-2xl font-bold uppercase text-white sm:text-3xl">Ordering &amp; Directions</h2>
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { category: "01 • Dine-In", name: "Dine-In", text: siteConfig.services[0].desc },
-            { category: "02 • Roadside", name: "Roadside Collection", text: siteConfig.services[1].desc },
-            { category: "03 • Takeaway", name: "In-Store Takeaway", text: siteConfig.services[2].desc },
-            { category: "04 • Online", name: "Foodpanda", text: "Check the listing for current ordering options." },
+            { category: "01 • External Ordering", name: "Foodpanda", text: "Visit the Foodpanda listing.", href: siteConfig.ordering.foodpandaUrl },
+            { category: "02 • Phone", name: "Call the Cafe", text: siteConfig.contact.phone, href: siteConfig.contact.phoneTel },
+            { category: "03 • Directions", name: "Google Maps", text: siteConfig.location.shortAddress, href: siteConfig.location.googleMapsUrl },
+            { category: "04 • Facebook", name: "Facebook", text: "Fast & Furious Cafe", href: siteConfig.social.facebookUrl },
           ].map((service) => (
-            <article key={service.category} className="space-y-2 rounded border border-surface-border bg-surface-lowest p-5">
+            <a key={service.category} href={service.href} target={service.href.startsWith("http") ? "_blank" : undefined} rel={service.href.startsWith("http") ? "noopener noreferrer" : undefined} className="space-y-2 rounded border border-surface-border bg-surface-lowest p-5">
               <span className="font-display text-xs font-bold uppercase tracking-wider text-amber-brand">{service.category}</span>
               <h3 className="font-display text-base font-bold uppercase text-white">{service.name}</h3>
               <p className="text-xs text-zinc-400">{service.text}</p>
-            </article>
+            </a>
           ))}
         </div>
       </section>

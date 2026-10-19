@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertCircle, Clock, MapPin, Utensils } from "lucide-react";
+import { AlertCircle, MapPin, Phone, Utensils } from "lucide-react";
 import { useState } from "react";
 import { dealCategories, dealsData, type DealCategory } from "../data/deals";
 import { siteConfig } from "../config/site";
@@ -63,18 +63,18 @@ export default function DealBrowser() {
           </p>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          <div className="flex items-start gap-3 rounded-lg border border-surface-border bg-surface-card p-5">
+          <a href={siteConfig.ordering.foodpandaUrl} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 rounded-lg border border-surface-border bg-surface-card p-5">
             <Utensils className="h-5 w-5 shrink-0 text-amber-brand" />
-            <div><h3 className="font-display text-sm font-bold uppercase text-white">{siteConfig.services[0].title}</h3><p className="mt-1 text-xs text-zinc-400">{siteConfig.services[0].desc}.</p></div>
-          </div>
-          <div className="flex items-start gap-3 rounded-lg border border-surface-border bg-surface-card p-5">
-            <MapPin className="h-5 w-5 shrink-0 text-amber-brand" />
-            <div><h3 className="font-display text-sm font-bold uppercase text-white">{siteConfig.services[1].title}</h3><p className="mt-1 text-xs text-zinc-400">{siteConfig.services[1].desc}.</p></div>
-          </div>
-          <div className="flex items-start gap-3 rounded-lg border border-surface-border bg-surface-card p-5">
-            <Clock className="h-5 w-5 shrink-0 text-amber-brand" />
-            <div><h3 className="font-display text-sm font-bold uppercase text-white">{siteConfig.services[2].title}</h3><p className="mt-1 text-xs text-zinc-400">{siteConfig.services[2].desc}.</p></div>
-          </div>
+            <div><h3 className="font-display text-sm font-bold uppercase text-white">Foodpanda</h3><p className="mt-1 text-xs text-zinc-400">Order through the external listing.</p></div>
+          </a>
+          <a href={siteConfig.contact.phoneTel} className="flex items-start gap-3 rounded-lg border border-surface-border bg-surface-card p-5">
+          <Phone className="h-5 w-5 shrink-0 text-amber-brand" />
+          <div><h3 className="font-display text-sm font-bold uppercase text-white">Call the Cafe</h3><p className="mt-1 text-xs text-zinc-400">{siteConfig.contact.phone}</p></div>
+          </a>
+          <a href={siteConfig.location.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 rounded-lg border border-surface-border bg-surface-card p-5">
+          <MapPin className="h-5 w-5 shrink-0 text-amber-brand" />
+          <div><h3 className="font-display text-sm font-bold uppercase text-white">Directions</h3><p className="mt-1 text-xs text-zinc-400">{siteConfig.location.shortAddress}</p></div>
+          </a>
         </div>
       </section>
     </div>

@@ -1,23 +1,19 @@
 import Link from "next/link";
 import { Clock, ExternalLink, Flame, MapPin, Phone, ShieldCheck, Utensils } from "lucide-react";
 import { siteConfig } from "./config/site";
-import { categoryLabels, menuItems } from "./data/menuItems";
+import { categoryLabels, popularItems } from "./data/menuItems";
 import { dealsData } from "./data/deals";
+import { createPageMetadata } from "./config/metadata";
+import MenuImage from "./components/MenuImage";
 
-export const metadata = {
-  title: "Fast & Furious Cafe | Sialkot",
-  description:
-    "Burgers, shawarma, paratha rolls and fries at Fast & Furious Cafe on Circular Road, Sialkot.",
-};
+export const metadata = createPageMetadata(
+  "/",
+  "Fast & Furious Cafe",
+  "Explore burgers, shawarma, paratha rolls and fries at Fast & Furious Cafe on Circular Road in Sialkot.",
+);
 
-const highlightIds = [
-  "furious-zinger",
-  "sialkot-special-shawarma",
-  "chicken-tikka-paratha-roll",
-  "loaded-pizza-fries",
-];
-const highlights = menuItems.filter((item) => highlightIds.includes(item.id));
-const featuredDeal = dealsData.find((deal) => deal.id === "furious-duo-feast");
+const highlights = popularItems.slice(0, 4);
+const featuredDeal = dealsData[0];
 
 export default function HomePage() {
   return (
@@ -43,7 +39,7 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-x-8 gap-y-4 border-t border-surface-border pt-5">
                 <div><span className="block font-display text-[10px] uppercase text-zinc-500">Hours</span><span className="font-medium text-zinc-300">{siteConfig.hours.display}</span><span className="block text-[10px] text-zinc-500">{siteConfig.hours.caveat}</span></div>
                 <div><span className="block font-display text-[10px] uppercase text-zinc-500">Location</span><span className="font-medium text-zinc-300">Circular Road</span><span className="block text-[10px] text-zinc-500">Opp. Pakistan Gym</span></div>
-                <div><span className="block font-display text-[10px] uppercase text-zinc-500">Service Options</span><span className="font-medium text-zinc-300">{siteConfig.services.map((service) => service.title).join(" • ")}</span><span className="block text-[10px] text-zinc-500">Call to check availability</span></div>
+                <div><span className="block font-display text-[10px] uppercase text-zinc-500">Ordering</span><a className="font-medium text-zinc-300 hover:text-white" href={siteConfig.ordering.foodpandaUrl} target="_blank" rel="noopener noreferrer">Foodpanda <ExternalLink className="inline h-3 w-3" /></a><span className="block text-[10px] text-zinc-500">External ordering listing</span></div>
               </div>
             </div>
 
@@ -51,10 +47,11 @@ export default function HomePage() {
               <div className="flex items-center justify-between gap-2 text-xs">
                 <span className="rounded border border-amber-brand/30 bg-amber-brand/10 px-2 py-0.5 font-display text-[11px] uppercase tracking-wider text-amber-brand">Featured Deal</span>
               </div>
+              <MenuImage src={featuredDeal.image} alt={`${featuredDeal.name} meal deal`} />
               <h2 className="font-display text-2xl font-bold uppercase text-white">{featuredDeal.name}</h2>
               <p className="text-xs text-zinc-400">{featuredDeal.items.join(" + ")}.</p>
-              <p className="font-display text-xl font-bold text-amber-brand">PKR {featuredDeal.price.toLocaleString("en-PK")}</p>
-              <p className="text-[11px] text-zinc-500">Call to check this deal’s price and availability.</p>
+              <p className="font-display text-xl font-bold text-amber-brand">Rs. {featuredDeal.price.toLocaleString("en-PK")}</p>
+              <p className="text-[11px] text-zinc-500">Check the Foodpanda listing for current offers.</p>
               <div className="flex flex-wrap gap-2 pt-2">
                 <a href={siteConfig.ordering.foodpandaUrl} target="_blank" rel="noopener noreferrer" className="flex-1 rounded bg-foodpanda py-2 text-center text-xs font-bold uppercase tracking-wider text-white transition hover:bg-foodpanda-hover">Order on Foodpanda</a>
                 <Link href="/deals" className="rounded bg-zinc-800 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-zinc-200 transition hover:bg-zinc-700">All Deals</Link>
@@ -72,12 +69,13 @@ export default function HomePage() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((item) => (
             <article key={item.id} className="flex flex-col justify-between space-y-3 rounded-lg border border-surface-border bg-surface-card p-5">
+              <MenuImage src={item.image} alt={`${item.name} from Fast & Furious Cafe`} />
               <div><span className="font-display text-[10px] font-semibold uppercase tracking-wider text-amber-brand">{categoryLabels[item.category]}</span><h3 className="mt-1 font-display text-lg font-bold uppercase text-white">{item.name}</h3></div>
-              <div className="flex items-center justify-between border-t border-zinc-800 pt-3"><span className="font-display font-bold text-amber-brand">PKR {item.price}</span><Link href="/menu" className="font-display text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-crimson">View on Menu →</Link></div>
+              <div className="flex items-center justify-between border-t border-zinc-800 pt-3"><span className="font-display font-bold text-amber-brand">{item.pricePrefix ? "from " : ""}Rs. {item.price}</span><Link href="/menu" className="font-display text-xs font-semibold uppercase tracking-wider text-zinc-400 hover:text-crimson">View on Menu →</Link></div>
             </article>
           ))}
         </div>
-        <p className="mt-6 text-center text-[11px] text-zinc-500">Prices are listed in PKR. Call to confirm current prices.</p>
+        <p className="mt-6 text-center text-[11px] text-zinc-500">Prices are listed as shown on Foodpanda. Check the listing for current prices.</p>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
