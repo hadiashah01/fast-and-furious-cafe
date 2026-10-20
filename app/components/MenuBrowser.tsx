@@ -16,7 +16,6 @@ export default function MenuBrowser() {
   const [selectedCategory, setSelectedCategory] = useState<
     "all" | "popular" | MenuCategory
   >("all");
-  const [visibleCount, setVisibleCount] = useState(9);
 
   const filteredItems = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
@@ -33,12 +32,9 @@ export default function MenuBrowser() {
       return matchesSearch && matchesCategory;
     });
   }, [searchQuery, selectedCategory]);
-  const visibleItems = filteredItems.slice(0, visibleCount);
-
   const resetFilters = () => {
     setSearchQuery("");
     setSelectedCategory("all");
-    setVisibleCount(9);
   };
 
   const categories: {
@@ -71,17 +67,16 @@ export default function MenuBrowser() {
 
       <section className="sticky top-20 z-40 mx-auto max-w-7xl bg-surface px-4 py-2 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-4 bg-surface-card p-4 md:flex-row">
-          <div className="horizontal-scrollbar-hidden flex w-full touch-pan-x items-center space-x-2 overflow-x-auto overscroll-x-contain pb-1 md:w-auto md:pb-0">
+          <div className="horizontal-scrollbar-hidden flex w-full min-w-0 touch-pan-x items-center gap-2 overflow-x-auto overscroll-x-contain scroll-smooth pb-1 md:flex-1 md:pb-0">
             {categories.map((category) => (
               <button
                 key={category.id}
                 type="button"
                 onClick={() => {
                   setSelectedCategory(category.id);
-                  setVisibleCount(9);
                 }}
                 aria-pressed={selectedCategory === category.id}
-                className={`shrink-0 rounded px-3 py-1.5 font-display text-xs uppercase tracking-wider transition ${
+                className={`shrink-0 rounded px-2.5 py-1.5 font-display text-xs uppercase tracking-wider transition ${
                   selectedCategory === category.id
                     ? "bg-crimson font-bold text-white"
                     : "button-dark text-zinc-400"
@@ -108,7 +103,6 @@ export default function MenuBrowser() {
                 value={searchQuery}
                 onChange={(event) => {
                   setSearchQuery(event.target.value);
-                  setVisibleCount(9);
                 }}
                 className="w-full rounded border border-zinc-700 bg-surface-lowest py-1.5 pl-9 pr-3 text-xs text-white placeholder-zinc-500 focus:border-amber-brand focus:outline-none"
               />
@@ -148,28 +142,10 @@ export default function MenuBrowser() {
               {filteredItems.length} {filteredItems.length === 1 ? "item" : "items"}
             </p>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {visibleItems.map((item) => (
+              {filteredItems.map((item) => (
                 <ProductCard key={item.id} item={item} />
               ))}
             </div>
-            {filteredItems.length > visibleCount && (
-              <button
-                type="button"
-                onClick={() => setVisibleCount((count) => count + 9)}
-                className="mt-8 rounded bg-crimson px-5 py-3 text-xs font-bold uppercase tracking-wider text-white hover:bg-crimson-hover"
-              >
-                See More
-              </button>
-            )}
-            {visibleCount > 9 && visibleItems.length === filteredItems.length && (
-              <button
-                type="button"
-                onClick={() => setVisibleCount(9)}
-                className="button-dark mt-8 ml-3 rounded px-5 py-3 text-xs font-semibold uppercase tracking-wider"
-              >
-                Show Less
-              </button>
-            )}
           </>
         )}
       </section>

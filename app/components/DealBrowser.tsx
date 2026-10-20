@@ -64,7 +64,7 @@ export default function DealBrowser() {
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           <a href={siteConfig.ordering.foodpandaUrl} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 rounded-lg border border-surface-border bg-surface-card p-5">
-            <Utensils className="h-5 w-5 shrink-0 text-amber-brand" />
+            <Utensils className="h-5 w-5 shrink-0 text-crimson" />
             <div><h3 className="font-display text-sm font-bold uppercase text-white">Foodpanda</h3><p className="mt-1 text-xs text-zinc-400">Order through the external listing.</p></div>
           </a>
           <a href={siteConfig.contact.phoneTel} className="flex items-start gap-3 rounded-lg border border-surface-border bg-surface-card p-5">
@@ -72,7 +72,7 @@ export default function DealBrowser() {
           <div><h3 className="font-display text-sm font-bold uppercase text-white">Call the Cafe</h3><p className="mt-1 text-xs text-zinc-400">{siteConfig.contact.phone}</p></div>
           </a>
           <a href={siteConfig.location.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 rounded-lg border border-surface-border bg-surface-card p-5">
-          <MapPin className="h-5 w-5 shrink-0 text-amber-brand" />
+          <MapPin className="h-5 w-5 shrink-0 text-zinc-300" />
           <div><h3 className="font-display text-sm font-bold uppercase text-white">Directions</h3><p className="mt-1 text-xs text-zinc-400">{siteConfig.location.shortAddress}</p></div>
           </a>
         </div>

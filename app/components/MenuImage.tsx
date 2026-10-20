@@ -18,7 +18,14 @@ export default function MenuImage({
 }) {
   const [failed, setFailed] = useState(false);
 
-  if (!src || failed) return null;
+  if (!src || failed) {
+    return (
+      <div
+        aria-hidden="true"
+        className={`relative overflow-hidden rounded bg-surface-lowest ${className ?? "aspect-[16/9] w-full"}`}
+      />
+    );
+  }
 
   return (
     <div

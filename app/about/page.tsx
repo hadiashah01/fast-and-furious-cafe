@@ -58,10 +58,21 @@ export default function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="space-y-4 rounded-lg border border-amber-brand/20 bg-surface-card p-8 text-center sm:p-12">
-          <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">What We Believe</span>
-          <blockquote className="mx-auto max-w-3xl font-display text-2xl font-bold uppercase leading-tight text-white sm:text-3xl">“{siteConfig.statement}”</blockquote>
-          <p className="font-display text-xs uppercase tracking-widest text-zinc-500">FAST &amp; FURIOUS CAFE — CIRCULAR RD, SIALKOT</p>
+        <div className="grid items-center gap-6 overflow-hidden rounded-lg border border-amber-brand/20 bg-surface-card p-6 sm:p-8 md:grid-cols-2">
+          <div className="space-y-4">
+            <span className="inline-flex rounded-full border border-amber-brand/30 bg-amber-brand/10 px-3 py-1 font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">What We Believe</span>
+            <blockquote className="font-display text-2xl font-bold uppercase leading-tight text-white sm:text-3xl">“{siteConfig.statement}”</blockquote>
+            <p className="font-display text-xs uppercase tracking-widest text-zinc-500">FAST &amp; FURIOUS CAFE — CIRCULAR RD, SIALKOT</p>
+          </div>
+          <div className="relative h-56 overflow-hidden rounded bg-surface-lowest sm:h-72">
+            <Image
+              src="/images/hero.avif"
+              alt="A freshly prepared meal from Fast & Furious Cafe"
+              fill
+              sizes="(max-width: 767px) 100vw, 50vw"
+              className="object-contain"
+            />
+          </div>
         </div>
       </section>
 
@@ -77,7 +88,7 @@ export default function AboutPage() {
                 <MenuImage
                   src={image}
                   alt={imageAlt}
-                  className="aspect-[16/9] w-full"
+                  className="h-48 w-full"
                   sizes="(max-width: 767px) 100vw, 33vw"
                 />
                 <h3 className="font-display text-lg font-bold uppercase tracking-wide text-white">{title}</h3>
@@ -100,7 +111,7 @@ export default function AboutPage() {
             { category: "03 • Directions", name: "Google Maps", text: siteConfig.location.shortAddress, href: siteConfig.location.googleMapsUrl },
             { category: "04 • Facebook", name: "Facebook", text: "Fast & Furious Cafe", href: siteConfig.social.facebookUrl },
           ].map((service) => (
-            <a key={service.category} href={service.href} target={service.href.startsWith("http") ? "_blank" : undefined} rel={service.href.startsWith("http") ? "noopener noreferrer" : undefined} className="space-y-2 rounded border border-surface-border bg-surface-lowest p-5">
+            <a key={service.category} href={service.href} target={service.href.startsWith("http") ? "_blank" : undefined} rel={service.href.startsWith("http") ? "noopener noreferrer" : undefined} className={`space-y-2 rounded border border-surface-border border-t-2 bg-surface-lowest p-5 ${service.name === "Foodpanda" ? "border-t-crimson" : "border-t-amber-brand"}`}>
               <span className="font-display text-xs font-bold uppercase tracking-wider text-amber-brand">{service.category}</span>
               <h3 className="font-display text-base font-bold uppercase text-white">{service.name}</h3>
               <p className="text-xs text-zinc-400">{service.text}</p>

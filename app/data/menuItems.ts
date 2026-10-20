@@ -20,7 +20,7 @@ export interface MenuItem {
   image?: string;
 }
 
-const image = (filename: string) => `/images/${filename}`;
+const image = (filename: string) => `/images/${encodeURIComponent(filename)}`;
 
 export const categoryLabels: Record<MenuCategory, string> = {
   "furious-burgers": "Furious Burgers",
@@ -42,7 +42,7 @@ export const menuItems: MenuItem[] = [
     price: 360,
     originalPrice: 400,
     description: "Black sesame bun with a crispy chicken patty.",
-    image: image("zinger-burger.avif"),
+    image: image("Crispy Chicken Burger and Seasoned Fries.png"),
   },
   {
     id: "chicken-burger",
@@ -51,7 +51,7 @@ export const menuItems: MenuItem[] = [
     price: 270,
     originalPrice: 300,
     description: "White sesame bun, crispy chicken, butter, and mayonnaise.",
-    image: image("chicken-burger.avif"),
+    image: image("Crispy Golden Chicken Sandwich.png"),
   },
   {
     id: "chapli-burger",
@@ -61,7 +61,7 @@ export const menuItems: MenuItem[] = [
     originalPrice: 350,
     pricePrefix: "from",
     description: "Chapli-seasoned chicken, onion rings, jalapeño, and sauces.",
-    image: image("chapli-burger.avif"),
+    image: image("Spicy Fried Chicken Burger Feast.png"),
   },
   {
     id: "double-zinger-burger",
@@ -71,7 +71,7 @@ export const menuItems: MenuItem[] = [
     originalPrice: 700,
     pricePrefix: "from",
     description: "Two chicken fillets with creamy white sauce and cheese.",
-    image: image("double-zinger-burger.avif"),
+    image: image("Crispy Double Chicken Burger.png"),
   },
   {
     id: "tower-burger",
@@ -81,7 +81,7 @@ export const menuItems: MenuItem[] = [
     originalPrice: 500,
     pricePrefix: "from",
     description: "Two chicken patties, iceberg lettuce, cheese, and sauces.",
-    image: image("tower-burger.avif"),
+    image: image("Towering Double Fried Chicken Burger.png"),
   },
   {
     id: "spicy-grand-chicken-burger",
@@ -91,7 +91,7 @@ export const menuItems: MenuItem[] = [
     originalPrice: 520,
     pricePrefix: "from",
     description: "Spicy chicken breast, cheese, jalapeño, olives, and barbecue sauce.",
-    image: image("spicy-grand-chicken-burger.avif"),
+    image: image("Spicy Jalapeño Chicken Burger.png"),
   },
   {
     id: "chicken-shawarma",
@@ -100,7 +100,7 @@ export const menuItems: MenuItem[] = [
     price: 250,
     pricePrefix: "from",
     description: "Chicken, sauces, salad, cucumber, and ketchup in toasted pita.",
-    image: image("chicken-shawarma.avif"),
+    image: image("Grilled Chicken Shawarma Wrap Stack.png"),
   },
   {
     id: "platter-shawarma",
@@ -108,7 +108,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-shawarma",
     price: 500,
     description: "Two pita breads with chicken, sauces, salad, olives, jalapeño, and tomato.",
-    image: image("platter-shawarma.avif"),
+    image: image("Loaded Quesadilla Platter with Fries and Salad.png"),
   },
   {
     id: "zinger-shawarma",
@@ -116,7 +116,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-shawarma",
     price: 350,
     description: "Zinger chicken, vegetables, white and barbecue sauces in toasted pita.",
-    image: image("zinger-shawarma.avif"),
+    image: image("Crispy Chicken Wrap Close-Up.png"),
   },
   {
     id: "chicken-paratha-roll",
@@ -124,7 +124,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-paratha-rolls",
     price: 380,
     description: "Paratha with chicken, sauces, and vegetables.",
-    image: image("chicken-paratha-roll.avif"),
+    image: image("Golden Chicken Wrap Stack with Green Chutney.png"),
   },
   {
     id: "chapli-paratha-roll",
@@ -132,7 +132,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-paratha-rolls",
     price: 400,
     description: "Chicken chapli slices, potatoes, vegetables, and sauces in paratha.",
-    image: image("chapli-paratha-roll.avif"),
+    image: image("Grilled Chicken Wrap with Chili Sauce.png"),
   },
   {
     id: "zinger-paratha-roll",
@@ -140,7 +140,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-paratha-rolls",
     price: 450,
     description: "Zinger chicken, vegetables, white and barbecue sauces in paratha.",
-    image: image("zinger-paratha-roll.avif"),
+    image: image("Grilled Chicken Wrap with Crispy Fries.png"),
   },
   {
     id: "special-wrap",
@@ -148,7 +148,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-wraps",
     price: 600,
     description: "Chicken, cheese, olives, vegetables, and spicy sauce in tortilla.",
-    image: image("special-wrap.avif"),
+    image: image("Crispy Chicken Wrap Stack.png"),
   },
   {
     id: "arabian-wrap",
@@ -156,7 +156,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-wraps",
     price: 550,
     description: "Barbecue chicken, red onion, olives, vegetables, and sauce in tortilla.",
-    image: image("arabian-wrap.avif"),
+    image: image("Grilled Chicken Wraps and Iced Cola.png"),
   },
   {
     id: "chicken-piece",
@@ -165,7 +165,7 @@ export const menuItems: MenuItem[] = [
     price: 200,
     pricePrefix: "from",
     description: "Hot-fried chicken with a crispy exterior.",
-    image: image("chicken-piece.avif"),
+    image: image("Spicy Crispy Fried Chicken Feast.png"),
   },
   {
     id: "tender-chicken-pieces",
@@ -174,7 +174,7 @@ export const menuItems: MenuItem[] = [
     price: 400,
     pricePrefix: "from",
     description: "Tender chicken pieces.",
-    image: image("tender-chicken-pieces.avif"),
+    image: image("Crispy Chicken Tenders with Dipping Sauce.png"),
   },
   {
     id: "nuggets",
@@ -183,7 +183,7 @@ export const menuItems: MenuItem[] = [
     price: 250,
     pricePrefix: "from",
     description: "Crispy chicken nuggets with a mild spice.",
-    image: image("nuggets.avif"),
+    image: image("Crispy Chicken Nuggets with Ketchup.png"),
   },
   {
     id: "hot-wings",
@@ -192,7 +192,7 @@ export const menuItems: MenuItem[] = [
     price: 400,
     pricePrefix: "from",
     description: "Crispy hot wings.",
-    image: image("hot-wings.avif"),
+    image: image("Crispy Golden Chicken Wings.png"),
   },
   {
     id: "fries",
@@ -201,7 +201,7 @@ export const menuItems: MenuItem[] = [
     price: 300,
     pricePrefix: "from",
     description: "Salted potato fries.",
-    image: image("fries.avif"),
+    image: image("Golden Salted Fries in a White Bowl.png"),
   },
   {
     id: "masala-fries",
@@ -209,7 +209,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-french-fries",
     price: 430,
     description: "Fries seasoned with masala.",
-    image: image("masala-fries.avif"),
+    image: image("Loaded Cheesy Chili Fries.png"),
   },
   {
     id: "loaded-fries",
@@ -217,7 +217,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-french-fries",
     price: 600,
     description: "Fries with cheese, chicken, olives, jalapeños, and barbecue sauce.",
-    image: image("loaded-fries.avif"),
+    image: image("Loaded Cheesy Jalapeño Fries.png"),
   },
   {
     id: "garlic-mayo-fries",
@@ -225,7 +225,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-french-fries",
     price: 450,
     description: "Potato fries with garlic sauce.",
-    image: image("garlic-mayo-fries.avif"),
+    image: image("Golden Salted Fries in a White Bowl.png"),
   },
   {
     id: "mayo-sauce",
@@ -233,7 +233,7 @@ export const menuItems: MenuItem[] = [
     category: "sides",
     price: 80,
     description: "Creamy, lightly salted mayonnaise sauce.",
-    image: image("mayo-sauce.avif"),
+    image: image("Creamy Aioli Swirl in White Bowl.png"),
   },
   {
     id: "lava-sauce",
@@ -241,7 +241,7 @@ export const menuItems: MenuItem[] = [
     category: "sides",
     price: 80,
     description: "Mayonnaise with red chili flakes and black pepper.",
-    image: image("lava-sauce.avif"),
+    image: image("Creamy Chili Sauce with Spoon and Peppers.png"),
   },
   {
     id: "peri-peri-sauce",
@@ -249,7 +249,7 @@ export const menuItems: MenuItem[] = [
     category: "sides",
     price: 80,
     description: "Creamy peri-peri sauce.",
-    image: image("peri-peri-sauce.avif"),
+    image: image("Creamy Chili Sauce with Spoon and Peppers.png"),
   },
   {
     id: "garlic-sauce",
@@ -257,7 +257,7 @@ export const menuItems: MenuItem[] = [
     category: "sides",
     price: 80,
     description: "Garlic mayonnaise with black pepper, sugar, and mustard.",
-    image: image("garlic-sauce.avif"),
+    image: image("Creamy Garlic Aioli with Herbs.png"),
   },
   {
     id: "pepsi-345ml",
@@ -265,7 +265,7 @@ export const menuItems: MenuItem[] = [
     category: "beverages",
     price: 100,
     description: "345 ml Pepsi.",
-    image: image("pepsi-345ml.avif"),
+    image: image("Chilled Pepsi Bottle with Ice.png"),
   },
   {
     id: "pepsi-500ml",
@@ -273,7 +273,7 @@ export const menuItems: MenuItem[] = [
     category: "beverages",
     price: 140,
     description: "500 ml Pepsi.",
-    image: image("pepsi-500ml.avif"),
+    image: image("Chilled Pepsi Bottle with Ice.png"),
   },
   {
     id: "pepsi-1-litre",
@@ -281,7 +281,7 @@ export const menuItems: MenuItem[] = [
     category: "beverages",
     price: 200,
     description: "1 litre Pepsi.",
-    image: image("pepsi-liter.avif"),
+    image: image("Chilled Pepsi 1L Bottle on White.png"),
   },
   {
     id: "pepsi-1-5-litre",
@@ -289,7 +289,7 @@ export const menuItems: MenuItem[] = [
     category: "beverages",
     price: 240,
     description: "1.5 litre Pepsi.",
-    image: image("Pepsi-1.5liter.avif"),
+    image: image("Chilled Pepsi 1.5L Bottle Droplets.png"),
   },
   {
     id: "aquafina-water-500ml",
@@ -297,7 +297,7 @@ export const menuItems: MenuItem[] = [
     category: "beverages",
     price: 80,
     description: "500 ml Aquafina water.",
-    image: image("aquafina-water500%20ml.avif"),
+    image: image("aquafina-water500 ml.png"),
   },
 ];
 
