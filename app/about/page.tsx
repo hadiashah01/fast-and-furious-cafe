@@ -3,7 +3,6 @@ import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { siteConfig } from "../config/site";
 import { createPageMetadata } from "../config/metadata";
-import { menuItems } from "../data/menuItems";
 import MenuImage from "../components/MenuImage";
 
 export const metadata = createPageMetadata(
@@ -16,20 +15,20 @@ const standards = [
   {
     title: "Burgers & Zingers",
     description: "Zinger Burger, Chicken Burger, Chapli Burger, Double Zinger Burger, Tower Burger and Spicy Grand Chicken Burger.",
-    imageId: "zinger-burger",
+    image: "/images/zinger-burger.avif",
     imageAlt: "Zinger burger with a crispy chicken patty",
   },
   {
     title: "Rolls & Shawarma",
     description: "Chicken Shawarma, Platter Shawarma, Zinger Shawarma, and three paratha rolls.",
-    imageId: "platter-shawarma",
-    imageAlt: "Platter shawarma from the cafe menu",
+    image: "/images/side-view-doner-with-grilled-chicken-greens-lettuce-tomato-french-fries-table.avif",
+    imageAlt: "Chicken doner roll served with greens and fries",
   },
   {
     title: "Fries & Sides",
     description: "Fries, Masala Fries, Loaded Fries, Garlic Mayo Fries, and four sauces.",
-    imageId: "loaded-fries",
-    imageAlt: "Loaded fries with cheese and chicken",
+    image: "/images/delicious-street-food-still-life%20(1).avif",
+    imageAlt: "Loaded fries served as street food",
   },
 ];
 
@@ -47,8 +46,8 @@ export default function AboutPage() {
           </div>
           <div className="relative aspect-[16/10] overflow-hidden">
             <Image
-              src="/images/hero.avif"
-              alt="Burger with cheese, vegetables, and sauce"
+              src="/images/enjoying-street-food-fest.avif"
+              alt="A customer enjoying street food"
               fill
               priority
               sizes="(max-width: 1023px) 100vw, 50vw"
@@ -72,8 +71,7 @@ export default function AboutPage() {
           <h2 className="mt-1 font-display text-2xl font-bold uppercase text-white sm:text-3xl">On the Menu</h2>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {standards.map(({ title, description, imageId, imageAlt }) => {
-            const image = menuItems.find((item) => item.id === imageId)?.image;
+          {standards.map(({ title, description, image, imageAlt }) => {
             return (
               <article key={title} className="space-y-3 rounded-lg border border-amber-brand/20 bg-surface-card p-4">
                 <MenuImage
