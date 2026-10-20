@@ -50,23 +50,23 @@ export default function MenuBrowser() {
   ];
 
   return (
-    <div className="space-y-12 pb-16">
-      <section className="border-b border-surface-border bg-surface-lowest pb-8 pt-10">
-        <div className="mx-auto max-w-7xl space-y-3 px-4 sm:px-6 lg:px-8">
-          <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">
+    <div className="pb-12">
+      <section className="px-4 py-10 text-center md:py-12">
+        <div className="mx-auto max-w-3xl space-y-3">
+          <span className="block font-display text-xs font-bold uppercase tracking-widest text-amber-brand">
             Fast &amp; Furious Cafe Sialkot
           </span>
           <h1 className="font-display text-4xl font-bold uppercase text-white sm:text-5xl">
             MENU
           </h1>
-          <p className="max-w-2xl text-sm leading-relaxed text-zinc-400">
+          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-zinc-400 md:text-base">
             Browse burgers, shawarma, rolls, fries, sides, and drinks by category or search.
           </p>
         </div>
       </section>
 
       <section className="sticky top-20 z-40 mx-auto max-w-7xl bg-surface px-4 py-2 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-4 bg-surface-card p-4 md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 rounded-full border border-zinc-800 bg-surface-card/95 p-3 backdrop-blur md:flex-row md:px-4">
           <div className="horizontal-scrollbar-hidden flex w-full min-w-0 touch-pan-x items-center gap-2 overflow-x-auto overscroll-x-contain scroll-smooth pb-1 md:flex-1 md:pb-0">
             {categories.map((category) => (
               <button
@@ -76,20 +76,25 @@ export default function MenuBrowser() {
                   setSelectedCategory(category.id);
                 }}
                 aria-pressed={selectedCategory === category.id}
-                className={`shrink-0 rounded px-2.5 py-1.5 font-display text-xs uppercase tracking-wider transition ${
+                className={`shrink-0 rounded-full px-3 py-2 font-display text-xs uppercase tracking-wider transition ${
                   selectedCategory === category.id
                     ? "bg-crimson font-bold text-white"
                     : "button-dark text-zinc-400"
                 }`}
               >
-                {category.label} (
-                {category.id === "all"
+                {category.label}
+                <span className={`ml-1 rounded-full px-1.5 py-0.5 text-[10px] ${
+                  selectedCategory === category.id
+                    ? "bg-white/15 text-white"
+                    : "bg-white/5 text-zinc-400"
+                }`}>
+                  {category.id === "all"
                   ? menuItems.length
                   : category.id === "popular"
                     ? popularItemIds.length
                     : menuItems.filter((item) => item.category === category.id)
                         .length}
-                )
+                </span>
               </button>
             ))}
           </div>
@@ -104,7 +109,7 @@ export default function MenuBrowser() {
                 onChange={(event) => {
                   setSearchQuery(event.target.value);
                 }}
-                className="w-full rounded border border-zinc-700 bg-surface-lowest py-1.5 pl-9 pr-3 text-xs text-white placeholder-zinc-500 focus:border-amber-brand focus:outline-none"
+                className="w-full rounded-full border border-zinc-700 bg-surface-lowest py-2 pl-9 pr-3 text-xs text-white placeholder-zinc-500 focus:border-amber-brand focus:outline-none"
               />
             </label>
             {(searchQuery || selectedCategory !== "all") && (
@@ -122,7 +127,7 @@ export default function MenuBrowser() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         {filteredItems.length === 0 ? (
           <div role="status" className="space-y-3 rounded-lg border border-surface-border bg-surface-card py-16 text-center">
             <p className="text-sm text-zinc-400">
@@ -141,7 +146,7 @@ export default function MenuBrowser() {
             <p className="mb-4 text-xs text-zinc-500" aria-live="polite" aria-atomic="true">
               {filteredItems.length} {filteredItems.length === 1 ? "item" : "items"}
             </p>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
               {filteredItems.map((item) => (
                 <ProductCard key={item.id} item={item} />
               ))}
@@ -150,8 +155,8 @@ export default function MenuBrowser() {
         )}
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-6 rounded-lg border border-surface-border bg-surface-lowest p-6 sm:p-8 md:flex-row">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+        <div className="flex flex-col items-center justify-between gap-6 border-t border-surface-border pt-6 md:flex-row">
           <div className="space-y-2 text-center md:text-left">
             <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">
               Find Your Next Favorite
