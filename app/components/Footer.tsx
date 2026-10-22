@@ -121,15 +121,16 @@ export default function Footer() {
           <a
             href={siteConfig.developer.portfolioUrl}
             target="_blank"
-            rel="noopener noreferrer"
-            className="font-bold text-crimson transition-colors hover:text-crimson-hover hover:underline"
+            rel="noopener noreferrer"   
           >
-            Developed by {siteConfig.developer.name}
+            Developed by{" "}
+            <span className="font-bold transition-colors  text-crimson   transition hover:text-white ">
+              {siteConfig.developer.name}
+            </span>
           </a>
           <p className="font-display uppercase tracking-widest text-zinc-400">
             Circular Road • Sialkot
           </p>
-          
         </div>
       </div>
     </footer>

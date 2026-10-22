@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ExternalLink } from "lucide-react";
+import {  Globe ,Mail, MapPin, Phone, ShoppingBag } from "lucide-react";
 import { siteConfig } from "../config/site";
 import { createPageMetadata } from "../config/metadata";
 import MenuImage from "../components/MenuImage";
+
 
 export const metadata = createPageMetadata(
   "/about",
@@ -19,7 +20,8 @@ const standards = [
   },
   {
     title: "Rolls & Shawarma",
-    image: "/images/side-view-doner-with-grilled-chicken-greens-lettuce-tomato-french-fries-table.avif",
+    image:
+      "/images/side-view-doner-with-grilled-chicken-greens-lettuce-tomato-french-fries-table.avif",
     imageAlt: "Chicken doner roll served with greens and fries",
   },
   {
@@ -35,10 +37,16 @@ export default function AboutPage() {
       <section className="py-10 md:py-12">
         <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="space-y-3">
-            <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">About the Cafe</span>
-            <h1 className="font-display text-4xl font-bold uppercase tracking-wide text-white sm:text-5xl">ABOUT THE CAFE</h1>
+            <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">
+              About the Cafe
+            </span>
+            <h1 className="font-display text-4xl font-bold uppercase tracking-wide text-white sm:text-5xl">
+              ABOUT THE CAFE
+            </h1>
             <p className="max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">
-              Find us on Circular Road, opposite Pakistan Gym in Kainchi Mohalla, Sialkot. Our menu includes burgers, shawarma, paratha rolls and fries.
+              Find us on Circular Road, opposite Pakistan Gym in Kainchi
+              Mohalla, Sialkot. Our menu includes burgers, shawarma, paratha
+              rolls and fries.
             </p>
           </div>
           <div className="relative aspect-[16/10] overflow-hidden">
@@ -55,15 +63,25 @@ export default function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 md:py-24 lg:px-8">
-        <span className="font-display text-xs font-bold uppercase tracking-widest text-amber-brand">Our Philosophy</span>
-        <blockquote className="mt-4 font-display text-2xl font-bold italic leading-tight text-white sm:text-3xl md:text-4xl">“{siteConfig.statement}”</blockquote>
-        <p className="mt-5 font-display text-xs uppercase tracking-widest text-zinc-500">FAST &amp; FURIOUS CAFE — CIRCULAR RD, SIALKOT</p>
+        <span className="font-display text-xs font-bold uppercase tracking-widest text-amber-brand">
+          Our Philosophy
+        </span>
+        <blockquote className="mt-4 font-display text-2xl font-bold italic leading-tight text-white sm:text-3xl md:text-4xl">
+          “{siteConfig.statement}”
+        </blockquote>
+        <p className="mt-5 font-display text-xs uppercase tracking-widest text-zinc-500">
+          FAST &amp; FURIOUS CAFE — CIRCULAR RD, SIALKOT
+        </p>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
         <div className="mb-12 text-center md:mb-16">
-          <span className="mb-2 block font-display text-xs font-bold uppercase tracking-widest text-amber-brand">Our Menu</span>
-          <h2 className="font-display text-3xl font-bold uppercase tracking-tight text-white md:text-5xl">On the Menu</h2>
+          <span className="mb-2 block font-display text-xs font-bold uppercase tracking-widest text-amber-brand">
+            Our Menu
+          </span>
+          <h2 className="font-display text-3xl font-bold uppercase tracking-tight text-white md:text-5xl">
+            On the Menu
+          </h2>
         </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
           {standards.map(({ title, image, imageAlt }) => {
@@ -75,7 +93,9 @@ export default function AboutPage() {
                   className="h-56 w-full rounded-xl sm:h-64"
                   sizes="(max-width: 767px) 100vw, 33vw"
                 />
-                <h3 className="font-display text-lg font-bold uppercase tracking-wide text-white">{title}</h3>
+                <h3 className="font-display text-lg font-bold uppercase tracking-wide text-white">
+                  {title}
+                </h3>
               </article>
             );
           })}
@@ -84,20 +104,69 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
         <div className="mb-12 text-center md:mb-16">
-          <span className="mb-2 block font-display text-xs font-bold uppercase tracking-widest text-amber-brand">Get in Touch</span>
-          <h2 className="font-display text-3xl font-bold uppercase text-white md:text-5xl">Ordering &amp; Directions</h2>
+          <span className="mb-2 block font-display text-xs font-bold uppercase tracking-widest text-amber-brand">
+            Get in Touch
+          </span>
+          <h2 className="font-display text-3xl font-bold uppercase text-white md:text-5xl">
+            Ordering &amp; Directions
+          </h2>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 md:gap-8">
           {[
-            { category: "01 • External Ordering", name: "Foodpanda", text: "Visit the Foodpanda listing.", href: siteConfig.ordering.foodpandaUrl },
-            { category: "02 • Phone", name: "Call the Cafe", text: siteConfig.contact.phone, href: siteConfig.contact.phoneTel },
-            { category: "03 • Directions", name: "Google Maps", text: siteConfig.location.shortAddress, href: siteConfig.location.googleMapsUrl },
-            { category: "04 • Facebook", name: "Facebook", text: "Fast & Furious Cafe", href: siteConfig.social.facebookUrl },
+            {
+              name: "Facebook",
+              text: "Follow Fast & Furious Cafe",
+              href: siteConfig.social.facebookUrl,
+              icon: Globe,
+            },
+            {
+              name: "Email",
+              text: siteConfig.contact.email,
+              href: siteConfig.contact.emailMailto,
+              icon: Mail,
+            },
+            {
+              name: "Order Online",
+              text: "View the Foodpanda listing",
+              href: siteConfig.ordering.foodpandaUrl,
+              icon: ShoppingBag,
+            },
+            {
+              name: "Call the Cafe",
+              text: siteConfig.contact.phone,
+              href: siteConfig.contact.phoneTel,
+              icon: Phone,
+            },
+            {
+              name: "Location",
+              text: siteConfig.location.shortAddress,
+              href: siteConfig.location.googleMapsUrl,
+              icon: MapPin,
+            },
           ].map((service) => (
-            <a key={service.category} href={service.href} target={service.href.startsWith("http") ? "_blank" : undefined} rel={service.href.startsWith("http") ? "noopener noreferrer" : undefined} className="space-y-2 border-t border-surface-border pt-5">
-              <span className="font-display text-xs font-bold uppercase tracking-wider text-amber-brand">{service.category}</span>
-              <h3 className="font-display text-base font-bold uppercase text-white">{service.name}</h3>
-              <p className="text-xs text-zinc-400">{service.text}</p>
+            <a
+              key={service.name}
+              href={service.href}
+              target={service.href.startsWith("http") ? "_blank" : undefined}
+              rel={
+                service.href.startsWith("http")
+                  ? "noopener noreferrer"
+                  : undefined
+              }
+              className="group flex min-w-0 items-start gap-3 border-t border-surface-border pt-5 focus-visible:rounded"
+            >
+              <service.icon
+                aria-hidden="true"
+                className="mt-0.5 h-5 w-5 shrink-0 text-amber-brand transition-colors duration-200 group-hover:text-crimson"
+              />
+              <span className="min-w-0">
+                <span className="block font-display text-base font-bold uppercase text-white transition-colors duration-200 group-hover:text-amber-brand">
+                  {service.name}
+                </span>
+                <span className="mt-1 block break-words text-xs leading-relaxed text-zinc-400">
+                  {service.text}
+                </span>
+              </span>
             </a>
           ))}
         </div>
@@ -106,19 +175,40 @@ export default function AboutPage() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
         <div className="grid items-stretch gap-8 md:grid-cols-2 md:gap-12">
           <div className="flex flex-col items-start justify-center gap-3">
-            <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">Visit</span>
-            <h2 className="font-display text-2xl font-bold uppercase tracking-wide text-white">Circular Road, Sialkot</h2>
-            <p className="text-sm text-zinc-300">{siteConfig.location.address}</p>
-            <p className="text-xs text-zinc-500">{siteConfig.hours.display} — {siteConfig.hours.caveat}</p>
+            <span className="font-display text-xs font-semibold uppercase tracking-widest text-amber-brand">
+              Visit
+            </span>
+            <h2 className="font-display text-2xl font-bold uppercase tracking-wide text-white">
+              Circular Road, Sialkot
+            </h2>
+            <p className="text-sm text-zinc-300">
+              {siteConfig.location.address}
+            </p>
+            <p className="text-xs text-zinc-500">
+              {siteConfig.hours.display} — {siteConfig.hours.caveat}
+            </p>
             <div className="flex flex-wrap gap-3 pt-2">
-              <a href={siteConfig.location.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 rounded bg-crimson px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover"><span>Open in Google Maps</span><ExternalLink className="h-3.5 w-3.5" /></a>
-              <Link href="/contact" className="button-dark rounded px-5 py-2.5 text-xs font-semibold uppercase tracking-wider">Contact</Link>
+              <a
+                href={siteConfig.location.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 rounded bg-crimson px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover"
+              >
+                <span>Open in Google Maps</span>
+                <MapPin aria-hidden="true" className="h-3.5 w-3.5" />
+              </a>
+              <Link
+                href="/contact"
+                className="button-dark rounded px-5 py-2.5 text-xs font-semibold uppercase tracking-wider"
+              >
+                Contact
+              </Link>
             </div>
           </div>
           <div className="min-h-72 overflow-hidden rounded-xl border border-zinc-800 md:min-h-96">
             <iframe
               title="Map showing Fast & Furious Cafe on Circular Road, Sialkot"
-              src={`https://maps.google.com/maps?q=${encodeURIComponent(siteConfig.location.address)}&output=embed`}
+              src={siteConfig.location.googleMapsEmbedUrl}
               className="block h-64 w-full border-0 sm:h-72"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

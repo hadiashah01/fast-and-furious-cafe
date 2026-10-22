@@ -24,7 +24,7 @@ export default function ContactPage() {
           </span>
           <h1 className="font-display text-4xl font-bold uppercase text-white sm:text-5xl">VISIT US IN SIALKOT</h1>
           <p className="max-w-2xl text-sm leading-relaxed text-zinc-400">
-            Find Fast and Furious Cafe on Circular Road, opposite Pakistan Gym, Kainchi Mohalla, Sialkot.
+            Hours, contact details, and directions for visiting Fast &amp; Furious Cafe.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <a href={siteConfig.location.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 rounded bg-crimson px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover">
@@ -47,7 +47,6 @@ export default function ContactPage() {
               <div className="flex items-center space-x-2 font-display text-xs font-semibold uppercase tracking-wider text-amber-brand"><MapPin className="h-4 w-4" /><span>Address</span></div>
               <h2 className="font-display text-lg font-bold uppercase text-white">Circular Road, Sialkot</h2>
               <address className="not-italic text-sm leading-relaxed text-zinc-300">{siteConfig.location.address}</address>
-              <p className="text-xs text-zinc-400"><span className="font-semibold uppercase text-zinc-500">Landmark:</span> {siteConfig.location.landmark}.</p>
             </section>
 
             <section className="space-y-3 border-t border-zinc-800 pt-5">
@@ -61,10 +60,7 @@ export default function ContactPage() {
 
             <section className="space-y-3 border-t border-zinc-800 pt-5">
               <span className="block font-display text-xs font-semibold uppercase tracking-wider text-amber-brand">Phone</span>
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <a href={siteConfig.contact.phoneTel} className="font-display text-base font-bold text-white hover:text-amber-brand">{siteConfig.contact.phone}</a>
-                <a href={siteConfig.contact.phoneTel} className="inline-flex items-center gap-2 rounded border border-zinc-700 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-zinc-300"><Phone className="h-3.5 w-3.5" /><span>Call</span></a>
-              </div>
+              <a href={siteConfig.contact.phoneTel} className="inline-flex items-center gap-2 font-display text-base font-bold text-white hover:text-amber-brand"><Phone aria-hidden="true" className="h-4 w-4 text-amber-brand" />{siteConfig.contact.phone}</a>
             </section>
 
             <section className="space-y-3 border-t border-zinc-800 pt-5">
@@ -91,14 +87,13 @@ export default function ContactPage() {
             <div className="h-[480px] overflow-hidden rounded-2xl border border-zinc-800 shadow-2xl">
               <iframe
                 title="Map showing Fast & Furious Cafe on Circular Road, Sialkot"
-                src={`https://www.google.com/maps?output=embed&q=${encodeURIComponent(siteConfig.location.address)}`}
+                src={siteConfig.location.googleMapsEmbedUrl}
                 className="block h-full w-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
               />
             </div>
-            <p className="mt-4 text-xs text-zinc-500">Call {siteConfig.contact.phone} to check current hours, menu prices and service options.</p>
           </div>
         </div>
       </section>

@@ -24,7 +24,7 @@ const oswald = Oswald({
 export const metadata: Metadata = {
   ...(metadataBase && { metadataBase }),
   title: {
-    default: "Fast & Furious Cafe | Sialkot",
+    default: " Fast & Furious Cafe | Burgers & Shawarma in Sialkot",
     template: "%s | Fast & Furious Cafe Sialkot",
   },
   description:
@@ -72,7 +72,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        <Analytics/>
+        <Analytics />
       </body>
     </html>
   );
