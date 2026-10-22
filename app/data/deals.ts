@@ -33,7 +33,7 @@ export const dealsData: Deal[] = [
       "Small fries",
       "345 ml soft drink",
     ],
-    image: image("Crispy Chicken Burger and Seasoned Fries.png"),
+    image: image("Crispy-Fries.avif"),
   },
   {
     id: "deal-2",
@@ -45,7 +45,7 @@ export const dealsData: Deal[] = [
       "Hot seasoned fries",
       "345 ml soft drink",
     ],
-    image: image("Crispy Chicken Burgers on Rustic Board.png"),
+    image: image("Crispy-Burgers.avif"),
   },
   {
     id: "deal-3",
@@ -53,7 +53,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 560,
     items: ["Large chicken shawarma", "Small fries", "345 ml soft drink"],
-    image: image("Grilled Chicken Wrap with Crispy Fries.png"),
+    image: image("Grilled-Fries.avif"),
   },
   {
     id: "deal-4",
@@ -64,7 +64,7 @@ export const dealsData: Deal[] = [
       "Two crispy Zinger burgers with juicy chicken",
       "345 ml soft drink",
     ],
-    image: image("Double-Crispy Chicken Burger.png"),
+    image: image("Double-Crispy-Burger.avif"),
   },
   {
     id: "deal-5",
@@ -72,7 +72,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 650,
     items: ["2 Chicken burgers", "345 ml soft drink"],
-    image: image("Crispy Chicken Burgers on Rustic Board.png"),
+    image: image("Crispy-Burgers.avif"),
   },
   {
     id: "deal-6",
@@ -80,7 +80,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 600,
     items: ["2 Large chicken shawarma", "345 ml soft drink"],
-    image: image("Grilled Chicken Shawarma Wrap Stack.png"),
+    image: image("Grilled-Stack.avif"),
   },
   {
     id: "deal-7",
@@ -88,7 +88,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 1400,
     items: ["2 Zinger burgers", "2 chicken burgers", "500 ml soft drink"],
-    image: image("Double Crispy Chicken Feast.png"),
+    image: image("Double-Feast.avif"),
   },
   {
     id: "deal-8",
@@ -96,7 +96,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 1500,
     items: ["4 Zinger burgers", "500 ml soft drink"],
-    image: image("Crispy Chicken Feast with Coca-Cola.png"),
+    image: image("Chicken-Coca-Cola.avif"),
   },
   {
     id: "deal-9",
@@ -104,7 +104,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 450,
     items: ["5 Hot wings", "345 ml soft drink"],
-    image: image("Crispy Golden Chicken Wings.png"),
+    image: image("Crispy-Feast.avif"),
   },
   {
     id: "deal-10",
@@ -112,7 +112,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 1400,
     items: ["2 Double zinger burgers", "500 ml soft drink"],
-    image: image("Crispy Double Chicken Burger.png"),
+    image: image("Double-Chicken-Burger.avif"),
   },
   {
     id: "deal-11",
@@ -120,7 +120,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 1000,
     items: ["2 Tower burgers", "500 ml soft drink"],
-    image: image("Towering Double Fried Chicken Burger.png"),
+    image: image("Towering-Burger.avif"),
   },
   {
     id: "deal-12",
@@ -128,7 +128,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 300,
     items: ["5 Nuggets", "345 ml soft drink"],
-    image: image("Crispy Chicken Nuggets with Ketchup.png"),
+    image: image("Nuggets.avif"),
   },
   {
     id: "deal-13",
@@ -136,7 +136,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 650,
     items: ["Zinger shawarma", "Small fries", "345ml soft drink"],
-    image: image("Grilled Chicken Wrap with Crispy Fries.png"),
+    image: image("Grilled-Fries.avif"),
   },
   {
     id: "deal-14",
@@ -144,7 +144,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 530,
     items: ["Chicken shawarma", "Small fries", "345 ml soft drink"],
-    image: image("Grilled Chicken Shawarma Wrap Stack.png"),
+    image: image("Grilled-Stack.avif"),
   },
   {
     id: "deal-15",
@@ -152,7 +152,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 450,
     items: ["5 Pieces chicken tender", "345 ml soft drink"],
-    image: image("Crispy Chicken Tenders with Dipping Sauce.png"),
+    image: image("Chicken-Sauce.avif"),
   },
   {
     id: "deal-16",
@@ -160,7 +160,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 800,
     items: ["10 Pieces hot wings", "345 ml soft drink"],
-    image: image("Crispy Wings and Seasoned Fries.png"),
+    image: image("Chicken-Fries.avif"),
   },
   {
     id: "deal-17",
@@ -168,7 +168,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 1230,
     items: ["5 Pieces chicken", "Small fries", "500 ml soft drink"],
-    image: image("Spicy Crispy Fried Chicken Feast.png"),
+    image: image("Fried-Chicken.avif"),
   },
   {
     id: "deal-18",
@@ -176,7 +176,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 1850,
     items: ["9 Chicken pieces", "1 litre soft drink"],
-    image: image("Crispy Golden Fried Chicken Feast.png"),
+    image: image("Crispy-Feast.avif"),
   },
   {
     id: "promo-deal-1",
@@ -184,7 +184,7 @@ export const dealsData: Deal[] = [
     category: "promotional-deals",
     price: 600,
     items: ["3 Small shawarma"],
-    image: image("Grilled Chicken Shawarma Wrap Stack.png"),
+    image: image("Grilled-Stack.avif"),
   },
   {
     id: "promo-deal-2",
@@ -192,7 +192,7 @@ export const dealsData: Deal[] = [
     category: "promotional-deals",
     price: 750,
     items: ["3 Large shawarma"],
-    image: image("Golden Chicken Wrap Stack with Green Chutney.png"),
+    image: image("Chicken-Wrap.avif"),
   },
   {
     id: "promo-deal-3",
@@ -200,7 +200,7 @@ export const dealsData: Deal[] = [
     category: "promotional-deals",
     price: 650,
     items: ["Chicken piece", "Chapli burger", "2 hot wings"],
-    image: image("Spicy Fried Chicken Burger Feast.png"),
+    image: image("Fried-Chicken.avif"),
   },
   {
     id: "promo-deal-4",
@@ -208,7 +208,7 @@ export const dealsData: Deal[] = [
     category: "promotional-deals",
     price: 2200,
     items: ["6 Zinger burgers"],
-    image: image("Double-Crispy Chicken Burger (1).png"),
+    image: image("Double-Crispy-Burger.avif"),
   },
   {
     id: "promo-deal-5",
@@ -216,6 +216,6 @@ export const dealsData: Deal[] = [
     category: "promotional-deals",
     price: 900,
     items: ["3 Zinger shawarma"],
-    image: image("Crispy Chicken Wrap Close-Up.png"),
+    image: image("Wrap-Stack.avif"),
   },
 ];
