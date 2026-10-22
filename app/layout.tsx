@@ -24,16 +24,49 @@ const oswald = Oswald({
 export const metadata: Metadata = {
   ...(metadataBase && { metadataBase }),
   title: {
-    default: " Fast & Furious Cafe | Burgers & Shawarma in Sialkot",
+    default: "Fast & Furious Cafe | Burgers & Shawarma in Sialkot",
     template: "%s | Fast & Furious Cafe Sialkot",
   },
   description:
     "Burgers, shawarma, paratha rolls and fries at Fast & Furious Cafe on Circular Road, Sialkot.",
+  openGraph: {
+    title: "Fast & Furious Cafe Sialkot",
+    description:
+      "Burgers, shawarma, paratha rolls and fries at Fast & Furious Cafe on Circular Road, Sialkot.",
+    url: metadataBase
+      ? metadataBase.origin
+      : "https://fast-and-furious-cafe.vercel.app",
+    siteName: "Fast & Furious Cafe",
+    locale: "en_PK",
+    type: "website",
+    images: [
+      {
+        url: "/images/og-img.avif",
+        width: 1200,
+        height: 630,
+        alt: "Fast & Furious Cafe Logo and Menu Preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fast & Furious Cafe Sialkot",
+    description:
+      "Burgers, shawarma, paratha rolls and fries at Fast & Furious Cafe on Circular Road, Sialkot.",
+    images: ["/images/og-img.avif"],
+  },
   verification: {
     google: "43hixAt6kkVnCqwT5jek3VyHwMQRQI7t6fgUFrJCju4",
   },
 };
-
+const websiteStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${metadataBase?.origin ?? "https://fast-and-furious-cafe.vercel.app"}/#website`,
+  name: "Fast & Furious Cafe",
+  alternateName: "Fast and Furious Cafe",
+  url: metadataBase?.origin ?? "https://fast-and-furious-cafe.vercel.app",
+};
 export default function RootLayout({ children }: { children: ReactNode }) {
   const restaurantStructuredData = {
     "@context": "https://schema.org",
@@ -63,6 +96,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(restaurantStructuredData).replace(
+              /</g,
+              "\\u003c",
+            ),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteStructuredData).replace(
               /</g,
               "\\u003c",
             ),
