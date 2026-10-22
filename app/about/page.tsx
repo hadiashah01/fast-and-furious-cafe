@@ -1,16 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import {  Globe ,Mail, MapPin, Phone, ShoppingBag } from "lucide-react";
+import { Globe, Mail, MapPin, Phone, ShoppingBag } from "lucide-react";
 import { siteConfig } from "../config/site";
-import { createPageMetadata } from "../config/metadata";
 import MenuImage from "../components/MenuImage";
 
-
-export const metadata = createPageMetadata(
-  "/about",
-  "About the Cafe",
-  "Learn about Fast & Furious Cafe, its listed menu, and its location on Circular Road in Sialkot.",
-);
+export const metadata: Metadata = {
+  title: "About Our Cafe & Quality",
+  description:
+    "Learn about Fast & Furious Cafe on Circular Road, Sialkot. Discover our commitment to fresh ingredients and high-quality fast food.",
+};
 
 const standards = [
   {
@@ -41,7 +40,7 @@ export default function AboutPage() {
               About the Cafe
             </span>
             <h1 className="font-display text-4xl font-bold uppercase tracking-wide text-white sm:text-5xl">
-              ABOUT THE CAFE
+              ABOUT <span  className="text-crimson">THE  Cafe</span> 
             </h1>
             <p className="max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">
               Find us on Circular Road, opposite Pakistan Gym in Kainchi
@@ -49,14 +48,14 @@ export default function AboutPage() {
               rolls and fries.
             </p>
           </div>
-          <div className="relative aspect-[16/10] overflow-hidden">
+          <div className="relative aspect-[16/10] w-full overflow-hidden  ">
             <Image
               src="/images/enjoying-street-food-fest.avif"
               alt="A customer enjoying street food"
               fill
               priority
               sizes="(max-width: 1023px) 100vw, 50vw"
-              className="object-contain"
+              className="object-cover"
             />
           </div>
         </div>
@@ -86,7 +85,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
           {standards.map(({ title, image, imageAlt }) => {
             return (
-              <article key={title} className="space-y-4">
+              <article key={title} className="relative space-y-4">
                 <MenuImage
                   src={image}
                   alt={imageAlt}
@@ -143,32 +142,35 @@ export default function AboutPage() {
               href: siteConfig.location.googleMapsUrl,
               icon: MapPin,
             },
-          ].map((service) => (
-            <a
-              key={service.name}
-              href={service.href}
-              target={service.href.startsWith("http") ? "_blank" : undefined}
-              rel={
-                service.href.startsWith("http")
-                  ? "noopener noreferrer"
-                  : undefined
-              }
-              className="group flex min-w-0 items-start gap-3 border-t border-surface-border pt-5 focus-visible:rounded"
-            >
-              <service.icon
-                aria-hidden="true"
-                className="mt-0.5 h-5 w-5 shrink-0 text-amber-brand transition-colors duration-200 group-hover:text-crimson"
-              />
-              <span className="min-w-0">
-                <span className="block font-display text-base font-bold uppercase text-white transition-colors duration-200 group-hover:text-amber-brand">
-                  {service.name}
+          ].map((service) => {
+            const IconComponent = service.icon;
+            return (
+              <a
+                key={service.name}
+                href={service.href}
+                target={service.href.startsWith("http") ? "_blank" : undefined}
+                rel={
+                  service.href.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+                className="group flex min-w-0 items-start gap-3 border-t border-surface-border pt-5 focus-visible:rounded"
+              >
+                <IconComponent
+                  aria-hidden="true"
+                  className="mt-0.5 h-5 w-5 shrink-0 text-amber-brand transition-colors duration-200 group-hover:text-crimson"
+                />
+                <span className="min-w-0">
+                  <span className="block font-display text-base font-bold uppercase text-white transition-colors duration-200 group-hover:text-amber-brand">
+                    {service.name}
+                  </span>
+                  <span className="mt-1 block break-words text-xs leading-relaxed text-zinc-400">
+                    {service.text}
+                  </span>
                 </span>
-                <span className="mt-1 block break-words text-xs leading-relaxed text-zinc-400">
-                  {service.text}
-                </span>
-              </span>
-            </a>
-          ))}
+              </a>
+            );
+          })}
         </div>
       </section>
 

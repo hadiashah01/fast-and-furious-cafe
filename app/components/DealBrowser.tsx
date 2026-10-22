@@ -40,7 +40,7 @@ export default function DealBrowser() {
           </div>
           <div className="flex items-center space-x-2 text-xs text-zinc-400">
             <AlertCircle className="h-4 w-4 shrink-0 text-amber-brand" />
-            <span>Deals • Circular Road, Sialkot</span>
+            <span>Deals  Circular Road, Sialkot</span>
           </div>
         </div>
       </section>

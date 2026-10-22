@@ -1,11 +1,11 @@
+import type { Metadata } from "next";
 import MenuBrowser from "../components/MenuBrowser";
-import { createPageMetadata } from "../config/metadata";
 
-export const metadata = createPageMetadata(
-  "/menu",
-  "Menu",
-  "Browse burgers, zingers, shawarma, paratha rolls, fries, and listed prices at Fast & Furious Cafe in Sialkot.",
-);
+export const metadata: Metadata = {
+  title: "Full Menu & Prices",
+  description:
+    "Explore the full menu and prices for burgers, zinger, shawarma, paratha rolls, and fries at Fast & Furious Cafe Sialkot.",
+};
 
 export default function MenuPage() {
   return <MenuBrowser />;

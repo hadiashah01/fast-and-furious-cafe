@@ -45,9 +45,10 @@ export default function Footer() {
                   href={siteConfig.social.facebookUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition hover:text-white"
+                  className="flex items-center space-x-1 transition hover:text-crimson"
                 >
-                  Facebook
+                  <span>Facebook </span>
+                  <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
             </ul>
@@ -118,18 +119,20 @@ export default function Footer() {
             © {new Date().getFullYear()} Fast &amp; Furious Cafe Sialkot. All
             rights reserved.
           </p>
-          <a
-            href={siteConfig.developer.portfolioUrl}
-            target="_blank"
-            rel="noopener noreferrer"   
-          >
-            Developed by{" "}
-            <span className="font-bold transition-colors  text-crimson   transition hover:text-white ">
-              {siteConfig.developer.name}
-            </span>
-          </a>
+          <p className="  text-white text-[13px]  ">
+            Developed by{"  "}
+            <a
+              href={siteConfig.developer.portfolioUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="transition-colors  text-crimson   transition hover:text-white ">
+                {siteConfig.developer.name}
+              </i>
+            </a>
+          </p>
           <p className="font-display uppercase tracking-widest text-zinc-400">
-            Circular Road • Sialkot
+            Circular Road Sialkot
           </p>
         </div>
       </div>

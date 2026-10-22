@@ -1,15 +1,15 @@
+import type { Metadata } from "next";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { siteConfig } from "../config/site";
 import DealBrowser from "../components/DealBrowser";
 import { dealsData } from "../data/deals";
-import { createPageMetadata } from "../config/metadata";
 
-export const metadata = createPageMetadata(
-  "/deals",
-  "Foodpanda Deals",
-  "Browse 18 exclusive discounted deals and five promotional deals listed for Fast & Furious Cafe in Sialkot.",
-);
+export const metadata: Metadata = {
+  title: "Special Deals & Combos",
+  description:
+    "Check out the latest discount deals, burger combos, and value meals available at Fast & Furious Cafe Sialkot.",
+};
 
 export default function DealsPage() {
   return (
@@ -24,13 +24,15 @@ export default function DealsPage() {
               DEALS <span className="text-crimson">&amp; COMBOS</span>
             </h1>
             <p className="max-w-2xl text-sm leading-relaxed text-zinc-400 md:text-base">
-              Compare the exclusive discounted and promotional deals available in the cafe listing.
+              Compare the exclusive discounted and promotional deals available
+              in the cafe listing.
             </p>
             <p className="text-[11px] text-zinc-500">
               {siteConfig.hours.display}. {siteConfig.hours.caveat}.
             </p>
             <p className="text-[11px] text-zinc-500">
-              Foodpanda lists 10% off selected items, auto-applied. App-only offers may also appear in its listing.
+              Foodpanda lists 10% off selected items, auto-applied. App-only
+              offers may also appear in its listing.
             </p>
             <div className="pt-2">
               <a
@@ -39,7 +41,8 @@ export default function DealsPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 rounded bg-crimson px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover"
               >
-                <span>Order on Foodpanda</span><ExternalLink className="h-3.5 w-3.5" />
+                <span>Order on Foodpanda</span>
+                <ExternalLink className="h-3.5 w-3.5" />
               </a>
             </div>
           </div>
@@ -60,8 +63,9 @@ export default function DealsPage() {
 
       <section className="mx-auto max-w-7xl px-4 py-8 text-center sm:px-6 md:py-10 lg:px-8">
         <p className="text-xs text-zinc-400">
-          {dealsData.length} deals: 18 exclusive discounted deals and five promotional deals.
-          Ordering is available through the external Foodpanda listing or by phone.
+          {dealsData.length} deals: 18 exclusive discounted deals and five
+          promotional deals. Ordering is available through the external
+          Foodpanda listing or by phone.
         </p>
       </section>
     </div>

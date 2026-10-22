@@ -10,7 +10,7 @@ export default function NotFound() {
   return (
     <section className="mx-auto flex min-h-[55vh] max-w-3xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6">
       <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-amber-brand">
-        404 • Page not found
+        404  Page not found
       </p>
       <h1 className="mt-3 font-display text-4xl font-bold uppercase text-white sm:text-5xl">
         This page isn’t here
