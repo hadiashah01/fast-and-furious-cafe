@@ -6,6 +6,7 @@ import { popularItems } from "./data/menuItems";
 import { createPageMetadata } from "./config/metadata";
 import MenuImage from "./components/MenuImage";
 import ReviewsSection from "./components/ReviewsSection";
+import FAQSection from "./components/FAQSection";
 export const metadata = createPageMetadata(
   "/",
   "Fast & Furious Cafe",
@@ -186,6 +187,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <FAQSection />
     </div>
   );
 }
