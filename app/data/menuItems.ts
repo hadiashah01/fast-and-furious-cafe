@@ -61,7 +61,7 @@ export const menuItems: MenuItem[] = [
     originalPrice: 350,
     pricePrefix: "from",
     description: "Chapli-seasoned chicken, onion rings, jalapeño, and sauces.",
-    image: image("Chicken-Burger.avif"),
+    image: image("chicken-burger.avif"),
   },
   {
     id: "double-zinger-burger",
@@ -183,7 +183,7 @@ export const menuItems: MenuItem[] = [
     price: 250,
     pricePrefix: "from",
     description: "Crispy chicken nuggets with a mild spice.",
-    image: image("Nuggets.avif"),
+    image: image("nuggets.avif"),
   },
   {
     id: "hot-wings",
@@ -201,7 +201,7 @@ export const menuItems: MenuItem[] = [
     price: 300,
     pricePrefix: "from",
     description: "Salted potato fries.",
-    image: image("Fries.avif"),
+    image: image("fries.avif"),
   },
   {
     id: "masala-fries",
@@ -209,7 +209,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-french-fries",
     price: 430,
     description: "Fries seasoned with masala.",
-    image: image("Loaded-Fries.avif"),
+    image: image("loaded-fries.avif"),
   },
   {
     id: "loaded-fries",
@@ -225,7 +225,7 @@ export const menuItems: MenuItem[] = [
     category: "furious-french-fries",
     price: 450,
     description: "Potato fries with garlic sauce.",
-    image: image("Fries.avif"),
+    image: image("fries.avif"),
   },
   {
     id: "mayo-sauce",

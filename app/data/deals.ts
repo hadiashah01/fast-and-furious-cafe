@@ -128,7 +128,7 @@ export const dealsData: Deal[] = [
     category: "exclusive-deals",
     price: 300,
     items: ["5 Nuggets", "345 ml soft drink"],
-    image: image("Nuggets.avif"),
+    image: image("nuggets.avif"),
   },
   {
     id: "deal-13",
@@ -200,7 +200,7 @@ export const dealsData: Deal[] = [
     category: "promotional-deals",
     price: 650,
     items: ["Chicken piece", "Chapli burger", "2 hot wings"],
-    image: image("Fried-Chicken.avif"),
+    image: image("chicken-burger.avif"),
   },
   {
     id: "promo-deal-4",
