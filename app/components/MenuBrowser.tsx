@@ -190,7 +190,7 @@ export default function MenuBrowser() {
                 <button
                   type="button"
                   onClick={() => setVisibleRows((rows) => rows + 3)}
-                 className="border border-zinc-700 px-6 py-3 font-display text-xs font-bold uppercase tracking-widest text-white transition-colors hover:border-crimson hover:bg-crimson focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-brand" aria-label={`Show more menu items. Currently showing ${visibleItems.length} of ${filteredItems.length}.`}
+                 className=" rounded border border-zinc-700 px-6 py-3 font-display text-xs font-bold uppercase tracking-widest text-white transition-colors hover:border-crimson hover:bg-crimson focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-brand" aria-label={`Show more menu items. Currently showing ${visibleItems.length} of ${filteredItems.length}.`}
                 >
                   See More
                   <span className="ml-2 text-zinc-400">

@@ -20,7 +20,7 @@ export default function HomePage() {
     <div className="pb-12">
       <section className="relative border-b border-surface-border py-12 md:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10">
+          <div className="overflow-hidden  grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10">
             <div className="space-y-6 lg:col-span-5 xl:col-span-6">
               <h1 className="font-display text-4xl font-bold uppercase leading-none tracking-tight text-white sm:text-5xl lg:text-6xl">
                 CRAVE THE SPEED.
@@ -34,7 +34,7 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-3">
                 <Link
                   href="/menu"
-                  className="rounded bg-crimson px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover"
+                  className=" rounded bg-crimson px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover"
                 >
                   View Menu
                 </Link>
@@ -79,17 +79,17 @@ export default function HomePage() {
             <span aria-hidden="true">→</span>
           </Link>
         </div>
-        <div className="grid grid-cols-1 items-stretch gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="overflow-hidden grid grid-cols-1 items-stretch gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((item) => (
             <article
               key={item.id}
-              className="group flex h-full min-w-0 flex-col overflow-hidden rounded-xl border border-zinc-800 bg-surface-card transition-colors duration-200 hover:border-zinc-700"
+              className="rounded-xl group flex h-full min-w-0 flex-col overflow-hidden bg-surface-card"
             >
               <MenuImage
                 src={item.image}
                 alt={`${item.name} from Fast & Furious Cafe`}
                 className="aspect-[4/3] w-full overflow-hidden rounded-none"
-                imageClassName="card-image-zoom transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:group-hover:scale-100"
+                imageClassName="aspect-[4/3] w-full overflow-hidden border border-zinc-800"
                 sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
               />
               <div className="flex min-w-0 flex-1 flex-col p-4">

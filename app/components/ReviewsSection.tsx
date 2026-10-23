@@ -72,7 +72,7 @@ export default function ReviewsSection() {
             href={googleReviewsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-11 w-fit shrink-0 items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-zinc-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-brand"
+            className="inline-flex  w-fit shrink-0 items-center justify-center gap-2 rounded   rounded bg-crimson px-5 py-3 text-xs font-bold uppercase tracking-wider text-white transition hover:bg-crimson-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-brand   "
           >
             Google Reviews
             <ArrowUpRight aria-hidden="true" className="h-4 w-4" />

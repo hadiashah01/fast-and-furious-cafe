@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
+
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { siteConfig } from "../config/site";
 import DealBrowser from "../components/DealBrowser";
 import { dealsData } from "../data/deals";
+import { createPageMetadata } from "../config/metadata";
 
-export const metadata: Metadata = {
-  title: "Special Deals & Combos",
-  description:
-    "Check out the latest discount deals, burger combos, and value meals available at Fast & Furious Cafe Sialkot.",
-};
+export const metadata = createPageMetadata(
+  "/deals",
+  "Special Deals & Combos",
+  "Explore burger combos, value meals and available offers at Fast & Furious Cafe, Circular Road, Sialkot.",
+);
 
 export default function DealsPage() {
   return (
