@@ -149,7 +149,7 @@ export default function ContactPage() {
                 <ExternalLink className="h-3.5 w-3.5" />
               </a>
             </div>
-            <div className="h-[480px] overflow-hidden rounded-2xl border border-zinc-800 shadow-2xl">
+            <div className="h-72 overflow-hidden rounded-2xl border border-zinc-800 shadow-2xl sm:h-96 lg:h-[480px]">
               <iframe
                 title="Map showing Fast & Furious Cafe on Circular Road, Sialkot"
                 src={siteConfig.location.googleMapsEmbedUrl}

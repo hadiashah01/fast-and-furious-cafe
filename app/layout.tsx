@@ -70,10 +70,10 @@ const websiteStructuredData = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   const restaurantStructuredData = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Restaurant",
     name: siteConfig.name,
     ...(metadataBase && {
-      "@id": `${metadataBase.origin}/#localbusiness`,
+      "@id": `${metadataBase.origin}/#restaurant`,
       url: metadataBase.origin,
     }),
     telephone: siteConfig.contact.phone,

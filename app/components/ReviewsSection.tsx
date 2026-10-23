@@ -28,7 +28,6 @@ export default function ReviewsSection() {
     );
   }
 
-  if (customerReviews.length === 0) return null;
   useEffect(() => {
     const element = scrollRef.current;
 
@@ -42,7 +41,7 @@ export default function ReviewsSection() {
 
     return () => observer.disconnect();
   }, []);
-
+  if (customerReviews.length === 0) return null;
   return (
     <section
       aria-labelledby="reviews-heading"
@@ -62,20 +61,7 @@ export default function ReviewsSection() {
               Good food. <span className="text-crimson">Real words.</span>
             </h2>
 
-            <div className="mt-3 flex items-center gap-2">
-              <span
-                className="flex gap-1 text-amber-brand"
-                aria-label="Five stars"
-              >
-                {Array.from({ length: 5 }, (_, index) => (
-                  <Star
-                    key={index}
-                    aria-hidden="true"
-                    className="h-4 w-4 fill-current"
-                  />
-                ))}
-              </span>
-
+            <div className="mt-3">
               <span className="text-xs text-zinc-400 sm:text-sm">
                 Customer feedback
               </span>
@@ -97,7 +83,6 @@ export default function ReviewsSection() {
       <div
         ref={scrollRef}
         onScroll={updateScrollState}
-        onLoad={updateScrollState}
         className="mx-auto flex w-full max-w-7xl   gap-4 overflow-x-auto px-4 pb-3 sm:gap-5 sm:px-6 lg:px-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         tabIndex={0}
         role="region"

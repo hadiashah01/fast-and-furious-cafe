@@ -40,7 +40,7 @@ export default function AboutPage() {
               About the Cafe
             </span>
             <h1 className="font-display text-4xl font-bold uppercase tracking-wide text-white sm:text-5xl">
-              ABOUT <span  className="text-crimson">THE  Cafe</span> 
+              ABOUT THE <span className="text-crimson">CAFE</span>
             </h1>
             <p className="max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">
               Find us on Circular Road, opposite Pakistan Gym in Kainchi

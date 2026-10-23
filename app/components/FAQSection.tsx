@@ -1,4 +1,3 @@
-
 import { ArrowUpRight, Clock3, Utensils } from "lucide-react";
 import { siteConfig } from "../config/site";
 
@@ -45,8 +44,8 @@ export default function FAQSection() {
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <header className="lg:sticky lg:top-28 lg:self-start">
             <p className="flex items-center gap-2 font-display text-xs font-semibold uppercase tracking-[0.18em] text-amber-brand">
-              <Utensils aria-hidden="true" className="h-4 w-4" />
-              A little food for thought
+              <Utensils aria-hidden="true" className="h-4 w-4" />A little food
+              for thought
             </p>
 
             <h2
@@ -59,7 +58,7 @@ export default function FAQSection() {
 
             <p className="mt-5 max-w-sm text-sm leading-7 text-zinc-400">
               Finding us, choosing your favourites or checking a deal?
-              Here's what to know before you dig in.
+              Here&apos;s what to know before you dig in.
             </p>
 
             <div className="mt-8 border-y border-surface-border py-4">
@@ -73,7 +72,10 @@ export default function FAQSection() {
                     Kitchen hours
                   </p>
                   <p className="mt-1 text-sm text-zinc-400">
-                    Daily · 3:00 PM–1:00 AM
+                    Daily · {siteConfig.hours.display}
+                  </p>
+                  <p className="mt-1 text-xs text-zinc-500">
+                    {siteConfig.hours.caveat}
                   </p>
                 </div>
               </div>

@@ -20,7 +20,7 @@ export default function HomePage() {
     <div className="pb-12">
       <section className="relative border-b border-surface-border py-12 md:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="overflow-x-hidden grid grid-cols-1 items-center gap-15 lg:grid-cols-12">
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10">
             <div className="space-y-6 lg:col-span-5 xl:col-span-6">
               <h1 className="font-display text-4xl font-bold uppercase leading-none tracking-tight text-white sm:text-5xl lg:text-6xl">
                 CRAVE THE SPEED.
