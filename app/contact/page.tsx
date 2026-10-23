@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
+
 import { Clock, ExternalLink, MapPin, Navigation, Phone } from "lucide-react";
 import { siteConfig } from "../config/site";
+import Map from "../components/Map";
+import { createPageMetadata } from "../config/metadata";
 
-export const metadata: Metadata = {
-  title: "Contact Us & Location Map",
-  description:
-    "Get location directions, phone number, and operating hours for Fast & Furious Cafe on Circular Road, Sialkot.",
-};
+export const metadata = createPageMetadata(
+  "/contact",
+  "Contact & Location",
+  "Find Fast & Furious Cafe on Circular Road, opposite Pakistan Gym, Kainchi Mohalla, Sialkot. View contact details and directions.",
+);
 
 export default function ContactPage() {
   return (
@@ -149,16 +151,8 @@ export default function ContactPage() {
                 <ExternalLink className="h-3.5 w-3.5" />
               </a>
             </div>
-            <div className="h-72 overflow-hidden rounded-2xl border border-zinc-800 shadow-2xl sm:h-96 lg:h-[480px]">
-              <iframe
-                title="Map showing Fast & Furious Cafe on Circular Road, Sialkot"
-                src={siteConfig.location.googleMapsEmbedUrl}
-                className="block h-full w-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-            </div>
+
+            <Map />
           </div>
         </div>
       </section>

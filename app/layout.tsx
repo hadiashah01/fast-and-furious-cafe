@@ -69,25 +69,27 @@ const websiteStructuredData = {
 };
 export default function RootLayout({ children }: { children: ReactNode }) {
   const restaurantStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Restaurant",
-    name: siteConfig.name,
-    ...(metadataBase && {
-      "@id": `${metadataBase.origin}/#restaurant`,
-      url: metadataBase.origin,
-    }),
-    telephone: siteConfig.contact.phone,
-    email: siteConfig.contact.email,
-    sameAs: [siteConfig.social.facebookUrl],
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Circular Road, opposite Pakistan Gym, Kainchi Mohalla",
-      addressLocality: "Sialkot",
-      addressRegion: "Punjab",
-      addressCountry: "PK",
-    },
-    hasMap: siteConfig.location.googleMapsUrl,
-  };
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": `${metadataBase?.origin ?? "https://fast-and-furious-cafe.vercel.app"}/#restaurant`,
+  name: siteConfig.name,
+  url:
+    metadataBase?.origin ??
+    "https://fast-and-furious-cafe.vercel.app",
+  telephone: siteConfig.contact.phone,
+  email: siteConfig.contact.email,
+  image: `${metadataBase?.origin ?? "https://fast-and-furious-cafe.vercel.app"}/images/og-img.avif`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress:
+      "Circular Road, opposite Pakistan Gym, Kainchi Mohalla",
+    addressLocality: "Sialkot",
+    addressRegion: "Punjab",
+    addressCountry: "PK",
+  },
+  hasMap: siteConfig.location.googleMapsUrl,
+  sameAs: [siteConfig.social.facebookUrl],
+};
 
   return (
     <html lang="en" className={`${jakarta.variable} ${oswald.variable}`}>

@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Globe, Mail, MapPin, Phone, ShoppingBag } from "lucide-react";
 import { siteConfig } from "../config/site";
-import MenuImage from "../components/MenuImage";
+import Map from "../components/Map";
+import MenuImage from "../components/MenuImage";import { createPageMetadata } from "../config/metadata";
 
-export const metadata: Metadata = {
-  title: "About Our Cafe & Quality",
-  description:
-    "Learn about Fast & Furious Cafe on Circular Road, Sialkot. Discover our commitment to fresh ingredients and high-quality fast food.",
-};
-
+export const metadata = createPageMetadata(
+  "/about",
+  "About Our Cafe",
+  "Learn about Fast & Furious Cafe in Kainchi Mohalla, Sialkot, and explore its fast-food menu and location.",
+);
 const standards = [
   {
     title: "Burgers & Zingers",
@@ -89,7 +89,7 @@ export default function AboutPage() {
                 <MenuImage
                   src={image}
                   alt={imageAlt}
-                  className="h-56 w-full rounded-xl sm:h-64"
+                  className="h-56 w-full border border-zinc-800 sm:h-64"
                   sizes="(max-width: 767px) 100vw, 33vw"
                 />
                 <h3 className="font-display text-lg font-bold uppercase tracking-wide text-white">
@@ -207,16 +207,7 @@ export default function AboutPage() {
               </Link>
             </div>
           </div>
-          <div className="min-h-72 overflow-hidden rounded-xl border border-zinc-800 md:min-h-96">
-            <iframe
-              title="Map showing Fast & Furious Cafe on Circular Road, Sialkot"
-              src={siteConfig.location.googleMapsEmbedUrl}
-              className="block h-64 w-full border-0 sm:h-72"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
-          </div>
+          <Map />
         </div>
       </section>
     </div>
