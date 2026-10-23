@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Phone, RotateCcw, Search } from "lucide-react";
 import { siteConfig } from "../config/site";
 import {
@@ -22,8 +22,8 @@ export default function MenuBrowser() {
     return menuItems.filter((item) => {
       const matchesSearch =
         `${item.name} ${item.description} ${categoryLabels[item.category]}`
-        .toLowerCase()
-        .includes(query);
+          .toLowerCase()
+          .includes(query);
       const matchesCategory =
         selectedCategory === "all" ||
         (selectedCategory === "popular"
@@ -35,6 +35,7 @@ export default function MenuBrowser() {
   const resetFilters = () => {
     setSearchQuery("");
     setSelectedCategory("all");
+    setVisibleRows(3);
   };
 
   const categories: {
@@ -48,7 +49,26 @@ export default function MenuBrowser() {
       label,
     })),
   ];
+  const [visibleRows, setVisibleRows] = useState(3);
+  const [columns, setColumns] = useState(1);
 
+  useEffect(() => {
+    const updateColumns = () => {
+      // Matches the menu grid: grid-cols-1 sm:grid-cols-2
+      setColumns(window.innerWidth >= 640 ? 2 : 1);
+    };
+
+    updateColumns();
+    window.addEventListener("resize", updateColumns);
+
+    return () => {
+      window.removeEventListener("resize", updateColumns);
+    };
+  }, []);
+
+  const visibleCount = visibleRows * columns;
+  const visibleItems = filteredItems.slice(0, visibleCount);
+  const hasMoreItems = visibleItems.length < filteredItems.length;
   return (
     <div className="pb-12">
       <section className="px-4 py-10 text-center md:py-12">
@@ -60,7 +80,8 @@ export default function MenuBrowser() {
             MENU
           </h1>
           <p className="mx-auto max-w-2xl text-sm leading-relaxed text-zinc-400 md:text-base">
-            Browse burgers, shawarma, rolls, fries, sides, and drinks by category or search.
+            Browse burgers, shawarma, rolls, fries, sides, and drinks by
+            category or search.
           </p>
         </div>
       </section>
@@ -74,6 +95,7 @@ export default function MenuBrowser() {
                 type="button"
                 onClick={() => {
                   setSelectedCategory(category.id);
+                  setVisibleRows(3);
                 }}
                 aria-pressed={selectedCategory === category.id}
                 className={`shrink-0 rounded-full px-3 py-2 font-display text-xs uppercase tracking-wider transition ${
@@ -83,17 +105,20 @@ export default function MenuBrowser() {
                 }`}
               >
                 {category.label}
-                <span className={`ml-1 rounded-full px-1.5 py-0.5 text-[10px] ${
-                  selectedCategory === category.id
-                    ? "bg-white/15 text-white"
-                    : "bg-white/5 text-zinc-400"
-                }`}>
+                <span
+                  className={`ml-1 rounded-full px-1.5 py-0.5 text-[10px] ${
+                    selectedCategory === category.id
+                      ? "bg-white/15 text-white"
+                      : "bg-white/5 text-zinc-400"
+                  }`}
+                >
                   {category.id === "all"
-                  ? menuItems.length
-                  : category.id === "popular"
-                    ? popularItemIds.length
-                    : menuItems.filter((item) => item.category === category.id)
-                        .length}
+                    ? menuItems.length
+                    : category.id === "popular"
+                      ? popularItemIds.length
+                      : menuItems.filter(
+                          (item) => item.category === category.id,
+                        ).length}
                 </span>
               </button>
             ))}
@@ -108,6 +133,7 @@ export default function MenuBrowser() {
                 value={searchQuery}
                 onChange={(event) => {
                   setSearchQuery(event.target.value);
+                  setVisibleRows(3);
                 }}
                 className="w-full rounded-full border border-zinc-700 bg-surface-lowest py-2 pl-9 pr-3 text-xs text-white placeholder-zinc-500 focus:border-amber-brand focus:outline-none"
               />
@@ -129,7 +155,10 @@ export default function MenuBrowser() {
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
         {filteredItems.length === 0 ? (
-          <div role="status" className="space-y-3 rounded-lg border border-surface-border bg-surface-card py-16 text-center">
+          <div
+            role="status"
+            className="space-y-3 rounded-lg border border-surface-border bg-surface-card py-16 text-center"
+          >
             <p className="text-sm text-zinc-400">
               No menu items match your search and category.
             </p>
@@ -143,14 +172,34 @@ export default function MenuBrowser() {
           </div>
         ) : (
           <>
-            <p className="mb-4 text-xs text-zinc-500" aria-live="polite" aria-atomic="true">
-              {filteredItems.length} {filteredItems.length === 1 ? "item" : "items"}
+            <p
+              className="mb-4 text-xs text-zinc-500"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              {filteredItems.length}{" "}
+              {filteredItems.length === 1 ? "item" : "items"}
             </p>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
-              {filteredItems.map((item) => (
+              {visibleItems.map((item) => (
                 <ProductCard key={item.id} item={item} />
               ))}
             </div>
+            {hasMoreItems && (
+              <div className="mt-10 flex justify-center">
+                <button
+                  type="button"
+                  onClick={() => setVisibleRows((rows) => rows + 3)}
+                  className="border border-zinc-700 px-6 py-3 font-display text-xs font-bold uppercase tracking-widest text-white transition-colors hover:border-crimson hover:bg-crimson focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-brand"
+                  aria-label={`Show more menu items. Currently showing ${visibleItems.length} of ${filteredItems.length}.`}
+                >
+                  See More
+                  <span className="ml-2 text-zinc-400">
+                    ({filteredItems.length - visibleItems.length} left)
+                  </span>
+                </button>
+              </div>
+            )}
           </>
         )}
       </section>
