@@ -38,13 +38,9 @@ Instead of treating the website as a collection of disconnected pages, the imple
 
 ## Preview and Live Demo
 
-Visit the live website:
+Click the preview image to visit the live website 👇:
 
-[**Open Fast & Furious Cafe**](https://fast-and-furious-cafe.vercel.app/)
-
-### Desktop Preview
-
-[![Fast & Furious Cafe — Website Preview](https://github.com/hadiashah01/fast-and-furious-cafe/tree/master/public/images/desktop-home.png)](https://fast-and-furious-cafe.vercel.app/)
+[![Fast & Furious Cafe — Website Preview](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/desktop-home.png)](https://fast-and-furious-cafe.vercel.app/)
 
 ### Responsive Website Previews
 
@@ -123,15 +119,25 @@ The primary journey is designed to move visitors from discovering the cafe to ta
 
 ```mermaid
 flowchart TD
-    A["Discover the Cafe"] --> B["Explore the Website"]
-    B --> C["Browse Menu"]
-    B --> D["View Deals"]
-    B --> E["Learn About the Cafe"]
-    C --> F["Choose an Action"]
-    D --> F
-    E --> G["Find Contact Details"]
-    F --> H["Order on Foodpanda"]
-    G --> I["Call or Get Directions"]
+    A["Discover Fast & Furious Cafe"]
+    A --> B["Explore Website"]
+
+    subgraph Browse["Explore"]
+        direction LR
+        C["Menu"]
+        D["Deals"]
+        E["About"]
+        F["Contact & Location"]
+    end
+
+    B --> Browse
+
+    C --> G["Customer Actions"]
+    D --> G
+    E --> G
+    F --> G
+
+    G --> H["Order · Call · Directions"]
 ```
 
 This flow keeps the main customer actions clear: explore food, review available offers, order externally, or find the cafe.
@@ -145,25 +151,20 @@ flowchart TD
     A["Next.js App Router"] --> B["Page Routes"]
     A --> C["Root Layout"]
 
-    B --> D["Home"]
-    B --> E["Menu"]
-    B --> F["Deals"]
-    B --> G["About"]
-    B --> H["Contact"]
+    B --> D["Home · Menu · Deals"]
+    B --> E["About · Contact"]
 
-    C --> I["Utility Bar"]
-    C --> J["Header"]
-    C --> K["Footer"]
-    C --> L["Analytics and Structured Data"]
+    C --> F["Shared UI"]
+    F --> G["Utility Bar · Header · Footer"]
 
-    D --> M["Reusable Components"]
-    E --> M
-    F --> M
-    G --> M
-    H --> M
+    C --> H["Analytics"]
+    C --> I["Structured Data"]
 
-    M --> N["Static Data"]
-    M --> O["Site Configuration"]
+    D --> J["Reusable Components"]
+    E --> J
+
+    K["Static Data"] --> J
+    L["Site Configuration"] --> J
 ```
 
 ### Architectural decisions
