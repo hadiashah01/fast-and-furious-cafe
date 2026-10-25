@@ -11,6 +11,7 @@ A responsive restaurant website designed to help customers explore the menu, dis
 ## Table of Contents
 
 - [Overview](#overview)
+- [Preview and Live Demo](#preview-and-live-demo)
 - [Project Goals](#project-goals)
 - [Features](#features)
 - [Technology Stack](#technology-stack)
@@ -20,7 +21,6 @@ A responsive restaurant website designed to help customers explore the menu, dis
 - [Static Data Architecture](#static-data-architecture)
 - [SEO and Discoverability](#seo-and-discoverability)
 - [Responsive Design and Accessibility](#responsive-design-and-accessibility)
-- [Business Information and External Links](#business-information-and-external-links)
 - [Getting Started](#getting-started)
 - [Available Scripts](#available-scripts)
 - [Deployment](#deployment)
@@ -36,6 +36,26 @@ The website brings together the cafe's menu, deals, business information, locati
 
 Instead of treating the website as a collection of disconnected pages, the implementation uses shared layout components, centralized business configuration, organized static data, and page-level metadata.
 
+## Preview and Live Demo
+
+Visit the live website:
+
+[**Open Fast & Furious Cafe**](https://fast-and-furious-cafe.vercel.app/)
+
+### Desktop Preview
+
+[![Fast & Furious Cafe — Website Preview](https://github.com/hadiashah01/fast-and-furious-cafe/tree/master/public/images/desktop-home.png)](https://fast-and-furious-cafe.vercel.app/)
+
+### Responsive Website Previews
+
+| Desktop                                                                                                                    | Tablet                                                                                                                    | Mobile                                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| [Home](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/desktop-home.png)          | [Home](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/tablet-home.png)          | [Home](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/mobile-home.png)          |
+| [Menu](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/desktop-menu.png)          | [Menu](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/tablet-menu.png)          | [Menu](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/mobile-menu.png)          |
+| [Deals](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/desktop-deals.png)        | [Deals](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/tablet-deals.png)        | [Deals](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/mobile-deals.png)        |
+| [About Us](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/desktop-about.png)     | [About Us](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/tablet-about.png)     | [About Us](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/mobile-about.png)     |
+| [Contact Us](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/desktop-contact.png) | [Contact Us](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/tablet-contact.png) | [Contact Us](https://raw.githubusercontent.com/hadiashah01/fast-and-furious-cafe/master/public/images/mobile-contact.png) |
+
 ### What the website provides
 
 - A dedicated homepage for discovering the cafe.
@@ -47,15 +67,15 @@ Instead of treating the website as a collection of disconnected pages, the imple
 
 ## Project Goals
 
-| Goal | Implementation |
-|---|---|
-| Improve discoverability | Page metadata, sitemap, robots configuration, and structured data |
-| Make menu browsing straightforward | Dedicated menu page with organized item data |
-| Reduce friction when ordering | External Foodpanda ordering link |
-| Make contact information accessible | Clickable phone and email links, plus location information |
-| Maintain consistency | Shared components and centralized business configuration |
-| Support different devices | Responsive layouts and utility-based styling |
-| Keep the code maintainable | Separated pages, components, configuration, and data |
+| Goal                                | Implementation                                                    |
+| ----------------------------------- | ----------------------------------------------------------------- |
+| Improve discoverability             | Page metadata, sitemap, robots configuration, and structured data |
+| Make menu browsing straightforward  | Dedicated menu page with organized item data                      |
+| Reduce friction when ordering       | External Foodpanda ordering link                                  |
+| Make contact information accessible | Clickable phone and email links, plus location information        |
+| Maintain consistency                | Shared components and centralized business configuration          |
+| Support different devices           | Responsive layouts and utility-based styling                      |
+| Keep the code maintainable          | Separated pages, components, configuration, and data              |
 
 ## Features
 
@@ -86,16 +106,16 @@ Instead of treating the website as a collection of disconnected pages, the imple
 
 ## Technology Stack
 
-| Technology | Purpose |
-|---|---|
-| Next.js | Application framework, routing, metadata, and static rendering |
-| React | Component-based user interface |
-| TypeScript | Type-aware development |
-| Tailwind CSS | Responsive styling and layout utilities |
-| ESLint | Code quality and lint checks |
-| Vercel | Hosting and deployment |
-| Vercel Analytics | Website analytics integration |
-| Schema.org JSON-LD | Structured business and website information |
+| Technology         | Purpose                                                        |
+| ------------------ | -------------------------------------------------------------- |
+| Next.js            | Application framework, routing, metadata, and static rendering |
+| React              | Component-based user interface                                 |
+| TypeScript         | Type-aware development                                         |
+| Tailwind CSS       | Responsive styling and layout utilities                        |
+| ESLint             | Code quality and lint checks                                   |
+| Vercel             | Hosting and deployment                                         |
+| Vercel Analytics   | Website analytics integration                                  |
+| Schema.org JSON-LD | Structured business and website information                    |
 
 ## User Journey
 
@@ -195,15 +215,15 @@ fast-and-furious-cafe/
 
 ### Key directories
 
-| Path | Responsibility |
-|---|---|
-| `app/` | Application routes and root layout |
-| `app/components/` | Shared and page-level UI components |
-| `app/config/` | Central business settings and metadata utilities |
-| `app/data/` | Static menu, deal, and other content |
-| `public/` | Publicly served images and other assets |
-| `app/robots.ts` | Robots.txt generation |
-| `app/sitemap.ts` | Sitemap generation |
+| Path              | Responsibility                                   |
+| ----------------- | ------------------------------------------------ |
+| `app/`            | Application routes and root layout               |
+| `app/components/` | Shared and page-level UI components              |
+| `app/config/`     | Central business settings and metadata utilities |
+| `app/data/`       | Static menu, deal, and other content             |
+| `public/`         | Publicly served images and other assets          |
+| `app/robots.ts`   | Robots.txt generation                            |
+| `app/sitemap.ts`  | Sitemap generation                               |
 
 ## Static Data Architecture
 
@@ -224,7 +244,6 @@ flowchart LR
 - Business details can be shared across relevant components.
 - Rendering does not depend on a remote content API.
 - The implementation remains suitable for a small business website with a manageable content catalogue.
-
 
 ## SEO and Discoverability
 
@@ -265,19 +284,6 @@ Implementation priorities include:
 - Descriptive labels for embedded maps and interactive controls.
 - Keyboard accessibility and visible focus states.
 
-
-## Business Information and External Links
-
-| Detail | Information |
-|---|---|
-| Business | Fast and Furious Cafe |
-| Location | Circular Road, opposite Pakistan Gym, Kainchi Mohalla, Sialkot, Punjab, Pakistan |
-| Phone | [0332 4340149](tel:03324340149) |
-| Email | [ffcafesialkot@gmail.com](mailto:ffcafesialkot@gmail.com) |
-| Ordering | [Foodpanda restaurant listing](https://www.foodpanda.pk/restaurant/iwe2/fast-and-furious-cafe) |
-| Directions | [Open Google Maps](https://maps.app.goo.gl/9yxoKTfZJWTQJ8sT7) |
-
-
 ## Getting Started
 
 ### Prerequisites
@@ -290,6 +296,9 @@ Implementation priorities include:
 
 ```bash
 git clone https://github.com/hadiashah01/fast-and-furious-cafe.git
+```
+
+```bash
 cd fast-and-furious-cafe
 ```
 
@@ -309,17 +318,18 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Available Scripts
 
-| Command | Purpose |
-|---|---|
-| `npm run dev` | Start the development server |
-| `npm run lint` | Run ESLint |
-| `npm run build` | Compile and generate the production build |
+| Command         | Purpose                                    |
+| --------------- | ------------------------------------------ |
+| `npm run dev`   | Start the development server               |
+| `npm run lint`  | Run ESLint                                 |
+| `npm run build` | Compile and generate the production build  |
 | `npm run start` | Start the production server after building |
 
 ## Deployment
 
 The project is configured for deployment on Vercel.
 
+**[https://fast-and-furious-cafe.vercel.app/](https://fast-and-furious-cafe.vercel.app/)**
 
 ### Production verification
 
@@ -327,7 +337,6 @@ The project is configured for deployment on Vercel.
 npm run lint
 npm run build
 ```
-
 
 ## Author
 
